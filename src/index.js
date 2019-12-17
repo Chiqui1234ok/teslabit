@@ -7,7 +7,6 @@ const session = require('express-session'); // fazt
 const methodOverride = require('method-override');
 const passport = require('passport');
 const flash = require('connect-flash');
-const cookieParser = require('cookieparser');
 // Inicialización
 const app = express();
 require('./database');
@@ -29,7 +28,15 @@ app.set('view engine', '.hbs');                                         //
 // Middlewares
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));                                     // Para utilizar DEL o PUT en <form>
-app.use(session({                                                       // 
+// app.use(session({                                                       // 
+//     secret: 'pepe',
+//     resave: true,
+//     saveUninitialized: true,
+//     // path: '/',
+//     cookie: { secure: false },
+//     maxAge: null
+// }));
+app.use(require('cookie-session')({
     secret: 'pepe',
     resave: true,
     saveUninitialized: true,
