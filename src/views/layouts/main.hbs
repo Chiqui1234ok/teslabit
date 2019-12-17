@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teslabit</title>
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- CSS Extendido -->
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/article.css" />
+    <link rel="stylesheet" href="css/buy.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="css/wizard.css" />
+    <link rel="stylesheet" href="css/input.css" />
+    <link rel="stylesheet" href="css/alert.css" />
+    <link rel="stylesheet" href="css/table.css" />
+    <link rel="stylesheet" href="css/widget.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans:700&display=swap|Lato" rel="stylesheet" />
+    <!-- Fonts Awesome -->
+    <script src="https://kit.fontawesome.com/cb7812ffce.js" crossorigin="anonymous"></script>
+    <!-- Crypto Font -->
+    <link rel="stylesheet" href="css/cryptofont.min.css" />
+</head>
+<body>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    {{> errors }}
+    
+            {{> header }}
+        
+    
+    {{{ body }}}
+    {{> footer }}
+    <script>
+    $(document).ready(function() {
+        $(window).on("scroll", function() {
+        if($(window).scrollTop() > 350) {
+            $("header").addClass("transparent-header blur fixed");
+            $("#index").addClass("header-separator-hero");
+        } else {
+            $("header").removeClass("transparent-header blur fixed");
+            $("#index").removeClass("header-separator-hero");
+        }
+        });
+    });
+    </script>
+</body>
+</html>

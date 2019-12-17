@@ -1,0 +1,52 @@
+.alert-bottom {
+    width: 50%;
+    left: 25%;
+    bottom: var(--margin);
+    z-index: 10000;
+}
+.alert-bottom p {
+    line-height: 0;
+}
+.alert-bottom .close {
+    cursor: pointer;
+    margin-right: var(--margin);
+}
+.warn {
+    background: var(--warn2);
+    border: 1px solid var(--warn1);
+    color: var(--warnTextColor1);
+}
+.warn p {
+    color: inherit;
+}
+.success {
+    background: var(--success2);
+    border: 1px solid var(--success1);
+    color: var(--successTextColor1);
+}
+.success p {
+    color: inherit;
+}
+/* Animation */
+.successToWarning {
+    animation-name: successToWarning;
+    animation-duration: 60s;
+}
+@-webkit-keyframes successToWarning {
+    0%{background: var(--success2);}
+    10%{color: #fff;}
+    75%{background: var(--warn2);color: #fff;}
+    100%{background: var(--warn2);color: #fff;}
+}
+@-moz-keyframes successToWarning {
+    0%{background: var(--success2);}
+    10%{color: #fff;}
+    75%{background: var(--warn2);color: #fff;}
+    100%{background: var(--warn2);color: #fff;}
+}
+@keyframes successToWarning {
+    0%{background: var(--success2);}
+    10%{color: #fff;}
+    75%{background: var(--warn2);color: #fff;}
+    100%{background: var(--warn2);color: #fff;}
+}

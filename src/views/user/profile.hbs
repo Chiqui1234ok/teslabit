@@ -1,0 +1,69 @@
+<main class="container center"> 
+    <div class="grid-2">
+        <div id="profile-info">
+            {{#if user.name}}
+                {{user.name}}
+            {{else}}
+                <h2 id="user-name" contenteditable="true">Escribe tu nombre</h2>
+            {{/if}}
+            <p>{{user.email}} | <span>Online</span></p>
+
+        </div>
+        {{#if user.isAdmin}}
+            <div id="admin" class="">
+                <h2>Operaciones que requieren aprobación</h2>
+                {{#each allTransactions}}
+                    <div class="widget padding rounded margin"><p>{{email}} (<i>{{payTo.walletDir}}</i>) solicita {{payTo.amount}} {{cryptocurrency.name}}.</p>
+                        <div class="grid-2">
+                            <div style="line-height: 24px;">Bitcoin cotizó a U$D{{cryptocurrency.price}} en esa operación.</div>
+                            <a href="/admin/acceptPayment/{{id}}" class="text-center input-light rounded padding">Autorizar pago</a>
+                        </div>
+                    </div>
+                {{/each}}
+                {{#unless allTransactions}}
+                    <div class="widget padding rounded"><p>No hay operaciones pendientes de aprobación. Hurra!</p></div>
+                {{/unless}}
+            </div>
+        {{else}}
+            {{#unless dni1 }}
+                <div class="widget margin padding rounded">
+                    <p>Para comenzar a operar en Tesla<span>bit</span>, debes enviar un email a cliente@teslabit.com con el frente y dorso de tu DNI. Envíanos la información si aún no lo has hecho.</p>
+                </div>
+            {{/unless}}
+        {{/if}}
+        <aside>
+            <h1>Tus movimientos</h1>
+            {{#each transactions}}
+                <div id="transaction" class="widget-custom padding rounded">
+                    <h3>Compraste {{cryptocurrency.name}}</h3>
+                    <p>{{date}}</p>
+                    <div class="grid-2">
+                        <p>{{payTo.amount}} {{cryptocurrency.name}} a U$D {{cryptocurrency.price}}</p>
+                        <p>Recibe: {{payTo.walletDir}}</p>
+                        {{#if finished}}
+                            <p class="full-width-item success padding rounded">Tu operación fue aprobada</p>
+                        {{else}}
+                            <p class="full-width-item warn padding rounded">Tu operación aún no se aprobó</p>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+            {{#unless transactions}}
+                <p>No tienes movimientos de compra/venta.</p>
+            {{/unless}}
+        </aside>
+    </div>
+    
+    <p><i>Este panel de usuario está en desarrollo</i></p>
+</main>
+
+<div id="admin-helper" class="grid">
+    <div class="center">
+        <p>Hey! Antes de aprobar un pago, deberías revisar estos pasos:</p>
+        <ul>
+            <li>Revisar que el pago de tu usuario haya llegado a tu cuenta</li>
+            <li>Revisar que el usuario haya subido la documentación</li>
+        </ul>
+        <a onclick="$('#admin-helper').css('display', 'none');" class="input-light rounded padding">Entendido</a>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="grid-2 gap" id="main">     <!-- principal -->
+        <div id="info" class="margin-top">  <!-- información -->
+            <div class="warn text-center padding cursor-default" id="warn" style="display: none;">El monto mínimo para comprar o vender es de {{cryptocurrency.min}} {{cryptocurrency.name}}</div>
+            <div class="success text-center padding cursor-default" id="success">¡Bien! Este monto es válido</div>
+            {{#if data }}
+                <div class="padding text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
+            {{/if}}
+        </div>                              <!-- !información -->
+        <div class="margin-top">  <!-- calculadora -->
+            <input type="text" class="padding input-light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
+            {{cryptocurrency.name}} serían
+            <input type="text" class="padding input-light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
+            pesos Argentinos.
+            <p class="text-center"><i>Costo final. Mira nuestras <a href="/help/commission">comisiones</a>.</i></p>
+            <button type="button" class="full-width input-light padding margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
+        </div>                  <!-- !calculadora -->
+</div>                                      <!-- !principal -->

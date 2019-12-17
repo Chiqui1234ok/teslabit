@@ -1,0 +1,122 @@
+<div class="full-width full-height grid">
+    <div class="center container">
+        <div class="full-width wizard padding">   <!-- wizard menu -->
+            <ul class="text-center">
+                <li id="step1" class="cursor-default padding first active">Calcula tu compra</li>
+                <li id="step2" class="cursor-default padding">Indica tu wallet</li>
+                <li id="step3" class="cursor-default padding last">Finaliza la compra</li>
+            </ul>
+        </div>                                    <!-- wizard menu -->
+        <form action="/buy/{{cryptocurrency.name}}" method="post" aria-autocomplete="none" autocomplete="off">
+        {{> calculator}}
+
+        {{> wallet}}
+
+        {{> finishBuy}}
+        </form>
+    </div>
+</div>
+
+<script src="js/wallet-address-validator.min.js"></script>
+<script>
+// Inicialización
+const cryptoQ = $('#cryptocurrencyQuantity'); // Input de calculator.hbs
+const moneyQ = $('#moneyQuantity'); // Input de calculator.hbs
+const successMsg = $('#success');
+const warnMsg = $('#warn');
+const min = {{cryptocurrency.min}}, last = {{data.last}}, usd = {{usdToArs}};
+cryptoQ.val(min);
+moneyQ.val(( (min*last)*usd ).toFixed(2));
+
+// Inicialización de divs
+const main = $('#main');
+const wallet = $('#wallet');
+const finish = $('#finish');
+
+// Contador de segundos desde el último precio tomado
+let secondsCounter = 0;
+setInterval(updateTime, 1000);
+
+// Magia
+cryptoQ.keyup(function () {
+    cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
+    moneyQ.val( ((cryptoQ.val()*{{data.last}})*usd).toFixed(2) );
+});
+
+moneyQ.keyup(function () {
+    cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
+    cryptoQ.val( ((moneyQ.val()/usd)/{{data.last}}).toFixed(2) );
+});
+
+$('#walletDir').keyup(function () {
+    $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
+});
+
+function updateTime() {
+    console.log('Time updated');
+    secondsCounter++;
+    $('#time').text(secondsCounter+'s');
+    if(secondsCounter > 60)
+        $('#time').text((secondsCounter/60).toFixed(2)+'m');
+}
+
+function cryptoAmountHandler() {
+    if(cryptoQ.val() >= min) {
+        successMsg.css('display', 'block');
+        warnMsg.css('display', 'none');
+        $('#nextBtn1').prop('disabled', false);
+    } else {
+        successMsg.css('display', 'none');
+        warnMsg.css('display', 'block');
+        $('#nextBtn1').prop('disabled', true);
+    }
+}
+
+function step_showWallet() { // Hace cambios en los divs para mostrar el segundo paso
+    main.css('display', 'none');
+    wallet.css('display', 'grid');
+    finish.css('display', 'none');
+
+    $('#step1').removeClass('active');
+    $('#step2').addClass('active');
+    $('#step3').removeClass('active');
+
+    {{!-- $('#amountToBuy').text(`AR$${buy.totalArs} (U$D${buy.totalUsd})`); --}}
+}
+
+function step_showFinish() {
+    main.css('display', 'none');
+    wallet.css('display', 'none');
+    finish.css('display', 'block');
+    
+    $('#step1').removeClass('active');
+    $('#step2').removeClass('active');
+    $('#step3').addClass('active');
+
+    // Recupera los datos de los campos para mostrarlos en la tabla
+    $('#t_amountToBuy').text(cryptoQ.val());
+    $('#t_walletDir').text($('#walletDir').val());
+    $('#t_cryptocurrency').text('{{cryptocurrency.name}}');
+}
+
+function restart() {
+    main.css('display', 'grid');
+    wallet.css('display', 'none');
+    finish.css('display', 'none');
+
+    $('#step1').addClass('active');
+    $('#step2').removeClass('active');
+    $('#step3').removeClass('active');
+}
+
+function checkWallet(wallet, cryptocurrency) {
+    let valid = WAValidator.validate(wallet, cryptocurrency);
+    if(valid)
+        $('#nextBtn2').prop('disabled', false);
+    else 
+        $('#nextBtn2').prop('disabled', true);
+}
+
+// Comienzo del programa
+cryptoAmountHandler();
+</script>

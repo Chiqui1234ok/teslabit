@@ -1,0 +1,49 @@
+<header class="padding" style="z-index: 9999;">
+    <div class="container center grid-2">
+        <div class="logo"><a href="/"><h1>TESLA<div class="span">BIT</div></h1></a></div>
+            <nav class="grid">
+                <ul>
+                    <li>
+                        <a><i class="fas fa-caret-down"></i> Inicio</a>
+                        <ul id="dp1" class="dropdown">
+                            <li class="first transparent-header"><a href="/#que-es-teslabit" class="padding block"><i class="fas fa-home margin-plus"></i> ¿Qué es Teslabit?</a></li>
+                            <li class="last"><a href="/#contacto" class="padding block"><i class="fas fa-envelope-open"></i> <span class="margin">Contacto</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fas fa-caret-down"></i> Compra</a>
+                        <ul id="dp2" class="dropdown">
+                            <li class="rounded"><a href="/buy/bitcoin" class="padding block"><i class="cf cf-btc"></i> <span class="margin">Bitcoin</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fas fa-caret-down"></i> Mi cuenta</a>
+                        <ul id="dp3" class="dropdown">
+                            {{#if user }}
+                            <li class="first"><a href="" class="padding block"><i class="fas fa-user-edit"></i> <span class="margin">Editar</span></a></li>
+                            <li class="last"><a href="/user/log-out" class="padding block"><i class="fas fa-sign-out-alt"></i> <span class="margin">Salir</span></a></li>
+                            {{else}}
+                            <li class="first"><a href="/user/sign-in" class="padding block"><i class="fas fa-user"></i> <span class="margin">Iniciar sesión</span></a></li>
+                            <li class="last"><a href="/user/sign-up" class="padding block"><i class="fas fa-user-plus"></i> <span class="margin">Registrarse</span></a></li>
+                            {{/if}}
+                        </ul>
+                    </li>
+                    {{#if data}}<li>{{else}}<li class="no-border">{{/if}}
+                        <a><i class="fas fa-caret-down"></i> Ayuda</a>
+                        <ul id="dp4" class="dropdown">
+                            <li class="first"><a href="/help/requirements" class="padding block"><i class="fas fa-question-circle"></i> <span class="margin">Requisitos</span></a></li>
+                            <li class="last"><a href="/help/terms-of-service" class="padding block"><i class="fas fa-file-alt"></i> <span class="margin">Términos y condiciones</span></a></li>
+                        </ul>
+                    </li>
+                    {{#if data}}
+                    <li class="no-border">
+                        <a href="/user/changeToUsd" title="Todas las cotizaciones serán en Pesos Argentinos"><i class="fas fa-flag argentina"></i> AR$</a>
+                        <ul id="dp5" class="dropdown">
+                            <li class="rounded"><a href="/user/changeToUsd" class="padding block"><i class="fas fa-flag eeuu"></i> <span class="margin">Cambiar a U$D</span></a></li>
+                        </ul>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
+    </div>
+</header>

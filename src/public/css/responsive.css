@@ -1,0 +1,96 @@
+@media (max-width: 1599px) {
+    .dron-message, .cat-message {
+        width: 210px;
+        height: 138px;
+    }
+}
+@media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
+    .grid-6 {grid-template-columns: repeat(3, 1fr);}
+    .grid-4 {grid-template-columns: repeat(2, 1fr);}
+    .grid-2 {grid-template-columns: 100%;}
+    .full-height {min-height: auto;}
+    .hero1 {
+        background: url('../img/wallpapers/hero1-mobile.webp') right;
+        background-size: cover;
+    }
+    .intro {
+        text-align: left;
+    }
+    .grid-mobile {
+        align-items: baseline;
+    }
+    .full-width-item {grid-column: 1;}
+    #profile-info {margin-bottom: 40px;}
+    .dron-message, .cat-message {
+        width: 239px;
+        height: 147px;
+    }
+    #animation {
+        margin-top: 20px;
+    }
+    /* .remove-mobile {display: none;} */
+}
+@media (max-width: 1023px) { /* 1023px o menor */
+    .grid-6 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4, .grid-2 {grid-template-columns: 100%;}
+    .full-height {min-height: auto;}
+    .full-width-mobile {
+        display:block;
+    }
+    #sidebar:hover {width: 50vw;}
+    .remove-mobile {display: none;}
+    .hero1 {
+        background: url('../img/wallpapers/hero1-mobile.webp') right;
+        background-size: cover;
+    }
+    .intro {
+        text-align: left;
+    }
+    .grid-mobile {
+        align-items: baseline;
+    }
+    .full-width-mobile {
+        width: 100%;
+    }
+    .full-height-mobile {
+        height: 100vh;
+    }
+    .full-width-item {grid-column: 1;}
+    #profile-info {margin-bottom: 40px;}
+    .dron-message, .cat-message {
+        width: 239px;
+        height: 147px;
+    }
+    #animation {
+        margin-top: 20px;
+    }
+}
+@media (max-width: 799px) {
+    .wizard ul li {width: 100%;margin: var(--margin) 0 var(--margin) 0;border-radius: 0 0 0 0;}
+    .hero1 {
+        background: url('../img/wallpapers/hero1-mobile.webp') right;
+        background-size: cover;
+    }
+    .intro {
+        text-align: left;
+    }
+    .grid-mobile {
+        align-items: baseline;
+    }
+    .full-width-mobile {
+        display: block;
+    }
+    .full-width-item {grid-column: 1;}
+    #profile-info {margin-bottom: 40px;}
+    .dron-message, .cat-message {
+        width: 239px;
+        height: 147px;
+    }
+    #animation {
+        margin-top: 20px;
+    }
+    .dron-message, .cat-message {
+        width: 210px;
+        height: 138px;
+    }
+}

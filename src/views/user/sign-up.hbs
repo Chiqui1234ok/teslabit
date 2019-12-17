@@ -1,0 +1,14 @@
+<div class="full-width full-height hero1 grid">
+    <div class="container center">
+        <form action="/user/sign-up" method="POST" class="center login box blur rounded padding"> <!-- Formulario de cuenta -->
+            <div class="center" style="width: 50%;"><img src="https://cdn1.iconfinder.com/data/icons/social-media-vol-1-1/24/_github-512.png" width="100%" class="rounded" /></div>
+            <h3 class="text-center">Registrarse en Teslabit</h3>
+            <input type="text" placeholder="E-mail" name="email" class="full-width block center-plus padding input-light rounded" required autofocus />
+            <input type="password" placeholder="Contraseña" name="password1" class="full-width block center-plus padding input-light rounded" required />
+            <input type="password" placeholder="Confirmá tu contraseña" name="password2" class="full-width block center-plus padding input-light rounded" required />
+            <!-- <p>(Google Captcha aquí)</p> implementación: https://www.npmjs.com/package/express-recaptcha#installation -->
+            <input type="submit" value="Registrarme" class="block center-plus padding input-light rounded" />
+            <p>¿Ya tienes una cuenta? <a href="/user/sign-in">Ingresar</a></p>
+        </form>
+    </div> 
+</div>
