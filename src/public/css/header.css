@@ -4,14 +4,20 @@
 .header-separator-normal { /* Separa un div normal del header, dejando mayores márgenes superiores */
     margin-top: 80px;
 }
+#menu-navbar {display: none;}
 header {
     width: 100%;
     top: 0;
     left: 0;
     background: var(--header2);
-    align-items: center;
     z-index: 9999;
     font-size: 20px;
+}
+header h1 {text-align: left;}
+header #header-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
 }
 header a, header a span {
     color: var(--headerTextColor2);

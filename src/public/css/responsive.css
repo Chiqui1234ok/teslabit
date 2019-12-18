@@ -35,7 +35,7 @@
     .grid-4, .grid-2 {grid-template-columns: 100%;}
     .full-height {min-height: auto;}
     .full-width-mobile {
-        display:block;
+        display: block;
     }
     #sidebar:hover {width: 50vw;}
     .remove-mobile {display: none;}
@@ -50,7 +50,7 @@
         align-items: baseline;
     }
     .full-width-mobile {
-        width: 100%;
+        width: 97%;
     }
     .full-height-mobile {
         height: 100vh;
@@ -78,7 +78,7 @@
         align-items: baseline;
     }
     .full-width-mobile {
-        display: block;
+        width: 97%;
     }
     .full-width-item {grid-column: 1;}
     #profile-info {margin-bottom: 40px;}
