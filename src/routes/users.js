@@ -8,7 +8,7 @@ Transaction = require('../models/transactionsBuy');
 
 
 router.get('/user/sign-in', (req, res) => {
-        res.render('user/sign-in'); 
+        res.render('user/sign-in');
 });
 
 router.post('/user/sign-in', passport.authenticate('local', {

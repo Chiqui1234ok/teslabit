@@ -9,7 +9,7 @@ process.env.MONGOHQ_URL || 'mongodb://localhost/'+db;
 mongoose.connect(uristring, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useUnifiedTopology: true,
     useFindAndModify: false
 })
     .then(db => console.log('Succeeded connected to: ' + uristring))

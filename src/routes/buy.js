@@ -9,10 +9,11 @@ router.get('/buy/bitcoin', async (req, res) => {
         name: 'bitcoin',
         min: 0.05,
     };
-    const usdToArs = 63;
+    const usdToArs = 76;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
+        data.last = (data.last*1.05).toFixed(2);
         res.render('buy/crypto', {
             cryptocurrency, data, usdToArs
         });
@@ -26,7 +27,7 @@ router.post('/buy/bitcoin', isUserExists, async(req, res) => {
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        lastPrice = data.last;
+        lastPrice = (data.last*1.05).toFixed(2);
     });
     //
     const newTransaction = new Transaction({
