@@ -61,7 +61,7 @@ function updateTime() {
 }
 
 function cryptoAmountHandler() {
-    if(cryptoQ.val() >= min) {
+    if(cryptoQ.val() >= min || moneyQ.val() >= min) {
         successMsg.css('display', 'block');
         warnMsg.css('display', 'none');
         $('#nextBtn1').prop('disabled', false);
