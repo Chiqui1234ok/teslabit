@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const UserSch = new Schema({
     isAdmin:  {
         type: Boolean,
-        default: false
+        default: true
     },
     name:               String,                        // Nombre del usuario
     email: {
