@@ -3,13 +3,13 @@ const db = 'teslabit';
 
 const uristring =
 process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL || 'mongodb://localhost/'+db;
+process.env.MONGOHQ_URL || 'mongodb://localhost:27017/'+db;
 
 //mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/'+db, {
 mongoose.connect(uristring, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    // useUnifiedTopology: true,
+    useUnifiedTopology: true,
     useFindAndModify: false
 })
     .then(db => console.log('Succeeded connected to: ' + uristring))
