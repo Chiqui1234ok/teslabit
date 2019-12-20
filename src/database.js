@@ -3,7 +3,7 @@ const db = 'teslabit';
 
 const uristring =
 process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL || 'mongodb://localhost:27017/'+db;
+process.env.MONGOHQ_URL || 'mongodb://santiagogimenez@outlook.com.ar:Lilolilo10@localhost:27017/'+db;
 
 //mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/'+db, {
 mongoose.connect(uristring, {
