@@ -12,25 +12,38 @@
     header nav {
         display: none;
     }
-    header nav ul {
-        width: 100%;
-        position: fixed;
-        top: 52px;
-        left: 0;
-        height: 100vh;
-        position: fixed;
-        background: var(--header2);
-        overflow-y: auto;
-        display: none;
-    }
-    header nav ul li {
+}
+@media (max-width: 799px) {
+    #menu-navbar {
+        width: 42px;
+        height: 42px;
+        font-size: 42px;
+        line-height: 0;
         display: block;
     }
-    header nav ul .dropdown {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1;
+    header #header-grid-2 {
+        grid-template-columns: 48px auto;
+    }
+    header h1 {
+        text-align: right;
+    }
+    header nav, header nav ul {
+        display: none;
+        width: 100vw;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        
+    }
+    header nav ul {
+        overflow-y: auto;
+    }
+    header nav ul li {
+        clear: both;
+        float: left;
+    }
+    header nav .dropdown, header nav ul:hover .dropdown {
         display: none;
     }
 }
