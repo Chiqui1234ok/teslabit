@@ -1,5 +1,5 @@
 <div id="index" class="full-width full-height grid-2 grid-mobile">     <!-- hero :: se usó .header-separator-hero (anteriormente) -->       
-<div id="moon"></div>
+{{!-- <div id="moon"></div> --}}
     <main id="main-text" class="full-width-mobile center padding">
         <h1 class="light-text">La economía del futuro, hoy</h1>
         <p class="light-text read-mode">Invierte en criptomonedas de forma sencilla</p>
@@ -22,21 +22,64 @@
     </div>
 <div id="particles-js"></div>
 
-</div>                                              <!-- hero -->                                         
+</div>                                              <!-- hero -->  
+
+<div class="full-width full-height padding grid" style="position: relative;z-index: 23;"> <!-- ¿Por qué Teslabit? -->
+    <div class="grid-4 gap full-width-mobile center" id="whyTeslabit"> <!-- grid -->
+    <h1 class="light-text text-center full-width-item-4" id="main-text">¿Por qué Teslabit?</h1>
+        <div class="light-text text-center">
+              <h2 class="fa fa-sync light-text"> <span>Fácil</span></h2>
+              <p class="light-text">Precios finales y en pesos</p>
+        </div>
+        <div class="light-text text-center">
+              <h2 class="fa fa-sync light-text"> <span>Rápido</span></h2>
+              <p class="light-text">Todas las transacciones se procesan en 24hrs</p>
+        </div>
+        <div class="light-text text-center">
+            <h2 class="fa fa-check light-text"> <span>Seguro</span></h2>
+            <p class="light-text">Verificación manual de todas las transacciones. Fondos almacenados en frío</p>
+        </div>
+        <div class="box blur padding rounded text-center">
+            <h2 class="fa fa-money"> <span>¡Comienza!</span></h2>
+            <p>Haz transacciones con nuestros servicios. <a href="/user/sign-up">¡Comienza ya!</a></p> 
+        </div>
+    </div> <!-- !grid -->
+
+    <div class="grid-4 gap full-width-mobile center" id="whyTeslabit">
+        <h1 class="light-text text-center full-width-item-4" id="main-text">¡Registrate en 3 pasos!</h1>
+        <div class="text-center">
+            <h2 class="fa fa-check light-text"> <span>Tus credenciales</span></h2>
+            <p class="light-text">Escribe tu email y contraseña preferida, <a href="/user/sign-up">aquí</a></p>
+        </div>
+        <div class="text-center">
+            <h2 class="fa fa-check light-text"> <span>Verificate</span></h2>
+            <p class="light-text">¿Eres humano? ¡Nosotros también!</p>
+        </div>
+        <div class="text-center">
+            <h2 class="fa fa-check light-text"> <span>Entrá a tu perfil</span></h2>
+            <p class="light-text">Tendrás acceso inmediato a tu perfil y podrás operar subiendo tu documentación</p>
+        </div class="text-center">
+        <div class="box blur padding rounded text-center">
+            <h2 class="fa fa-check"> <span>¡Listo!</span></h2>
+            <p>Tan fácil como eso. ¡Bienvenido!</p>
+        </div>
+    </div>
+</div>
+
 <div class="full-width full-height padding grid" style="position: relative;"> <!-- Inicio > Contacto -->
-<div id="moon-contact"></div>
     <div class="container center" style="z-index: 200;">
         <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;"></div>
         <h2 class="text-center light-text text-border">Contacto</h2>
-        <form action="/contactus" method="POST" class="margin-top">
+        <form action="/send-email" method="POST" class="margin-top">
             <div class="grid-2 gap">
                 <input type="text" placeholder="Asunto" name="subject" class="full-width block center-plus padding input-night rounded" />
                 <input type="text" placeholder="Tu e-mail" name="email" class="full-width block center-plus padding input-night rounded" required />
             </div>
-            <textarea class="block center-plus padding input-night rounded full-width" style="min-height: 150px" placeholder="Tu mensaje" required></textarea>
+            <textarea class="block center-plus padding input-night rounded full-width" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
             <input type="submit" value="Enviar email" class="full-width center-plus padding input-night rounded" />
         </form>
     </div>
     <div id="space-contact"></div>
 </div> <!-- Inicio > Contacto -->
 <script src="js/particles/particles.min.js"></script> 
+<div id="moon"></div>

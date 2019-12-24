@@ -57,7 +57,7 @@
     --header2: rgb(34, 148, 255);
     --header2-transparent: rgba(34, 128, 255, var(--opacity1));
     --sidebar: rgba(190, 190, 190, var(--opacity1));
-    --footer1: rgb(134, 116, 237);
+    --footer1: rgb(64, 32, 151);
     --footer2: var(--warn2);
     --sidebarHover: rgba(217, 255, 187, var(--opacity1));
 }
@@ -110,6 +110,10 @@ a:hover {
 }
 
 /* Clases auxiliares */
+/* z-index */
+.important {
+    z-index: 9000;
+}
 /* Texto */
 .text-center {
     text-align: center;
@@ -151,8 +155,11 @@ a:hover {
     width: 100%;
     position: relative;
 }
-.full-width-item {
+.full-width-item-2 {
     grid-column: 1 / span 2;
+}
+.full-width-item-4 {
+    grid-column: 1 / span 4;
 }
 .full-height {
     height: 100vh;

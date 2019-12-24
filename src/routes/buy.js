@@ -2,7 +2,7 @@ const router = require('express').Router(),
 { isUserExists } = require('../helpers/isUserExists'),
 fetch = require('node-fetch'),
 Transaction = require('../models/transactionsBuy'),
-{ sendBuyEmail } = require('../helpers/sendBuyEmail');
+{ sendEmail } = require('../helpers/sendEmail');
 
 router.get('/buy/bitcoin', async (req, res) => {
     const cryptocurrency = {
@@ -20,7 +20,7 @@ router.get('/buy/bitcoin', async (req, res) => {
     });
 });
 
-router.post('/buy/bitcoin', isUserExists, async(req, res) => {
+router.post('/buy/bitcoin', isUserExists, sendEmail, async(req, res) => {
     const {amount, walletDir, email, password} = req.body;
     //
     let lastPrice = 0;
