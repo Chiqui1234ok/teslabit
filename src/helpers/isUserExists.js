@@ -5,8 +5,8 @@ const User = require('../models/users');
 
 helpers.isUserExists = async (req, res, next) => { // middleware
     const errors = [];
-    const { email, password } = req.body;
-    // console.log(email,password);
+    const email = req.body.email, password = req.body.password;
+    // console.log(email, password);
     const user = await User.findOne({email: email});
     if(user) {
         const match = await user.matchPassword(password);

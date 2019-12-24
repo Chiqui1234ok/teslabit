@@ -3,6 +3,7 @@ const nodeMailer = require('nodemailer');
 // Envía un email cuándo el usuario compra bitcoin
 
 helpers.sendEmail = async (req, res, next) => {
+    const { email, subject, message } = req.body;
     let transporter = nodeMailer.createTransport({    
         host: 'smtp.gmail.com',
         port: 465,
@@ -13,9 +14,9 @@ helpers.sendEmail = async (req, res, next) => {
         }
     });
     let recipient = {
-        to: req.body.email,
-        subject: req.body.subject,
-        body: req.body.message || `<p>¡Hola ${email}! Aquí están los datos de tu compra realizada el ${Date.now}. <br>
+        to: email,
+        subject: subject,
+        body: message || `<p>¡Hola ${email}! Aquí están los datos de tu compra realizada el ${Date.now}. <br>
         Si en 30 minutos no se acredita tu pago, se vencerá el pedido de Bitcoins debido a la fluctuación del valor de dicha criptomoneda. Sin embargo, tu dinero quedará en la plataforma para que puedas volver a operar instantáneamente desde <a href="/but/bitcoin">aquí</a>.</p>
         <p>Al depósitarnos, indica tu email o nombre completo en tus "notas de pago".<br />
         Nuestros datos son los siguientes.</p>

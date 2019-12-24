@@ -49,7 +49,17 @@ moneyQ.keyup(function () {
 });
 
 $('#walletDir').keyup(function () {
-    $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
+    if( checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}') )
+        $('#nextBtn2').prop('disabled', false);
+    else
+        $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
+});
+
+$('#walletDir').change(function () { // HOTFIX
+    if( checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}') )
+        $('#nextBtn2').prop('disabled', false);
+    else
+        $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
 });
 
 function updateTime() {
@@ -111,10 +121,8 @@ function restart() {
 
 function checkWallet(wallet, cryptocurrency) {
     let valid = WAValidator.validate(wallet, cryptocurrency);
-    if(valid)
-        $('#nextBtn2').prop('disabled', false);
-    else 
-        $('#nextBtn2').prop('disabled', true);
+    console.log('The wallet is '+valid);
+    return valid;
 }
 
 // Comienzo del programa
