@@ -21,40 +21,8 @@
     .grid-mobile {
         align-items: baseline;
     }
-    .full-width-item-2 {grid-column: 1;}
-    #profile-info {margin-bottom: 40px;}
-    .dron-message, .cat-message {
-        width: 239px;
-        height: 147px;
-    }
-    #animation {
-        margin-top: 20px;
-    }
-    /* .remove-mobile {display: none;} */
-}
-@media (max-width: 1023px) { /* 1023px o menor */
-    .grid-6 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4, .grid-2 {grid-template-columns: 1fr;}
-    .full-width-item-4 {grid-column: 1 / span 2;}
-    .full-width-item-2 {grid-column: 1;}
-    .full-height {min-height: auto;}
-    #sidebar:hover {width: 50vw;}
-    .remove-mobile {display: none;}
-    .hero1 {
-        background: url('../img/wallpapers/hero1-mobile.webp') right;
-        background-size: cover;
-    }
-    .intro {
-        text-align: left;
-    }
-    .grid-mobile {
-        align-items: baseline;
-    }
-    .full-width-mobile {
-        width: 97%;
-    }
-    .full-height-mobile {
-        height: 100vh;
+    .container {
+        width: 90%;
     }
     .full-width-item-2 {grid-column: 1;}
     #profile-info {margin-bottom: 40px;}
@@ -63,39 +31,9 @@
         height: 147px;
     }
     #animation {
-        margin-top: 20px;
+        margin-top: 80px;
     }
-}
-@media (max-width: 799px) {
-    .grid-6 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4, .grid-2 {grid-template-columns: 1fr;}
-    .full-width-item-4 {grid-column: 1;}
-    .full-width-item-2 {grid-column: 1;}
-    .wizard ul li {width: 100%;margin: var(--margin) 0 var(--margin) 0;border-radius: 0 0 0 0;}
-    .hero1 {
-        background: url('../img/wallpapers/hero1-mobile.webp') right;
-        background-size: cover;
-    }
-    .intro {
-        text-align: left;
-    }
-    .grid-mobile {
-        align-items: baseline;
-    }
-    .full-width-mobile {
-        width: 97%;
-    }
-    .full-width-item-2 {grid-column: 1;}
-    #profile-info {margin-bottom: 40px;}
-    .dron-message, .cat-message {
-        width: 239px;
-        height: 147px;
-    }
-    #animation {
-        margin-top: 20px;
-    }
-    .dron-message, .cat-message {
-        width: 210px;
-        height: 138px;
+    .container {
+        width: 90%;
     }
 }

@@ -6,6 +6,7 @@
 * {
     box-sizing: border-box; /* El padding está incluído en el tamaño especificado en el CSS */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: inherit;
 }
 
 /* Colores de la plantilla */
@@ -58,7 +59,7 @@
     --header2-transparent: rgba(34, 128, 255, var(--opacity1));
     --sidebar: rgba(190, 190, 190, var(--opacity1));
     --footer1: rgb(64, 32, 151);
-    --footer2: var(--warn2);
+    --footer2: #fafafa;
     --sidebarHover: rgba(217, 255, 187, var(--opacity1));
 }
 
@@ -94,7 +95,7 @@ h1, h2, h3, h4, h5, h6, .span {
 /* Etiquetas varias */
 main {
     width: var(--readWidth1);
-    margin: 96px auto;
+    margin: 96px auto; /* se separa del header */
 }
 /* Links */
 a {
@@ -127,6 +128,9 @@ a:hover {
 .light-text {
     color: var(--textColor4);
 }
+.dark-text {
+    color: var(--textColor3);
+}
 .text-border {
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
@@ -144,16 +148,19 @@ a:hover {
 .fixed {
     position: fixed;
 }
-.center { /* será cambiado a .horizontal-center en próx versión */
+.horizontal-center { /* será cambiado a .horizontal-center en próx versión */
     margin: 0 auto;
 }
-.center-plus { /* será cambiado a .horizontal-center-plus en próx versión */
+.horizontal-center-plus { /* será cambiado a .horizontal-center-plus en próx versión */
     margin: var(--margin) auto var(--margin) auto;
 }
 /* Tamaños */
 .full-width {
     width: 100%;
     position: relative;
+    clear: both;
+    content: "";
+    display: table;
 }
 .full-width-item-2 {
     grid-column: 1 / span 2;
@@ -162,7 +169,7 @@ a:hover {
     grid-column: 1 / span 4;
 }
 .full-height {
-    height: 100vh;
+    min-height: 100vh;
 }
 .full-width-mobile {
     width: var(--readWidth1);
@@ -172,24 +179,6 @@ a:hover {
 }
 .read-width {
     width: var(--readWidth1);
-}
-/* Grillas */
-.grid, .grid-mobile { /* Creo una grilla de una columna y fila sólo para centrar objetos verticalmente acá adentro */
-    grid-template-columns: 1fr;
-    display: grid;
-    align-items: center;
-}
-.grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-    display: grid;
-}
-.grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
-}
-.grid-6 {
-    grid-template-columns: repeat(6, 1fr);
-    display: grid;
 }
 /* Márgenes de grillas */
 .gap {

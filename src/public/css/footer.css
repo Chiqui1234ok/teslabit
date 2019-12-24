@@ -1,7 +1,7 @@
 footer {
     /* background: var(--header2); Que cambie el fondo cuándo recibe un mensaje nuevo del chat */
-    background: var(--footer1);
-    color: var(--headerTitleColor2);
+    background: var(--footer2);
+    color: var(--headerTitleColor1);
     z-index: 9997;
 }
 footer p {
