@@ -1,39 +1,10 @@
-@media (max-width: 1599px) {
-    .dron-message, .cat-message {
-        width: 210px;
-        height: 138px;
-    }
-}
-@media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
-    .grid-6 {grid-template-columns: repeat(3, 1fr);}
-    .grid-4 {grid-template-columns: repeat(2, 1fr);}
-    .grid-2 {grid-template-columns: 100%;}
-    .full-width-item-4 {grid-column: 1 / span 2;}
-    .full-width-item-2 {grid-column: 1;}
-    .full-height {min-height: auto;}
-    .hero1 {
-        background: url('../img/wallpapers/hero1-mobile.webp') right;
-        background-size: cover;
-    }
-    .intro {
-        text-align: left;
-    }
-    .grid-mobile {
-        align-items: baseline;
-    }
+@media (max-width: 799px) {
+    /* Tamaños */
     .container {
         width: 90%;
     }
-    .full-width-item-2 {grid-column: 1;}
-    #profile-info {margin-bottom: 40px;}
-    .dron-message, .cat-message {
-        width: 239px;
-        height: 147px;
-    }
-    #animation {
-        margin-top: 80px;
-    }
-    .container {
-        width: 90%;
-    }
+    /* Grillas */
+    .grid-6 {grid-template-columns: repeat(2, 1fr);}
+    .grid-4 {grid-template-columns: 1fr;}
+    .grid-2 {grid-template-columns: 1fr;}
 }

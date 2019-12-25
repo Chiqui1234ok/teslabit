@@ -42,7 +42,7 @@
     --readWidth1: 70%;
     /* Alertas */
     --warn1: rgba(74, 34, 255, var(--opacity1));
-    --warn2: rgb(122, 40, 255);
+    --warn2: rgb(117, 52, 221);
     --warnTextColor1: #fff;
     --success1: #26be2e;
     --success2: #33c28b;
@@ -58,7 +58,7 @@
     --header2: rgb(34, 148, 255);
     --header2-transparent: rgba(34, 128, 255, var(--opacity1));
     --sidebar: rgba(190, 190, 190, var(--opacity1));
-    --footer1: rgb(64, 32, 151);
+    --footer1: var(--warn2);
     --footer2: #fafafa;
     --sidebarHover: rgba(217, 255, 187, var(--opacity1));
 }
@@ -157,10 +157,10 @@ a:hover {
 /* Tamaños */
 .full-width {
     width: 100%;
-    position: relative;
+    /* position: relative;
     clear: both;
     content: "";
-    display: table;
+    display: table; */
 }
 .full-width-item-2 {
     grid-column: 1 / span 2;

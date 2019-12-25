@@ -1,11 +1,12 @@
 footer {
     /* background: var(--header2); Que cambie el fondo cuándo recibe un mensaje nuevo del chat */
-    background: var(--footer2);
-    color: var(--headerTitleColor1);
+    background: var(--footer1);
+    color: var(--headerTitleColor2);
+    margin-top: 20px;
     z-index: 9997;
 }
 footer p {
-    color: var(--headerTitleColor1);
+    color: var(--headerTextColor2);
 }
 footer #social ul {
     list-style: none;
@@ -17,15 +18,15 @@ footer #social ul li {
 }
 footer a {
     border: none;
-    color: var(--linkColor3);
+    color: var(--headerTextColor2);
 }
 footer a:hover, footer #social ul li a .fb:hover, footer #social ul li a .in:hover {
     border: none;
     color: var(--textColor4);
 }
 footer #social ul li a .fb {
-    color: var(--linkColor3);
+    color: var(--headerTextColor2);
 }
 footer #social ul li a .in {
-    color: var(--linkColor3);
+    color: var(--headerTextColor2);
 }

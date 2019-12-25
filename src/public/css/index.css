@@ -11,23 +11,25 @@
     color: var(--textColor4);
 }
 /* intro */
+#introBg {
+    background: linear-gradient(0deg, var(--warn2) 0%, var(--linkColor4) 15%, var(--header2) 100%);
+}
 #intro {
-    background: linear-gradient(0deg, rgba(14,14,58,1) 0%, rgba(12,70,116,1) 30%, var(--linkColor4) 100%);
     position: relative;
-    z-index: 2;
+    z-index: 6;
 }
 #intro * {
     z-index: 6;
 }
 #moon {
-    width: 300%;
-    height: 185%;
+    width: 300vw;
+    height: 100vw;
     position: absolute;
-    top: 40%;
-    left: -150%;
+    top: 25%;
+    left: -150vw;
     background: linear-gradient(90deg, var(--warn1) 0%, var(--warn2) 20%, var(--linkColor4) 100%);
     box-shadow: 0 0 50px var(--warn1);
-    border-radius: 350%;
+    border-radius: 90%;
     z-index: 3;
 }
 #space-contact {
@@ -49,10 +51,6 @@
 }
 /* contact */
 #contact {
-    background: linear-gradient(0deg, var(--warn2) 100%, #fafafa 0%);
-    z-index: 2;
-}
-#contact * {
     z-index: 6;
 }
 /* animations */
