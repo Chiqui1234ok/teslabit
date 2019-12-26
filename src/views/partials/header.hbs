@@ -3,35 +3,35 @@
         <div class="brand">
             <h1><a href="/">Tesla<span>bit</span></a></h1>
         </div>
-        <a onclick="openNavBar();" class="menu"><i class="fas fa-bars"></i></a>
+        <a onclick="openNavBar();" class="menu"><i class="fas bars"></i></a>
     </div>
 </header>
 
 <nav class="blur">
     <ul class="grid-2 container center padding">
         <li>
-            <a href="/"><i class="fas fa-home"></i> Inicio</a>
+            <a href="/"><i class="fas home"></i> Inicio</a>
         </li>
         <li>
             <a href="/buy/bitcoin"><i class="cf cf-btc"></i> Comprar</a>
         </li>
         {{#if user }}
         <li>
-            <a href="/user/profile"><i class="fas fa-user-edit"></i> Mi cuenta</a>
+            <a href="/user/profile"><i class="fas user"></i> Mi cuenta</a>
         </li>
         <li>
-            <a href="/user/log-out"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+            <a href="/user/log-out"><i class="fas key"></i> Cerrar sesión</a>
         </li>
         {{else}}
         <li>
-            <a href="/user/sign-in"><i class="fas fa-user"></i> Ingresar</a>
+            <a href="/user/sign-in"><i class="fas user"></i> Ingresar</a>
         </li>
         {{/if}}
         <li>
-            <a href="/#contact"><i class="fas fa-envelope-open"></i> Contacto</a>
+            <a href="/#contact"><i class="fas envelope-open"></i> Contacto</a>
         </li>
         <li>
-            <a href="/help"><i class="fas fa-question-circle"></i> Ayuda</a>
+            <a href="/help"><i class="fas question-circle"></i> Ayuda</a>
         </li>
     </ul>
 </nav>

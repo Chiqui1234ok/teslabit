@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?d8aqtt');
+  src:  url('../fonts/icomoon.eot?d8aqtt#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?d8aqtt') format('truetype'),
+    url('../fonts/icomoon.woff?d8aqtt') format('woff'),
+    url('../fonts/icomoon.svg?d8aqtt#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.refresh:before {
+  content: "\e905";
+}
+.sync:before {
+  content: "\e905";
+}
+.reload:before {
+  content: "\e905";
+}
+.loading:before {
+  content: "\e905";
+}
+.key:before {
+  content: "\e90c";
+}
+.user-plus:before {
+  content: "\e907";
+}
+.check:before {
+  content: "\e908";
+}
+.money:before {
+  content: "\e909";
+}
+.thumbs-up:before {
+  content: "\e90a";
+}
+.home:before {
+  content: "\e90b";
+}
+.bars:before {
+  content: "\e906";
+}
+.facebook-square:before {
+  content: "\e900";
+}
+.linkedin-square:before {
+  content: "\e901";
+}
+.user:before {
+  content: "\e902";
+}
+.envelope-open:before {
+  content: "\e903";
+}
+.question-circle:before {
+  content: "\e904";
+}
+
+i.fa, i.fas, .fa, .fas {
+  font-family: 'icomoon';
+  font-style: normal; /* prevent italic in <i> tags when using .fa or .fas class */
+}

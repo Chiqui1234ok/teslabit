@@ -33,7 +33,7 @@ header .menu {
 header a.menu {
     color: var(--black);
 } 
-header a .fa-bars:hover {
+header a .bars:hover {
     transition: all 0.5s ease-in-out;
     color: var(--light);
     transform: rotate(180deg);
