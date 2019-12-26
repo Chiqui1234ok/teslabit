@@ -1,56 +1,18 @@
-/* Algo que queremos sacar sí o sí, siempre */
-input {
-    outline: none;
-    border: none;
+a.light, button.light, input.light, textarea.light {
+    background: var(--light-transparent);
+    color: var(--black);
+    font-family: sans-serif;
+    font-size: 17px;
+    border: 1px solid var(--green);
+    padding: 10px;
+    /* you can add margin via CSS classes */
 }
-input:focus:required:invalid, textarea:focus:required:invalid {border: 0.07em solid var(--warn2);}
-input:required:valid, textarea:required:valid { border: 0.07em solid var(--linkColor2); }
-/* Light */
-.input-light {
-    font-size: 18px;
-    background: var(--inputBackground1);
-    color: var(--textColor1);
-    border: 0.07em solid var(--linkColor2);
-    transition: all var(--animationDuration1) ease-in-out;
-}
-.input-light a {
-    color: var(--textColor1);
-}
-.input-light:hover, .input-light:focus {
-    border: 0.07em solid var(--linkColor1);
-    background: var(--inputBackground2);
-}
-.input-light:disabled, .input-night:disabled {
-    opacity: 0.5;
-    border: 0.07em solid var(--warn1);
-}
-/* Night */
-.input-night {
-    font-size: 18px;
-    background: var(--inputBackground3);
-    color: var(--textColor4);
-    border: 0.07em solid var(--linkColor2);
-    transition: all var(--animationDuration1) ease-in-out;
-}
-.input-night a,.input-night-bold a{
-    color: var(--textColor4);
-}
-.input-night:hover, .input-night:focus {
-    border: 0.07em solid var(--linkColor1);
-    background: var(--inputBackground4);
-}
-/* Night bold */
-.input-night-bold {
-    font-size: 18px;
-    background: var(--inputBackground4);
-    color: var(--textColor4);
-    border: 0.07em solid var(--linkColor2);
-    transition: all var(--animationDuration1) ease-in-out;
-}
-.input-night-bold:hover, .input-night-bold:focus {
-    border: 0.07em solid var(--linkColor1);
-    background: var(--inputBackground2);
-}
-input[type=submit] {
-    cursor: pointer;
+a.night, button.night, input.night, textarea.night {
+    background: var(--black-transparent);
+    color: var(--light);
+    font-family: sans-serif;
+    font-size: 17px;
+    border: 1px solid var(--green);
+    padding: 10px;
+    /* you can add margin via CSS classes */
 }

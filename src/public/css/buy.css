@@ -1,39 +1,24 @@
-#buy-background {
-    background: url('https://1973ltd.com/wp-content/uploads/2016/01/2015_11_20_1973_webinar_email_invite-header.gif') bottom left no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.wizard {
+    border-bottom: 1px solid var(--black);
 }
-/* Animation */
-@-webkit-keyframes buy-background-anim {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.wizard ul {
+    list-style: none;
+    padding: 0;
 }
-@-moz-keyframes buy-background-anim {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.wizard ul li {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 17px;
+    background: var(--blue);
+    color: var(--light);
 }
-@keyframes buy-background-anim {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.wizard ul .active {
+    background: var(--skyBlue);
+    color: var(--light);
+}
+.wizard ul .first {
+    border-radius: var(--gap) 0 0 var(--gap);
+}
+.wizard ul .last {
+    border-radius: 0 var(--gap) var(--gap) 0;
 }

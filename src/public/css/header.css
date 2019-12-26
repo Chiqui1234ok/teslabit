@@ -1,94 +1,41 @@
-.header-separator-hero { /* Separa el primer div 'hero' del header */
-    margin-top: 60px;
-}
-.header-separator-normal { /* Separa un div normal del header, dejando mayores márgenes superiores */
-    margin-top: 80px;
-}
-#menu-navbar {display: none;}
 header {
     width: 100%;
+    height: 73px;
+    position: fixed;
     top: 0;
     left: 0;
-    background: var(--header2);
-    z-index: 9999;
-    font-size: 20px;
+    background: var(--lightHeader);
+    z-index: 59;
 }
-header h1 {text-align: left;}
-header #header-grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+header * {
+    z-index: 69;
 }
-header a, header a span {
-    color: var(--headerTextColor2);
-    border: none;
-    transition: color var(--animationDuration1) ease-in-out;
-    cursor: pointer;
+header .grid-2 {
+    grid-template-columns: 1fr 1fr;
 }
-header a:hover, header a:hover span {
-    color: var(--linkColor3);
-    border: none;
-}
-header .logo a, header .logo h1 {
-    line-height: 0;
-    color: var(--headerTitleColor2);
-    border: none;
-}
-/* Header nav */
-header nav ul {
-    list-style: none;
+header h1 {
+    font-size: 48px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-variant: small-caps;
+    font-weight: 600;
+    color: var(--darkBlue);
     margin: 0;
-    padding: 0;
+}
+header h1 span {
+    color: var(--green);
+    font-family: inherit;
+}
+header .menu {
+    display: block;
+    font-size: 48px;
     text-align: right;
-    z-index: 9990;
 }
-header nav ul li {
-    display: inline-block;
-    border-right: 1px solid var(--linkColor1);
-    text-align: left;
-}
-header nav ul li .fa-caret-down {
-    transition: transform var(--animationDuration1) ease-in-out;
-}
-header nav ul li:hover .fa-caret-down {
+header a.menu {
+    color: var(--black);
+} 
+header a .fa-bars:hover {
+    transition: all 0.5s ease-in-out;
+    color: var(--light);
     transform: rotate(180deg);
-}
-header nav ul li a {
-    padding: 0 var(--margin) 0 var(--margin);
-}
-/* Lista desplegable */
-header nav ul .dropdown {
-    display: none;
-    position: absolute;
-    padding-top: 25px;
-}
-header nav ul .dropdown li {
-    display: block;
-    border: none;
-    background: var(--header2-transparent);
-    z-index: 9998;
-}
-header nav ul li:hover .dropdown {
-    display: block;
-}
-header nav ul .dropdown .first { /* Útil para conseguir bordes redondeados en las sub-listas */
-    border-radius: var(--margin) var(--margin) 0 0; 
-}
-header nav ul .dropdown .last { /* Útil para conseguir bordes redondeados en las sub-listas */
-    border-radius: 0 0 var(--margin) var(--margin); 
-}
-/* Auxiliar */
-header nav ul .no-border {
-    border: none;
-}
-.transparent-header {
-    background: var(--header2-transparent);
-}
-.argentina { /* Para colorear fa-flag */
-    color: rgb(30, 133, 230);
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-}
-.eeuu {
-    color: #fff;
-    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    cursor: pointer;
 }

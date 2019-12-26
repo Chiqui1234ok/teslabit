@@ -1,38 +1,25 @@
-/* Grillas */
-.grid-flex { /* Creo una grilla de una columna y fila sólo para centrar objetos verticalmente acá adentro */
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-    flex-flow: row wrap;
-}
-.grid-flex .full-width {
-    flex-grow: 100;
-}
-.grid-flex .center {
-    
-}
-/**/
-.grid { /* Creo una grilla de una columna y fila sólo para centrar objetos verticalmente acá adentro */
-    grid-template-columns: 1fr;
+.grid, .grid-2, .grid-4, .grid-6 {
     display: grid;
+}
+.grid { /* usefull for vertical alignment */
+    justify-items: center;
     align-items: center;
 }
 .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-    .grid-2 .full-width {
+    .grid-2 .full-width { /* item full-screen size */
         grid-column: 1 / span 2;
     }
 .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-    .grid-4 .full-width {
+    .grid-4 .full-width { /* item full-screen size */
         grid-column: 1 / span 4;
     }
 .grid-6 {
     grid-template-columns: repeat(6, 1fr);
-    display: grid;
 }
+    .grid-6 .full-width { /* item full-screen size */
+        grid-column: 1 / span 6;
+    }

@@ -1,15 +1,19 @@
-<div id="intro" class="full-width full-height grid">
+<div id="intro" class="full-screen grid">
+    <div id="particles-js"></div>
+    <div id="moon"></div>
     <div class="grid-2 horizontal-center container margin-top">
         <!-- Texto introductorio -->
-        <div id="main-text" class="padding">
-            <h1 class="light-text">La economía del futuro, hoy</h1>
-            <p class="light-text read-mode">Invierte en criptomonedas de forma sencilla</p>
-            <a href="/user/sign-up" class="full-width-mobile input-night rounded padding text-center">
-                <span class="margin padding full-width-mobile"><i class="fas fa-user-plus" style="margin-right: 10px;"></i> Comenzar</span>
-            </a>
+        <div class="grid padding margin">
+            <div id="grid-child" class="full-width">
+                <h1 class="light-text">La economía del futuro, hoy</h1>
+                <p class="light-text margin-bottom">Invierte en criptomonedas de forma sencilla</p>
+                <a href="/user/sign-up" class="night rounded text-center">
+                    <span class="margin"><i class="fas fa-user-plus margin-right"></i> Comenzar</span>
+                </a>
+            </div>
         </div>
 
-        <div id="animation" class="padding">        <!-- Entidades y animaciones -->
+        <div id="animation" class="padding margin">        <!-- Entidades y animaciones -->
             <div id="chat" class="cursor-default"> <!-- Chat -->
                 <div class="dron-message text-center">
                     <p>¿Quieres comprar BTC?</p>
@@ -30,8 +34,8 @@
     </div>
 </div>
 <!-- -->
-<div id="whatIsTeslabit" class="full-width padding">
-    <div class="grid-4 gap horizontal-center container">
+<div id="whatIsTeslabit" class="full-width cursor-default">
+    <div class="grid-4 gap center container">
         <h1 class="full-width text-center light-text">¿Por qué Teslabit?</h1>
         <div class="light-text text-center">
             <h2 class="fa fa-thumbs-up light-text"> <span>Fácil</span></h2>
@@ -45,18 +49,18 @@
             <h2 class="fa fa-check light-text"> <span>Seguro</span></h2>
             <p class="light-text">Verificación manual de todas las transacciones</p>
         </div>
-        <div class="box blur padding rounded text-center">
+        <div class="box blur padding rounded text-center hoverShadowGreen-box">
             <h2 class="fa fa-money" style="color: var(--textColor3);"> <span style="color: var(--textColor3);">¡Comienza!</span></h2>
             <p>Haz transacciones con nuestros servicios. <a href="/user/sign-up">¡Comienza ya!</a></p> 
         </div>
     </div>
 </div>
 <!-- -->
-<div id="register" class="full-width padding margin-top">
-    <div class="grid-4 gap horizontal-center container">
+<div id="register" class="full-width margin-top cursor-default">
+    <div class="grid-4 gap center container">
         <h1 class="full-width text-center light-text">¡Registrate en 3 pasos!</h1>
-        <div class="light-text text-center">
-            <h2 class="fa fa-envelope-square light-text"> <span>Tus credenciales</span></h2>
+        <div class="box blur padding text-center rounded hoverShadowGreen-box">
+            <h2 class="fa fa-envelope-square light-text" style="color: var(--textColor3);"> <span style="color: var(--textColor3);">Tus credenciales</span></h2>
             <p class="light-text">Escribe tu email y contraseña preferida, <a href="/user/sign-up">aquí</a></p>
         </div>
         <div class="light-text text-center">
@@ -67,27 +71,25 @@
             <h2 class="fa fa-user light-text"> <span>Entrá a tu perfil</span></h2>
             <p class="light-text">Tendrás acceso inmediato a tu perfil y podrás operar subiendo tu documentación</p>
         </div>
-        <div class="box blur padding rounded text-center">
-            <h2 class="fa fa-check" style="color: var(--textColor3);"> <span style="color: var(--textColor3);">¡Listo!</span></h2>
+        <div class="light-text text-center">
+            <h2 class="fa fa-check"> <span>¡Listo!</span></h2>
             <p>Tan fácil como eso. ¡Bienvenido!</p> 
         </div>
     </div>
 </div>
 <!-- -->
-<div id="contact" class="full-width full-height grid">
-    <div class="grid-2 horizontal-center container">
+<div id="contact" class="full-screen grid">
+    <div class="grid-2 center container">
         <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;"></div>
         <h1 class="text-center light-text full-width">Contacto</h1>
         <form action="/send-email" method="POST" class="margin-top full-width">
             <div class="grid-2 gap">
-                <input type="text" placeholder="Asunto" name="subject" class="full-width block horizontal-center-plus padding input-night rounded" />
-                <input type="text" placeholder="Tu e-mail" name="email" class="full-width block horizontal-center-plus padding input-night rounded" required />
+                <input type="text" placeholder="Asunto" name="subject" class="night full-width padding rounded margin" />
+                <input type="text" placeholder="Tu e-mail" name="email" class="night full-width padding rounded margin" required />
             </div>
-            <textarea class="block horizontal-center-plus padding input-night rounded full-width" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
-            <input type="submit" value="Enviar email" class="full-width center-plus padding input-night rounded" />
+            <textarea class="night full-width padding rounded margin" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
+            <input type="submit" value="Enviar email" class="full-width padding night rounded margin" />
         </form>
     </div>
 </div>
-    <div id="particles-js"></div>
-    <div id="moon"></div>
 <script src="js/particles/particles.min.js"></script> 

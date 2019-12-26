@@ -1,259 +1,120 @@
-/**** GUIDELINES
-    *   font-family: 'Lato', sans-serif;
-        font-family: 'Press Start 2P', cursive;
-        font-family: 'Julius Sans One', sans-serif;
-    */
 * {
-    box-sizing: border-box; /* El padding está incluído en el tamaño especificado en el CSS */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: inherit;
 }
-
-/* Colores de la plantilla */
 :root {
-    /* Sombras */
-    --shadow1: rgba(0, 0, 0, 0.5);
-    /* Opacidades */
-    --opacity1: 0.8;
-    --opacity2: 0.5;
-    /* Animaciones */
-    --animationDuration1: 0.3s;
-    /* Texto */
-    --textColor1: #393939;
-    --textColor2: #595959;
-    --textColor3: #000;
-    --textColor4: #fff;
+    /* Paleta de colores */
+    --black: rgb(40, 40, 40); /* será convertido a 'night' en próximas versiones */
+        --black-transparent: rgba(40, 40, 40, 0.8); /* será convertido a 'night' en próximas versiones */
+    --light: rgb(240, 240, 240);
+        --light-transparent: rgba(240, 240, 240, 0.8);
+    --green: rgb(32, 235, 93);
+        --green-transparent: rgba(32, 235, 93, 0.8);
+    --yellow: rgb(235, 238, 74);
+        --yellow-transparent: rgba(235, 238, 74, 0.8);
+    --blue: rgb(70, 59, 214);
+        --blue-transparent: rgba(70, 59, 214, 0.8);
+    --skyBlue: rgb(81, 162, 255);
+    --darkBlue: rgb(46, 32, 168);
+        --darkBlue-transparent: rgba(46, 32, 168, 0.8);
+    --darkerBlue: rgb(40, 17, 139);
+    --violet: rgb(143, 74, 221);
+        --violet-transparent: rgba(143, 74, 221, 0.8);
     /* Header */
-    --headerTitleColor2: #fff; /* Coinciden con el color de header2 */
-    --headerTextColor2: #f4f4f4; /* Coinciden con el color de header2 */
-    /* Links */
-    --linkColor1: #33c28b;
-    --linkColor2: #269c2c;
-    --linkColor3: #393939;
-    --linkColor4: rgb(34, 148, 255);
-    /* Input */
-    --inputBackground1: rgba(255, 255, 255, 0.5);
-    --inputBackground2: rgba(255, 255, 255, var(--opacity1));
-    --inputBackground3: rgba(25, 25, 75, 0.5);
-    --inputBackground4: rgba(25, 25, 75, var(--opacity1));
-    /* Márgenes/Separaciones */
-    --margin: 10px;
-    /* Tamaños de lectura */
-    --readWidth1: 70%;
-    /* Alertas */
-    --warn1: rgba(74, 34, 255, var(--opacity1));
-    --warn2: rgb(117, 52, 221);
-    --warnTextColor1: #fff;
-    --success1: #26be2e;
-    --success2: #33c28b;
-    --successTextColor1: rgb(255, 255, 255);
-    /* Filtros */
-    --filter: 2px;
-    /* Fondos */
-    --background1: #fafafa;
-    --background1-transparent: rgba(255, 255, 255, var(--opacity1));
-    --background2: rgba(0, 132, 255, var(--opacity1));
-    /* Fondos */
-    --header1: rgba(34, 148, 255, var(--opacity1));
-    --header2: rgb(34, 148, 255);
-    --header2-transparent: rgba(34, 128, 255, var(--opacity1));
-    --sidebar: rgba(190, 190, 190, var(--opacity1));
-    --footer1: var(--warn2);
-    --footer2: #fafafa;
-    --sidebarHover: rgba(217, 255, 187, var(--opacity1));
+    --lightHeader: rgba(40, 140, 255, 0.8);
+    --darkHeader: rgb(25, 22, 39);
+    /* Footer */
+    --lightFooter: rgb(75, 56, 241);
+    /* Sizes */
+    --pSize: 18px;
+    --readWidth: 75%;
+    --readWidthMobile: 95%;
+    /* Margins */
+    --gap: 10px; /* standard gap (margin, padding, etc) for the base template */
+    /* Text colors */
+    --darkP: var(--black);
+    /* Link colors */
+    --lightLink: var(--green);
+    --darkLink: var(--darkBlue);
+        --darkLinkHover: var(--blue);
 }
-
-/* Sobre-escritura de los presets del navegador */
 body {
-    width: 100vw;
+    width: 100%;
     margin: 0;
+    clear: both;
+    content: "";
     overflow-x: hidden;
-    background: var(--background1);
 }
-/* Texto */
-p {
-    font-size: 19px;
-    font-weight: 300;
-    font-family: 'Lato', sans-serif;
-    color: var(--textColor1);
-    line-height: 30px;
-    z-index: 200;
+/* Base > Size */
+.full-width { /* Ocupa todo el ancho disponible en el div.padre */
+    width: 100%;
 }
-span { /* apto para el texto */
-    color: var(--linkColor1);
+.full-height { /* Ocupa todo el alto disponible de la pantalla */
+    height: 100vh;
 }
-h1, h2, h3, h4, h5, h6, .span {
-    font-family: 'Julius Sans One', sans-serif;
-    color: var(--textColor2);
-    display: block;
-    z-index: 201;
+.full-screen { /* Ocupa toda la pantalla */
+    width: 100vw;
+    height: 100vh;
 }
-.span { /* apto para títulos */
-    color: var(--warn1);
-    display: inline-block;
+/* Base > Margin */
+.margin {
+    margin: var(--gap);
+}   /* analizar si existe un macro para sintetizar "margin-*" en una sola */
+    .margin-top {
+        margin-top: var(--gap);
+    }
+    .margin-bottom {
+        margin-bottom: var(--gap);
+    }
+    .margin-left {
+        margin-left: var(--gap);
+    }
+    .margin-right {
+        margin-right: var(--gap);
+    }
+/* Base > Padding */
+.padding {
+    padding: var(--gap);
 }
-/* Etiquetas varias */
-main {
-    width: var(--readWidth1);
-    margin: 96px auto; /* se separa del header */
+/* Base > Centerland */
+.center { /* horizontal center */
+    margin: 0 auto;
 }
-/* Links */
-a {
-    color: var(--linkColor1);
-    border-bottom: 1px solid var(--linkColor1);
-    padding-bottom: 2px;
-    text-decoration: none;
-    transition: all var(--animationDuration1) ease-in-out;
+/* Base > Sharpness */
+.rounded {
+    border-radius: var(--gap);
 }
-a:hover {
-    color: var(--linkColor2);
-    border-bottom: 1px solid var(--linkColor2);
+/* Base > Boxes || Base > Widgets */
+.box.black {
+    background: var(--black-transparent);
 }
-
-/* Clases auxiliares */
-/* z-index */
-.important {
-    z-index: 9000;
+.box.light, .box {
+    background: var(--light-transparent);
 }
-/* Texto */
-.text-center {
-    text-align: center;
+.box.green {
+    background: var(--green-transparent);
 }
-.text-right {
-    text-align: right;
+.box.yellow {
+    background: var(--yellow-transparent);
 }
-.read-mode { /* Establece un line-height mayor para facilitar la lectura */
-    line-height: 38px;
+.box.blue {
+    background: var(--blue-transparent);
 }
-.light-text {
-    color: var(--textColor4);
+.box.violet {
+    background: var(--violet-transparent);
 }
-.dark-text {
-    color: var(--textColor3);
-}
-.text-border {
-    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-}
-/* Listas */
-.minimal-list {
-    list-style: none;
-}
-/* Configuraciones de bloques, flotantes, posiciones y centrados */
-.container {
-    width: var(--readWidth1);
+/* Base > Display */
+.inline {
+    display: inline;
 }
 .block {
     display: block;
 }
-.fixed {
-    position: fixed;
-}
-.horizontal-center { /* será cambiado a .horizontal-center en próx versión */
-    margin: 0 auto;
-}
-.horizontal-center-plus { /* será cambiado a .horizontal-center-plus en próx versión */
-    margin: var(--margin) auto var(--margin) auto;
-}
-/* Tamaños */
-.full-width {
-    width: 100%;
-    /* position: relative;
-    clear: both;
-    content: "";
-    display: table; */
-}
-.full-width-item-2 {
-    grid-column: 1 / span 2;
-}
-.full-width-item-4 {
-    grid-column: 1 / span 4;
-}
-.full-height {
-    min-height: 100vh;
-}
-.full-width-mobile {
-    width: var(--readWidth1);
-}
-.full-height-mobile {
-    height: 70vh;
-}
-.read-width {
-    width: var(--readWidth1);
-}
-/* Márgenes de grillas */
-.gap {
-    gap: var(--margin);
-}
-/* Márgenes */
-.margin {
-    margin: var(--margin);
-}
-.margin-top {
-    margin-top: var(--margin);
-}
-.margin-plus {
-    margin: var(--margin) 0 var(--margin) 0;
-}
-.padding {
-    padding: var(--margin);
-}
-/* Bordes */
-.rounded {
-    border-radius: var(--margin);
-}
-/* Cambios en el cursor */
-.cursor-pointer {
-    cursor: pointer;
-}
+/* Base > Mouse cursors */
 .cursor-default {
     cursor: default;
 }
-/* Fuentes */
-.bold-font { /* Usada para el botón "comenzar" de la home y algunas más */
-    font-weight: 900;
+.cursor-pointer {
+    cursor: pointer;
 }
-/* Filtros y sombras */
-.blur { /* Hace blur en el fondo de un div. Requiere que el color de fondo sea 'rgba' */
-    backdrop-filter: blur(var(--filter));
-}
-.shadow {
-    box-shadow: 0 0 5px var(--shadow1);
-}
-.shadow-hover {
-    transition: box-shadow var(--animationDuration1) ease-in-out;
-    box-shadow: 0 0 5px transparent;
-}
-.shadow-hover:hover {
-    box-shadow: 0 0 5px var(--shadow1);
-}
-/* Fondos */
-.hero1 {
-    background: url('../img/wallpapers/hero1.webp') right;
-    background-size: cover;
-}
-.hero2 {
-    background: url('../img/wallpapers/hero-ethereum.png') center;
-    background-size: cover;
-}
-.bitcoin {
-    background: url('../img/wallpapers/bitcoin.jpg') center;
-    background-size: cover;
-}
-.buy-bitcoin-credit-cards {
-    background: url('../img/wallpapers/buy-bitcoin-credit-cards.png') center;
-    background-size: cover;
-}
-.box {
-    background: var(--background1-transparent);
-}
-
-/* Fondos CSS */
-.footer-background {
-    background: var(--header2);
-}
-.footer-background h2 {
-    color: var(--headerTitleColor2);
-}
-.footer-background p {
-    color: var(--headerTitleColor2);
-}
+/* CSS Personalizado (exclusivo para la web en desarrollo y no pertenece a Reboot_strap */
+/** ... **/

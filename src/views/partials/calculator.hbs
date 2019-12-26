@@ -1,19 +1,22 @@
-<div class="grid-2 gap" id="main">     <!-- principal -->
-        <div id="info" class="margin-top">  <!-- información -->
-            <div class="warn text-center padding cursor-default" id="warn" style="display: none;">El monto mínimo para comprar o vender es de {{cryptocurrency.min}} {{cryptocurrency.name}}</div>
-            <div class="success text-center padding cursor-default" id="success">¡Bien! Este monto es válido</div>
-            {{#if data }}
-                <div class="padding text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
-            {{/if}}
-        </div>                              <!-- !información -->
-        <div class="margin-top">  <!-- calculadora -->
-            <input type="text" class="padding input-light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
-            {{cryptocurrency.name}} serían<br /><br />
-            <input type="text" class="padding input-light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
-            pesos Argentinos.
-            <p class="text-center"><i>Costo final. Mira nuestras <a href="/help/commission">comisiones</a>.</i></p>
-            <button type="button" class="full-width input-light padding margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
-        </div>                  <!-- !calculadora -->
+<div class="grid" id="main">     <!-- principal -->
+    <p>
+        <input type="text" class="padding light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
+        {{cryptocurrency.name}} serían
+    </p>
+    <p>
+        <input type="text" class="padding light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
+        pesos Argentinos.
+    </p>
+    <p id="success" class="text-legend">¡Bien! Esto cumple con el monto mínimo de 0.05 BTC</p>
+    <p id="warn" class="text-legend">El monto mínimo es de 0.05 BTC, ¡compra un poco más!</p>
+    <p class="text-center">El precio visto aquí es el costo final.</p>
+    <p class="text-center"><a href="/help/commission">Mira nuestras comisiones haciendo click aquí</a>.</p>
+    <button type="button" class="full-width light padding margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
 </div>                                      <!-- !principal -->
 <!-- Información para sendEmail -->
 <input type="hidden" value="Tu compra de {{cryptocurrency.name}} en Teslabit" name="subject" />
+{{!--   
+    {{#if data }}
+        <div class="padding text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
+    {{/if}} 
+--}}
