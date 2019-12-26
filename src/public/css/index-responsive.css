@@ -2,4 +2,8 @@
     #animation {
         display: none;
     }
+    #moon {
+        top: 30%;
+        left: -210%;
+    }
 }

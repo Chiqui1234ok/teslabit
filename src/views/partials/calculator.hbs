@@ -1,16 +1,18 @@
 <div class="grid" id="main">     <!-- principal -->
-    <p>
-        <input type="text" class="light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
-        {{cryptocurrency.name}} serían
-    </p>
-    <p>
+    <div class="grid-2 gap margin-top">
+        <input type="text" class="light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}" class="text-right">
+        <p class="inline margin-left">{{cryptocurrency.name}} serían</p>
+    </div>
+    <div class="grid-2 gap margin-top">
         <input type="text" class="light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
-        pesos Argentinos.
-    </p>
-    <p id="success" class="text-legend">¡Bien! Esto cumple con el monto mínimo de 0.05 BTC</p>
+        <p class="inline margin-left">pesos Argentinos.</p>
+    </div>
+    <p id="success" class="text-legend text-center">¡Bien! Esto cumple con el monto mínimo de 0.05 BTC</p>
     <p id="warn" class="text-legend">El monto mínimo es de 0.05 BTC, ¡compra un poco más!</p>
-    <p class="text-center">El precio visto aquí es el costo final.</p>
-    <p class="text-center"><a href="/help/commission">Mira nuestras comisiones haciendo click aquí</a>.</p>
+    <div class="grid-2">
+        <p class="text-center">El precio visto aquí es el costo final.</p>
+        <p class="text-center"><a href="/help/commission">Mira nuestras comisiones haciendo click aquí</a>.</p>
+    </div>
     <button type="button" class="full-width light margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
 </div>                                      <!-- !principal -->
 <!-- Información para sendEmail -->

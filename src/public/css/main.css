@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box; /* El padding está incluído en el tamaño especificado en el CSS */
     z-index: inherit;
 }
 :root {
@@ -19,6 +20,7 @@
     --darkerBlue: rgb(40, 17, 139);
     --violet: rgb(143, 74, 221);
         --violet-transparent: rgba(143, 74, 221, 0.8);
+    --red: rgb(240, 25, 61);
     /* Header */
     --lightHeader: rgba(40, 140, 255, 0.8);
     --darkHeader: rgb(25, 22, 39);
@@ -43,6 +45,10 @@ body {
     clear: both;
     content: "";
     overflow-x: hidden;
+}
+/* Base > Main */
+main {
+    margin-top: 73px; /* Para no encimarse con el header */
 }
 /* Base > Size */
 .full-width { /* Ocupa todo el ancho disponible en el div.padre */
@@ -116,5 +122,24 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
 /* CSS Personalizado (exclusivo para la web en desarrollo y no pertenece a Reboot_strap */
-/** ... **/
+/* Fondos */
+.hero1 {
+    background: url('../img/wallpapers/hero1.webp') right;
+    background-size: cover;
+}
+.hero2 {
+    background: url('../img/wallpapers/hero-ethereum.png') center;
+    background-size: cover;
+}
+.bitcoin {
+    background: url('../img/wallpapers/bitcoin.jpg') center;
+    background-size: cover;
+}
+.buy-bitcoin-credit-cards {
+    background: url('../img/wallpapers/buy-bitcoin-credit-cards.png') center;
+    background-size: cover;
+}

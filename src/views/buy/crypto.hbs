@@ -34,13 +34,13 @@ const wallet = $('#wallet');
 const finish = $('#finish');
 
 // Contador de segundos desde el último precio tomado
-let secondsCounter = 0;
-setInterval(updateTime, 1000);
+{{!-- let secondsCounter = 0;
+setInterval(updateTime, 1000); --}}
 
 // Magia
 cryptoQ.keyup(function () {
     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
-    moneyQ.val( ((cryptoQ.val()*{{data.last}})*usd).toFixed(2) );
+    moneyQ.val( (((cryptoQ.val()*{{data.last}})*usd)*1.05).toFixed(2) );// 1.05 (5%) es la comisión de Teslabit
 });
 
 moneyQ.keyup(function () {
@@ -62,13 +62,13 @@ $('#walletDir').change(function () { // HOTFIX
         $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
 });
 
-function updateTime() {
+{{!-- function updateTime() {
     console.log('Time updated');
     secondsCounter++;
     $('#time').text(secondsCounter+'s');
     if(secondsCounter > 60)
         $('#time').text((secondsCounter/60).toFixed(2)+'m');
-}
+} --}}
 
 function cryptoAmountHandler() {
     if(cryptoQ.val() >= min || moneyQ.val() >= min) {
@@ -105,7 +105,7 @@ function step_showFinish() {
 
     // Recupera los datos de los campos para mostrarlos en la tabla
     $('#t_amountToBuy').text(cryptoQ.val());
-    $('#t_walletDir').text($('#walletDir').val());
+    $('#t_walletDir').html(`<a href="https://www.blockchain.com/es/search?search=${$('#walletDir').val()}" title="Buscar este monedero en el blockchain">${$('#walletDir').val()}</a>`);
     $('#t_cryptocurrency').text('{{cryptocurrency.name}}');
 }
 

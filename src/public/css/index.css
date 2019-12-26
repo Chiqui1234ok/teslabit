@@ -27,14 +27,14 @@
     display: block;
 }
 #moon {
-    width: 250%;
-    height: 150%;
+    width: 300%;
+    height: 200%;
     position: absolute;
     top: 30%;
-    left: -105%;
+    left: -160%;
     background: linear-gradient(90deg, var(--violet) 0%, var(--skyBlue) 30%, var(--blue) 100%);
     box-shadow: 0 0 50px var(--darkBlue);
-    border-radius: 100%;
+    border-radius: 85%;
     z-index: 19;
 }
 #particles-js {
