@@ -82,13 +82,13 @@
     <div class="grid-2 center container">
         <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;"></div>
         <h1 class="text-center light-text full-width">Contacto</h1>
-        <form action="/send-email" method="POST" class="margin-top full-width">
+        <form action="/send-email" method="POST" class="margin-top block full-width">
             <div class="grid-2 gap">
-                <input type="text" placeholder="Asunto" name="subject" class="night full-width padding rounded margin" />
-                <input type="text" placeholder="Tu e-mail" name="email" class="night full-width padding rounded margin" required />
+                <input type="text" placeholder="Asunto" name="subject" class="night block full-width padding rounded margin-bottom" />
+                <input type="text" placeholder="Tu e-mail" name="email" class="night block full-width padding rounded margin-bottom" required />
             </div>
-            <textarea class="night full-width padding rounded margin" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
-            <input type="submit" value="Enviar email" class="full-width padding night rounded margin" />
+            <textarea class="night block full-width padding rounded margin-bottom" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
+            <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
         </form>
     </div>
 </div>

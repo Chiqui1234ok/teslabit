@@ -1,22 +1,22 @@
 <div class="grid" id="main">     <!-- principal -->
     <p>
-        <input type="text" class="padding light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
+        <input type="text" class="light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}">
         {{cryptocurrency.name}} serían
     </p>
     <p>
-        <input type="text" class="padding light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
+        <input type="text" class="light rounded" name="moneyQuantity" id="moneyQuantity" autocomplete="off" placeholder="PESOS">
         pesos Argentinos.
     </p>
     <p id="success" class="text-legend">¡Bien! Esto cumple con el monto mínimo de 0.05 BTC</p>
     <p id="warn" class="text-legend">El monto mínimo es de 0.05 BTC, ¡compra un poco más!</p>
     <p class="text-center">El precio visto aquí es el costo final.</p>
     <p class="text-center"><a href="/help/commission">Mira nuestras comisiones haciendo click aquí</a>.</p>
-    <button type="button" class="full-width light padding margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
+    <button type="button" class="full-width light margin-top rounded" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
 </div>                                      <!-- !principal -->
 <!-- Información para sendEmail -->
 <input type="hidden" value="Tu compra de {{cryptocurrency.name}} en Teslabit" name="subject" />
 {{!--   
     {{#if data }}
-        <div class="padding text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
+        <div class="text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
     {{/if}} 
 --}}
