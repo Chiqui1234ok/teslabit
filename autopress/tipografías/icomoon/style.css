@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?d8aqtt');
-  src:  url('../fonts/icomoon.eot?d8aqtt#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?d8aqtt') format('truetype'),
-    url('../fonts/icomoon.woff?d8aqtt') format('woff'),
-    url('../fonts/icomoon.svg?d8aqtt#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?v7l7to');
+  src:  url('fonts/icomoon.eot?v7l7to#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?v7l7to') format('truetype'),
+    url('fonts/icomoon.woff?v7l7to') format('woff'),
+    url('fonts/icomoon.svg?v7l7to#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -13,7 +13,7 @@
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  /* speak: none; */
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -25,86 +25,81 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.refresh:before {
+.icon-refresh:before {
   content: "\e900";
 }
-.sync:before {
+.icon-sync:before {
   content: "\e900";
 }
-.reload:before {
+.icon-reload:before {
   content: "\e900";
 }
-.loading:before {
+.icon-loading:before {
   content: "\e900";
 }
-.question-circle:before {
-  content: "\e911";
-}
-.envelope-open:before {
-  content: "\e901";
-}
-.envelope:before {
-  content: "\e902";
-}
-.youtube:before {
-  content: "\e903";
-}
-.linkedin-square:before {
-  content: "\e904";
-}
-.thumbs-up:before {
+.icon-thumbs-up:before {
   content: "\e912";
 }
-.facebook-square:before {
+.icon-question-circle:before {
+  content: "\e911";
+}
+.icon-envelope-open:before {
+  content: "\e901";
+}
+.icon-envelope:before {
+  content: "\e902";
+}
+.icon-youtube:before {
+  content: "\e903";
+}
+.icon-linkedin-square:before {
+  content: "\e904";
+}
+.icon-facebook-square:before {
   content: "\e905";
 }
-.bars:before {
+.icon-bars:before {
   content: "\e906";
 }
-.navicon:before {
+.icon-navicon:before {
   content: "\e906";
 }
-.reorder:before {
+.icon-reorder:before {
   content: "\e906";
 }
-.credit-card-alt:before {
+.icon-credit-card-alt:before {
   content: "\e907";
 }
-.bitcoin:before {
+.icon-bitcoin:before {
   content: "\e908";
 }
-.btc:before {
+.icon-btc:before {
   content: "\e908";
 }
-.money:before {
+.icon-money:before {
   content: "\e909";
 }
-.check:before {
+.icon-check:before {
   content: "\e90a";
 }
-.user-times:before {
+.icon-user-times:before {
   content: "\e90b";
 }
-.group:before {
+.icon-group:before {
   content: "\e90c";
 }
-.users:before {
+.icon-users:before {
   content: "\e90c";
 }
-.user-plus:before {
+.icon-user-plus:before {
   content: "\e90d";
 }
-.user:before {
+.icon-user:before {
   content: "\e90e";
 }
-.reddit-alien:before, .alien:before {
+.icon-reddit-alien:before {
   content: "\e90f";
 }
-.home:before {
+.icon-home:before {
   content: "\e910";
-}
-
-i.fa, i.fas, .fa, .fas {
-  font-family: 'icomoon';
-  font-style: normal; /* prevent italic in <i> tags when using .fa or .fas class */
 }

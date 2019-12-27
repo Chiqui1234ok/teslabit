@@ -9,6 +9,7 @@
     display: inline-block;
     font-family: sans-serif;
     font-size: 17px;
+    font-variant: small-caps;
     background: var(--blue);
     color: var(--light);
 }

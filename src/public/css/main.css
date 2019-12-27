@@ -125,6 +125,7 @@ main {
 .cursor-not-allowed {
     cursor: not-allowed;
 }
+/* Base > Mobile restrictions => in main-responsive.css */
 /* CSS Personalizado (exclusivo para la web en desarrollo y no pertenece a Reboot_strap */
 /* Fondos */
 .hero1 {

@@ -25,6 +25,10 @@ a.light:hover, button.light:hover, input.light:hover, textarea.light:hover,
 a.light:focus, button.light:focus, input.light:focus, textarea.light:focus {
     border: 1px solid var(--skyBlue);
 }
+button.light:hover, input[type=submit].light:hover, input[type=button].light:hover, button.light:focus, input[type=submit].light:focus, input[type=button].light:hover {
+    border: 1px solid var(--green);
+    background: var(--green-transparent);
+}
 /* Night */
 a.night, button.night, input.night, textarea.night {
     transition: all 0.3s ease-in-out;    

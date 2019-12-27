@@ -5,7 +5,6 @@
     background: -ms-linear-gradient(top, var(--blue) 0%,var(--lightHeader) 75%,  var(--lightHeader) 100%);
     background: linear-gradient(to top, var(--blue) 0%, var(--lightHeader) 75%, var(--lightHeader) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4134f7', endColorstr='#27d0e6', GradientType=1 );
-    margin-top: -72px; /* así queda perfectamente centrado, a pesar de los 72px de alto que tiene el header (el header por defecto no es position: fixed) */
     z-index: 11;
 }
 #intro *, #whatIsTeslabit *, #register *, #contact * {
@@ -95,6 +94,10 @@
 #whatIsTeslabit, #register {
     background: var(--blue);
     z-index: 12;
+}
+#whatIsTeslabit.full-screen, #register.full-screen {
+    height: auto;
+    min-height: 35vh;
 }
 #whatIsTeslabit h2 span, #register h2 span {
     color: var(--light);

@@ -1,3 +1,10 @@
+@media (max-width: 1399px) {
+    .dron-message, .cat-message {
+        width: 190px;
+        height: 120px;
+        font-size: 14px;
+    }
+}
 @media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
     #animation {
         display: none;
@@ -5,5 +12,8 @@
     #moon {
         top: 30%;
         left: -210%;
+    }
+    #particles-js {
+        height: 100%;
     }
 }

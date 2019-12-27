@@ -1,6 +1,10 @@
 @media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
-    .wizard ul #step1, .wizard ul #step2, .wizard ul #step3 {
-        display: block;
-        margin: var(--gap) 0 var(--gap) 0;
+    #btcValue.grid-2, #arsValue.grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 799px) { /* Entre 1023px y 1279px (tablets) */
+    #btcValue.grid-2, #arsValue.grid-2 {
+        grid-template-columns: 100%;
     }
 }

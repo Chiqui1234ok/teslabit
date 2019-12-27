@@ -1,7 +1,7 @@
 <header class="blur">
     <div class="grid-2 container center padding">
         <div class="brand">
-            <h1><a href="/">Tesla<span>bit</span></a></h1>
+            <h1><div id="logo" class="margin-right not-mobile"></div> <a href="/">Tesla<span>bit</span></a></h1>
         </div>
         <a onclick="openNavBar();" class="menu"><i class="fas bars"></i></a>
     </div>
@@ -13,7 +13,7 @@
             <a href="/"><i class="fas home"></i> Inicio</a>
         </li>
         <li>
-            <a href="/buy/bitcoin"><i class="cf cf-btc"></i> Comprar</a>
+            <a href="/buy/bitcoin"><i class="fas btc"></i> Comprar</a>
         </li>
         {{#if user }}
         <li>
@@ -46,4 +46,12 @@
         $('nav ul').css('display', 'none');
         $('.menu').attr("onclick","openNavBar()");
     }
+
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+        if (scroll >= 150)
+            $('header').addClass('fixed');
+        else 
+            $('header').removeClass('fixed');
+    });
 </script>

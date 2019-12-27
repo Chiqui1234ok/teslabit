@@ -7,7 +7,7 @@ Transaction = require('../models/transactionsBuy'),
 router.get('/buy/bitcoin', async (req, res) => {
     const cryptocurrency = {
         name: 'bitcoin',
-        min: 0.05,
+        min: 0.01,
     };
     const usdToArs = 76;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
