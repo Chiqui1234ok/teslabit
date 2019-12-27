@@ -4,6 +4,34 @@
             <h1><div id="logo" class="margin-right not-mobile"></div> <a href="/">Tesla<span>bit</span></a></h1>
         </div>
         <a onclick="openNavBar();" class="menu"><i class="fas bars"></i></a>
+        <nav class="grid">
+            <ul class="minimal-list">
+                <li>
+                    <a href="/"><i class="fas home"></i> Inicio</a>
+                </li>
+                <li>
+                    <a href="/buy/bitcoin"><i class="fas btc"></i> Comprar</a>
+                </li>
+                {{#if user }}
+                <li>
+                    <a href="/user/profile"><i class="fas user"></i> Mi cuenta</a>
+                </li>
+                <li>
+                    <a href="/user/log-out"><i class="fas key"></i> Cerrar sesión</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/user/sign-in"><i class="fas user"></i> Ingresar</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="/#contact"><i class="fas envelope-open"></i> Contacto</a>
+                </li>
+                <li>
+                    <a href="/help"><i class="fas question-circle"></i> Ayuda</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>
 

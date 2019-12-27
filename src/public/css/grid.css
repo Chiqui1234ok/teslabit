@@ -23,3 +23,6 @@
     .grid-6 .full-width { /* item full-screen size */
         grid-column: 1 / span 6;
     }
+.gap {
+    gap: var(--margin);
+}

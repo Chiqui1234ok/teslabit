@@ -46,9 +46,15 @@ body {
     content: "";
     overflow-x: hidden;
 }
+html, body {
+    min-height: 100vh;
+}
 /* Base > Main */
-main {
-    margin-top: 73px; /* Para no encimarse con el header */
+/* main {
+    
+} */
+main.center {
+    margin: 20px auto 20px auto;
 }
 /* Base > Size */
 .full-width { /* Ocupa todo el ancho disponible en el div.padre */
