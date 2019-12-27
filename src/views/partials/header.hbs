@@ -35,7 +35,7 @@
     </div>
 </header>
 
-<nav class="blur">
+<nav id="mobileNav" class="blur">
     <ul class="grid-2 container center padding">
         <li>
             <a href="/"><i class="fas home"></i> Inicio</a>
@@ -65,13 +65,13 @@
 </nav>
 <script>
     function openNavBar() {
-        $('nav').css('display', 'block');
-        $('nav ul').css('display', 'block');
+        $('#mobileNav').css('display', 'block');
+        $('#mobileNav ul').css('display', 'block');
         $('.menu').attr("onclick","closeNavBar()");
     }
     function closeNavBar() {
-        $('nav').css('display', 'none');
-        $('nav ul').css('display', 'none');
+        $('#mobileNav').css('display', 'none');
+        $('#mobileNav ul').css('display', 'none');
         $('.menu').attr("onclick","openNavBar()");
     }
 
