@@ -1,0 +1,1 @@
+@media(max-width:1279px){#profile.grid-2{grid-template-columns:100%}#profile-info.full-screen,#admin.full-screen,aside.full-screen{width:100vw;height:100vh}#admin.grid{display:grid}}

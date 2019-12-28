@@ -1,8 +1,26 @@
-#profile-info {
-    
+#profile {
+    font-family: sans-serif;
+}
+#profile-info.full-screen, #admin.full-screen, aside.full-screen {
+    width: auto;
+    height: auto;
+}
+#admin.grid {
+    display: block;
+}
+#profile.grid-2 {
+    grid-template-columns: 30% auto;
 }
 #transaction {
     margin: var(--gap) 0 var(--gap) 0;
+    border: 1px solid var(--blue);
+}
+#transaction-admin {
+    margin: var(--gap) 0 var(--gap) 0;
+    border: 1px solid var(--green);
+}
+#profile-info p, #transaction p {
+    word-break: break-word;
 }
 #admin-helper {
     display: none;
