@@ -104,7 +104,7 @@ function step_showFinish() {
     $('#step3').addClass('active');
 
     // Recupera los datos de los campos para mostrarlos en la tabla
-    $('#t_amountToBuy').text(cryptoQ.val());
+    $('#t_amountToBuy').text('AR$ '+moneyQ.val());
     $('#t_walletDir').html(`<a href="https://www.blockchain.com/es/search?search=${$('#walletDir').val()}" title="Buscar este monedero en el blockchain">${$('#walletDir').val()}</a>`);
     $('#t_cryptocurrency').text('{{cryptocurrency.name}}');
 }

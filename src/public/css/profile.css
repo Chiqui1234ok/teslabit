@@ -2,7 +2,7 @@
     
 }
 #transaction {
-    margin: var(--margin) 0 var(--margin) 0;
+    margin: var(--gap) 0 var(--gap) 0;
 }
 #admin-helper {
     display: none;
