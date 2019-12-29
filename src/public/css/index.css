@@ -95,6 +95,9 @@
     background: var(--blue);
     z-index: 12;
 }
+#register.padding-top {
+    padding-top: 0;
+}
 #whatIsTeslabit.full-screen, #register.full-screen {
     height: auto;
     min-height: 35vh;

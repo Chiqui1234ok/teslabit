@@ -16,4 +16,7 @@
     #particles-js {
         height: 100%;
     }
+    #register.padding-top {
+        padding-top: 30px;
+    }
 }

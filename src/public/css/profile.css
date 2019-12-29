@@ -6,11 +6,11 @@
     height: auto;
 }
 #admin.grid {
-    display: block;
+    display: grid;
 }
-#profile.grid-2 {
+/* #profile.grid-2 {
     grid-template-columns: 30% auto;
-}
+} */
 #transaction {
     margin: var(--gap) 0 var(--gap) 0;
     border: 1px solid var(--blue);
