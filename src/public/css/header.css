@@ -4,7 +4,7 @@ header {
     top: 0;
     left: 0;
     background: var(--lightHeader);
-    z-index: 59;
+    z-index: 99;
 }
 header #logo {
     width: 48px;
@@ -17,7 +17,7 @@ header.fixed {
     position: fixed;
 }
 header * {
-    z-index: 69;
+    z-index: 109;
 }
 header .grid-2 {
     grid-template-columns: 1fr 1fr;
