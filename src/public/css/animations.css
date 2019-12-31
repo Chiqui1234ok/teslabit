@@ -1,3 +1,21 @@
+/* Fade In */
+.fadeIn {
+    animation: fadeIn .5s linear;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/**/
+/* Zoom in */
+.zoomIn-normal {
+    animation: zoomIn-normal .5s linear;
+}
+@keyframes zoomIn-normal {
+    from { transform: scale(0.5);}
+    to { transform: scale(1); }
+}
+/**/
 @-webkit-keyframes float {
     0%{margin-top: -2.5px;}
     50%{margin-top: 2.5px;}

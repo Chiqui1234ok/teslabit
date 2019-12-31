@@ -39,10 +39,6 @@
     {{!-- <link rel="stylesheet" href="css/cryptofont.min.css" /> --}}
 </head>
 <body id="introBg">
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
     {{> errors }}
     {{> header }}
     {{{ body }}}
@@ -60,5 +56,39 @@
         });
     });
     </script> --}}
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script>
+        function openNavBar() {
+            $('#mobileNav').css('display', 'block');
+            $('#mobileNav ul').css('display', 'block');
+            $('.menu').attr("onclick","closeNavBar()");
+        }
+        function closeNavBar() {
+            $('#mobileNav').css('display', 'none');
+            $('#mobileNav ul').css('display', 'none');
+            $('.menu').attr("onclick","openNavBar()");
+        }
+
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+            if (scroll >= 150)
+                $('header').addClass('fixed');
+            else 
+                $('header').removeClass('fixed');
+        });
+    </script>
+    <script>
+    {{!-- $('#whatIsTeslabit').waypoint(function(direction){
+        $('#whatIsTeslabit').toggleClass('fadeIn');
+    },{
+        //bottom-in-view will ensure event is thrown when the element's bottom crosses
+        //bottom of viewport.
+        offset: 'bottom-in-view'
+    }); --}}
+</script>
 </body>
 </html>

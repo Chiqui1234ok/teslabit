@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>Document</title>
+    <style>
+        div{
+            transition:opacity .3s linear;   
+            -moz-transition:opacity .3s linear;   
+            -webkit-transition:opacity .3s linear;   
+            opacity:1;
+            width:100px;
+            height:100px;
+            background:red;
+        }
+        div.fade{
+         opacity:0;   
+        }
+    </style>
 </head>
 <body>
-
-    <iframe id="test" src="https://www.ambito.com/contenidos/dolar.html" frameborder="0" width="100%" style="height: 50vh;"></iframe>
-
-    <script>
-        let test = document.getElementById('test');
-        let iframeDocument = test.contentDocument || test.contentWindow.document;
-
-        if (!iframeDocument)
-            throw "iframe couldn't be found in DOM.";
-
-        let iframeContent = iframeDocument.getElementByClassName('data-venta')[0];
-        console.log('HOLA MAMA: ', iframeContent);
-    </script>
+    <a href="">asd</a>
+    <div></div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>$(function(){
+    $('a').click(function(ev){
+       $('div').toggleClass('fade'); 
+        ev.preventDefault();
+    });
+});</script>
 </body>
 </html>
+
