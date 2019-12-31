@@ -39,17 +39,15 @@
     {{!-- <link rel="stylesheet" href="css/cryptofont.min.css" /> --}}
 </head>
 <body id="introBg">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script> <!-- JQuery -->
+    <script>console.log('crypto no existe');</script>
     {{> errors }}
     {{> header }}
     {{{ body }}}
     {{> footer }}
-    {{#unless cryptocurrency}}
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script> <!-- JQuery -->
-        <script>console.log('crypto no existe');</script>
-    {{/unless}}
     <!--<script src="js/jquery.waypoints.min.js"></script>-->
     <script>
         function openNavBar() {
