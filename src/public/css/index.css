@@ -114,8 +114,7 @@
 /* whatIsTeslabit */
 #whatIsTeslabit, #register {
     background: var(--blue);
-    z-index: 12;
-    opacity: 0;
+    z-index: 92;
 }
 #register.padding-top {
     padding-top: 0;
@@ -145,4 +144,5 @@
 }
 #contact * {
     z-index: 24;
+    text-shadow: none;
 }
