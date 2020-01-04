@@ -4,6 +4,9 @@ footer {
     font-family: 'Julius Sans One', sans-serif;
     align-items: center;
 }
+footer * {
+    z-index: 29;
+}
 footer #social a {
     color: var(--light);
 }

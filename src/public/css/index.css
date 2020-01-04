@@ -29,16 +29,15 @@
     display: block;
 }
 #moon {
-    width: 150%;
+    width: 280%;
     height: 180%;
     position: absolute;
-    top: 10%;
-    left: -65%;
-    background: linear-gradient(0,var(--darkBlue)0,var(--blue)50%,var(--skyBlue)100%);
+    top: 21%;
+    left: -160%;
+    background: linear-gradient(90deg,var(--violet)0,var(--skyBlue)30%,var(--blue)100%);
     box-shadow: 0 0 50px var(--darkBlue);
     border-radius: 85%;
     z-index: 19;
-    opacity: .8;
 }
 #particles-js {
     position: absolute;
@@ -78,17 +77,17 @@
     height: 196px;
     background: url(../img/index/new/graph.png)center;
     background-size: contain;
-    animation: horizontalMovement 3s ease-in-out infinite;
+    animation: pulse 2s ease-in-out infinite;
 }
-@keyframes horizontalMovement {
+@keyframes pulse {
     0% {
-        left: 120px;
+        opacity: 1;
     }
     50% {
-        left: 80px;
+        opacity: 0.1;
     }
     100% {
-        left: 120px;
+        opacity: 1;
     }
 }
 /* whatIsTeslabit */
