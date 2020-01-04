@@ -19,7 +19,7 @@
         }
 }
 @media (max-width: 799px) { /* Entre 1023px y 1279px (tablets) */
-    .grid-4 {
+    .grid-3, .grid-4 {
         grid-template-columns: 100%;
     }
         .grid-4 .full-width {

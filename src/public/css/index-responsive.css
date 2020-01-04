@@ -12,7 +12,15 @@
     #register.padding-top {
         padding-top: 50px;
     }
+    #intro.full-screen {
+        min-height: 100vh;
+        padding: 0;
+    }
     #intro a.night {
         width: 100%;
+    }
+    /* sign-in, sign-up */
+    #sign-in.container, #sign-up.container {
+        width: 80%;
     }
 }

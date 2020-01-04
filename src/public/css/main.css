@@ -15,11 +15,12 @@
     --blue: rgb(70, 59, 214);
         --blue-transparent: rgba(70, 59, 214, 0.8);
     --skyBlue: rgb(81, 162, 255);
-    --darkBlue: rgb(46, 32, 168);
-        --darkBlue-transparent: rgba(46, 32, 168, 0.8);
+    --darkBlue: rgb(50, 35, 190);
+        --darkBlue-transparent: rgba(50, 35, 190, 0.8);
     --darkerBlue: rgb(40, 17, 139);
     --violet: rgb(143, 74, 221);
         --violet-transparent: rgba(143, 74, 221, 0.8);
+    --darkViolet: rgb(68, 25, 187);
     --red: rgb(240, 25, 61);
     /* Header */
     --lightHeader: rgba(40, 140, 255, 0.8);
@@ -65,7 +66,7 @@ main.center {
 }
 .full-screen { /* Ocupa toda la pantalla */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 /* Base > Margin */
 .margin {
@@ -83,10 +84,28 @@ main.center {
     .margin-right {
         margin-right: var(--gap);
     }
+    .no-margin {
+        margin: 0;
+    }
 /* Base > Padding */
 .padding {
     padding: var(--gap);
 }
+    .padding-top {
+        padding-top: var(--gap);
+    }
+    .padding-bottom {
+        padding-bottom: var(--gap);
+    }
+    .padding-left {
+        padding-left: var(--gap);
+    }
+    .padding-right {
+        padding-right: var(--gap);
+    } 
+    .no-padding {
+        padding: 0;
+    }
 /* Base > Centerland */
 .center { /* horizontal center */
     margin: 0 auto;
@@ -94,6 +113,9 @@ main.center {
 /* Base > Sharpness */
 .rounded {
     border-radius: var(--gap);
+}
+.super-rounded {
+    border-radius: 20px;
 }
 /* Base > Boxes || Base > Widgets */
 .box.black {
@@ -120,6 +142,12 @@ main.center {
 }
 .block {
     display: block;
+}
+/* Base > Fixed positioning */
+.bottom {
+    position: fixed;
+    bottom: var(--gap);
+    left: var(--gap);
 }
 /* Base > Mouse cursors */
 .cursor-default {

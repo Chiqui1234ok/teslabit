@@ -1,1 +1,1 @@
-.blur{backdrop-filter:blur(5px);}.hoverShadowGreen-box{transition:box-shadow .5s ease-in-out}.hoverShadowGreen-box:hover{box-shadow:0 1px 10px var(--green)}
+.blur{backdrop-filter:blur(5px);}.shadow,.shadow.night{box-shadow:0 0 5px var(--black)}.shadow.light{box-shadow:0 0 5px var(--light)}.hoverShadowGreen-box{transition:box-shadow .5s ease-in-out}.hoverShadowGreen-box:hover{box-shadow:0 1px 10px var(--green)}

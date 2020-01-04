@@ -1,6 +1,13 @@
 .blur {
     backdrop-filter: blur(5px); /* en caso de que backdrop filter no esté soportado por el navegador, la opacidad debe pasar de 0.8 a 0.9 */
 }
+/* Shadow */
+.shadow, .shadow.night {
+    box-shadow: 0 0 5px var(--black);
+}
+.shadow.light {
+    box-shadow: 0 0 5px var(--light);
+}
 /* Hover events (text) */
 /**/
 /* Hover events (box) */

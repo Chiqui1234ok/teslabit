@@ -29,6 +29,7 @@ nav ul li a:hover {
 }
 nav ul .dropdown {
     display: none;
+    transition: all 0.3s ease-in-out;
 }
 nav ul li:hover .dropdown {
     display: block;
@@ -37,4 +38,5 @@ nav ul li:hover .dropdown {
 nav a {
     font-size: 24px;
     color: var(--black);
+    transition: all 0.3s ease-in-out;
 }

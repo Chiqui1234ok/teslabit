@@ -1,0 +1,6 @@
+@media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
+    .alert {
+        width: 25%;
+        left: 38%;
+    }
+}

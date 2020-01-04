@@ -1,1 +1,1 @@
-@media(max-width:1279px){#animation{display:none}#moon{top:30%;left:-210%}#particles-js{height:100%}#register.padding-top{padding-top:50px}#intro a.night{width:100%}}
+@media(max-width:1279px){#animation{display:none}#moon{top:30%;left:-210%}#particles-js{height:100%}#register.padding-top{padding-top:50px}#intro.full-screen{min-height:100vh;padding:0}#intro a.night{width:100%}#sign-in.container,#sign-up.container{width:80%}}

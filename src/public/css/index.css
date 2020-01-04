@@ -6,6 +6,7 @@
     background: linear-gradient(to top, var(--blue) 0%, var(--lightHeader) 75%, var(--lightHeader) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4134f7', endColorstr='#27d0e6', GradientType=1 );
     z-index: 11;
+    min-height: 60vh;
 }
 #intro *, #whatIsTeslabit *, #register *, #contact * {
     z-index: 21;
@@ -28,21 +29,24 @@
     display: block;
 }
 #moon {
-    width: 300%;
-    height: 200%;
+    width: 150%;
+    height: 180%;
     position: absolute;
-    top: 30%;
-    left: -160%;
-    background: linear-gradient(90deg, var(--violet) 0%, var(--skyBlue) 30%, var(--blue) 100%);
+    top: 10%;
+    left: -65%;
+    background: linear-gradient(0,var(--darkBlue)0,var(--blue)50%,var(--skyBlue)100%);
     box-shadow: 0 0 50px var(--darkBlue);
     border-radius: 85%;
     z-index: 19;
+    opacity: .8;
 }
 #particles-js {
     position: absolute;
+    top: 70px;
+    left: 0;
     z-index: 18;
     width: 100%;
-    height: 50%;
+    height: 80%;
 }
 @supports (-ms-ime-align:auto) { /* delete the moon from MS Edge */
     #moon {
@@ -54,74 +58,54 @@
 }
 /* right image */
 #animation {
-    margin-top: -200px;
+    margin-top: -100px;
     position: relative;
-}
-#animation .notebook, #animation .box {
-    width: 100%;
-    height: 100%;
-    display: block;
 }
 #animation .notebook {
     position: absolute;
-    top: 50px;
-    right: 30px;
-    z-index: 58;
+    top: 25px;
+    left: 25px;
+    width: 417px;
+    height: 441px;
+    background: url('../img/index/new/notebook.png') center;
+    background-size: contain;
 }
-#animation .btc-coin {
-    width: 48px;
-    height: 48px;
+#animation .graph {
     position: absolute;
-    bottom: -20px;
-    left: 0px;
-    animation: coin 1s ease-in-out;
-    z-index: 59;
+    top: 90px;
+    left: 120px;
+    width: 238px;
+    height: 196px;
+    background: url(../img/index/new/graph.png)center;
+    background-size: contain;
+    animation: horizontalMovement 3s ease-in-out infinite;
 }
-@keyframes coin {
+@keyframes horizontalMovement {
     0% {
-        bottom: 0;
-    }
-    100% {
-        bottom: -20px;
-    }
-}
-#animation .box {
-    position: absolute;
-    top: 70px;
-    left: 40%;
-    z-index: 59;
-    animation: boxAnim 3s ease-in-out infinite;
-    background: none;
-}
-#animation .box img {
-    opacity: 0.8;
-    transition: opacity 0.3s ease-in-out;
-}
-#animation .box img:hover {
-    opacity: 1;
-}
-@keyframes boxAnim {
-    0% {
-        top: 40px;
+        left: 120px;
     }
     50% {
-        top: 70px;
+        left: 80px;
     }
     100% {
-        top: 40px;
+        left: 120px;
     }
 }
 /* whatIsTeslabit */
-#whatIsTeslabit, #register {
+#whatIsTeslabit {
+    /* background: linear-gradient(180deg, var(--blue) 0%, var(--blue) 85%, var(--darkBlue) 100%); */
     background: var(--blue);
+}
+#whatIsTeslabit ul li {
+    color: var(--black);
+}
+#register {
+    /* background: linear-gradient(180deg, var(--darkBlue) 0%, var(--darkViolet) 100%); */
+    background: var(--blue);
+}
+#whatIsTeslabit, #register, #contact {
+    padding-bottom: 200px;
     z-index: 92;
-}
-#register.padding-top {
-    padding-top: 0;
-}
-#whatIsTeslabit.full-screen, #register.full-screen {
-    height: auto;
-    min-height: 35vh;
 }
 #whatIsTeslabit h2 span, #register h2 span {
     color: var(--light);
@@ -139,10 +123,17 @@
 }
 /* contact */
 #contact {
-    z-index: 14;
-    background: linear-gradient(180deg, var(--blue) 0%, var(--lightFooter) 100%);
+    /* background: linear-gradient(180deg, var(--darkViolet) 0%, var(--lightFooter) 60%); */
+    background: linear-gradient(180deg, var(--darkBlue) 0%, var(--lightFooter) 100%);
 }
 #contact * {
     z-index: 24;
     text-shadow: none;
+}
+/* sign-in, sign-up */
+#sign-in.container, #sign-up.container {
+    width: 50%;
+}
+#sign-in .grid-2, #sign-up .grid-2 {
+    grid-template-columns: 48px auto;
 }

@@ -6,7 +6,7 @@ header {
     background: var(--lightHeader);
     z-index: 99;
 }
-header #logo {
+header #logo, #sign-up #logo, #sign-in #logo {
     width: 48px;
     height: 48px;
     float: left;
@@ -22,11 +22,13 @@ header * {
 header .grid-2 {
     grid-template-columns: 1fr 1fr;
 }
-header h1 {
+header h1, #sign-up #logo, #sign-in #logo {
     font-size: 48px;
-    font-family: 'Julius Sans One', sans-serif;
-    font-variant: small-caps;
-    font-weight: 600;
+    float: left;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family: 'Julius Sans One', sans-serif; */
+    /* font-variant: small-caps; */
+    font-weight: 300;
     color: var(--darkBlue);
     margin: 0;
 }

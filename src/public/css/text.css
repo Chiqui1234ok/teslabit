@@ -18,10 +18,10 @@ p span {
     color: var(--darkBlue);
     font-family: inherit;
 }
-h1 .light-text, h2 .light-text, h3 .light-text, h4 .light-text, h5 .light-text, h6 .light-text, p .light-text {
+.light-text {
     color: var(--light);
 }
-h1 .dark-text, h2 .dark-text, h3 .dark-text, h4 .dark-text, h5 .dark-text, h6 .dark-text, p .dark-text {
+.black-text {
     color: var(--black);
 }
 /* text-align */
