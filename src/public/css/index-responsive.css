@@ -1,10 +1,18 @@
 @media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
+    #intro.full-screen, #contact.full-screen {
+        min-height: 100vh;
+    }
     #animation {
         display: none;
     }
     #moon {
         top: 30%;
-        left: -210%;
+        left: -80%;
+        height: 125%;
+    }
+    #moon-delimiter {
+        top: -30%;
+        height: 135%;
     }
     #particles-js {
         height: 100%;
@@ -22,5 +30,27 @@
     /* sign-in, sign-up */
     #sign-in.container, #sign-up.container {
         width: 80%;
+    }
+}
+@media (max-width: 799px) {
+    #sign-in.container, #sign-up.container {
+        width: 100%;
+        height: 100vh;
+    }
+    #sign-in.grid, #sign-up.grid {
+        display: grid;
+    }
+    #sign-in form, #sign-up form {
+        width: 100%;
+        height: 100%;
+    }
+    #sign-in .rounded, #sign-up .rounded {
+        border-radius: 0;
+    }
+    #sign-in form .rounded, #sign-up form .rounded {
+        border-radius: var(--gap);
+    }
+    #whatIsTeslabit #startBtn.container {
+        width: 85%;
     }
 }

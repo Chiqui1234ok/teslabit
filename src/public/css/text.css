@@ -21,7 +21,7 @@ p span {
 .light-text {
     color: var(--light);
 }
-.black-text {
+.night-text {
     color: var(--black);
 }
 /* text-align */

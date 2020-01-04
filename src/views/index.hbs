@@ -3,7 +3,7 @@
     <div id="moon"></div>
     <div class="grid-2 horizontal-center container margin-top fadeIn">
         <!-- Texto introductorio -->
-        <div class="grid padding margin">
+        <div class="grid">
             <div id="grid-child" class="full-width">
                 <h1 class="light-text">La economía del futuro, ¡hoy!</h1>
                 <p class="light-text margin-bottom">Compra Bitcoin. Fácil, rápido y sin límites</p>
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div id="animation" class="padding margin">        <!-- wrapper de la animación -->
+        <div id="animation" class="grid">        <!-- wrapper de la animación -->
             <div class="notebook">
                 <!-- imágen -->
             </div>
@@ -43,13 +43,14 @@
             <p>Verificación manual de todas las transacciones y atención inmediata</p>
         </li>
     </ul>
-    <a href="/user/sign-up#tutorial" class="light padding super-rounded center text-center" style="width: 25%;font-size: 22px;">¡Comienza!</a>
+    <a href="/user/sign-up#tutorial" id="startBtn" class="container light padding super-rounded center text-center">¡Comienza!</a>
 </div>
 <!-- -->
-<div id="contact" class="grid">
+<div id="contact" class="full-screen grid padding">
+    <div id="moon-delimiter"></div>
     <div class="grid-2 center container">
-        <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;"></div>
-        <h1 class="text-center light-text full-width">Contacto</h1>
+        <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;text-shadow: none;"></div>
+        <h1 class="text-center night-text full-width">Contacto</h1>
         <form action="/send-email" method="POST" class="margin-top block full-width">
             <div class="grid-2 gap">
                 <input type="text" placeholder="Asunto" name="subject" class="night block full-width padding rounded margin-bottom" />

@@ -1,3 +1,10 @@
+#main .grid-2 {
+    align-items: center;
+    grid-template-columns: 32px auto;
+}
+#main #selector.grid-2 {
+    grid-template-columns: 1fr 1fr;
+}
 .wizard {
     border-bottom: 1px solid var(--black);
 }

@@ -4,7 +4,7 @@
     }
     #profile-info.full-screen, #admin.full-screen, aside.full-screen {
         width: 100vw;
-        height: 100vh;
+        min-height: auto;
     }
     #admin.grid {
         display: grid;

@@ -4,5 +4,8 @@
         <input type="text" placeholder="Dirección de tu monedero" name="walletDir" id="walletDir" class="full-width light rounded" onchange="checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}');" />
         {{!-- <button type="button" class="full-width input-light rounded" onchange="checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}');">Validar wallet</button> --}}
     </div>
-    <button type="button" onclick="step_showFinish();" class="light margin-top rounded" id="nextBtn2" disabled>Siguiente</button>
+    <div id="selector" class="grid-2 gap container center">
+        <button type="button" class="light margin-top rounded">Atrás</button>
+        <button type="button" onclick="step_showFinish();" class="light margin-top rounded" id="nextBtn2" disabled>Siguiente</button>
+    </div>
 </div>              <!-- !indica tu wallet -->

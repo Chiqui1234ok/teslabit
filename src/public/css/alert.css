@@ -4,10 +4,10 @@
     .alert.violet p, .alert.red p {
         color: var(--light);
     }
-.alert.green {
+.alert.green, .success {
     background: var(--green-transparent);
 }
-    .alert.green p {
+    .alert.green p, .success p {
         color: var(--black);
     }
 .alert.red {
@@ -18,6 +18,9 @@
 .alert {
     width: 70%;
     left: 15%;
+    bottom: var(--super-gap);
+    position: fixed;
+    z-index: 99;
 }
 /* Basic styling */
 .alert p {
@@ -26,4 +29,11 @@
 .alert .close {
     cursor: pointer;
     margin-right: var(--gap);
+}
+/* Alert (not fixed) */
+#warn, .warn {
+    background: var(--violet-transparent);
+}
+#warn p, .warn p {
+    color: var(--light);
 }
