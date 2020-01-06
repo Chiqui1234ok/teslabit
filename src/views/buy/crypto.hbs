@@ -25,7 +25,7 @@ const successMsg = $('#success');
 const warnMsg = $('#warn');
 const min = {{cryptocurrency.min}}, last = {{data.last}}, usd = {{usdToArs}};
 cryptoQ.val(min);
-moneyQ.val(( (min*last)*usd ).toFixed(2));
+moneyQ.val(( ((min*last)*usd)*1.05 ).toFixed(2));
 
 // Inicialización de divs
 const main = $('#main');
@@ -43,7 +43,7 @@ cryptoQ.keyup(function () {
 });
 
 moneyQ.keyup(function () {
-    cryptoQ.val( ((moneyQ.val()/usd)/{{data.last}}).toFixed(5) );
+    cryptoQ.val( ((moneyQ.val()/usd)/{{data.last}}) );
     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
 });
 
@@ -70,7 +70,7 @@ $('#walletDir').change(function () { // HOTFIX
 } --}}
 
 function cryptoAmountHandler() {
-    if(cryptoQ.val() >= min || moneyQ.val() >= ((min*{{data.last}})*1.05).toFixed(5) ) {
+    if(cryptoQ.val() >= min || moneyQ.val() >= ((min*{{data.last}})*1.05).toFixed(2) ) {
         successMsg.css('display', 'block');
         warnMsg.css('display', 'none');
         $('#nextBtn1').prop('disabled', false);
@@ -79,6 +79,7 @@ function cryptoAmountHandler() {
         warnMsg.css('display', 'block');
         $('#nextBtn1').prop('disabled', true);
     }
+    console.log(cryptoQ.val(), moneyQ.val());
 }
 
 function step_showWallet() { // Hace cambios en los divs para mostrar el segundo paso

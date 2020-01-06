@@ -1,5 +1,5 @@
 <div id="intro" class="full-screen grid">
-    <div id="particles-js"></div>
+    {{!-- <div id="particles-js"></div> --}}
     <div id="moon"></div>
     <div class="grid-2 horizontal-center container margin-top fadeIn">
         <!-- Texto introductorio -->
@@ -7,8 +7,8 @@
             <div id="grid-child" class="full-width">
                 <h1 class="light-text">La economía del futuro, ¡hoy!</h1>
                 <p class="light-text margin-bottom">Compra Bitcoin. Fácil, rápido y sin límites</p>
-                <a href="/user/sign-up" class="night rounded text-center">
-                    <span class="margin"><!--<i class="fas user-plus margin-right"></i>-->Comenzar</span>
+                <a href="/user/sign-up" class="night padding rounded text-center">
+                    Comenzar
                 </a>
             </div>
         </div>
@@ -24,7 +24,7 @@
     </div>
 </div>
 <!-- -->
-<div id="whatIsTeslabit" class="grid super-gap cursor-default">
+<div id="whatIsTeslabit" class="grid full-screen super-gap cursor-default">
     <h1 class="full-width text-center light-text">¿Por qué Teslabit?</h1>
     <ul class="grid-3 super-gap center container no-padding no-margin minimal-list">
         <li class="text-center box padding shadow light">
@@ -44,10 +44,32 @@
         </li>
     </ul>
     <a href="/user/sign-up#tutorial" id="startBtn" class="container light padding super-rounded center text-center">¡Comienza!</a>
+    <div id="moon-delimiter"></div>
+</div>
+<!-- -->
+<div id="register" class="grid full-screen super-gap cursor-default">
+    <h1 class="full-width text-center light-text">Registrarse es muy simple</h1>
+    <ul class="grid-3 super-gap center container no-padding no-margin minimal-list">
+        <li class="text-center box padding shadow light">
+            <h2 class="fa users" style="color: var(--black);"></h2>
+            <h2>Tus credenciales</h2>
+            <p>Sólo necesitamos que registres tu email y contraseña preferida para unirte a nuestro exchange</p>
+        </li>
+        <li class="text-center box padding shadow light">
+            <h2 class="fa reddit-alien" style="color: var(--black);"></h2>
+            <h2>Confirmación</h2>
+            <p>¿Eres humano? ¡Nosotros también! Deberás indicarnos tu DNI para operar</p>
+        </li>
+        <li class="text-center box padding shadow light">
+            <h2 class="fa check" style="color: var(--black);"></h2>
+            <h2>Listo</h2>
+            <p>Ya estás listo para comprar todo el Bitcoin que necesites</p>
+        </li>
+    </ul>
+    <a href="/user/sign-up#tutorial" id="startBtn" class="container night padding rounded center text-center">Registrarse</a>
 </div>
 <!-- -->
 <div id="contact" class="full-screen grid padding">
-    <div id="moon-delimiter"></div>
     <div class="grid-2 center container">
         <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;text-shadow: none;"></div>
         <h1 class="text-center night-text full-width">Contacto</h1>
@@ -60,5 +82,6 @@
             <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
         </form>
     </div>
+    <div id="background"></div>
 </div>
 <script src="js/particles/particles.min.js"></script> 
