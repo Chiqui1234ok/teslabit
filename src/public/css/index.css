@@ -1,10 +1,12 @@
-#intro {
+#intro, .introBg {
     background: var(--blue);
     background: -moz-linear-gradient(top, var(--blue) 0%, var(--lightHeader) 75%, var(--lightHeader) 100%);
     background: -o-linear-gradient(top, var(--blue) 0%, var(--lightHeader) 75%, var(--lightHeader) 100%);
     background: -ms-linear-gradient(top, var(--blue) 0%,var(--lightHeader) 75%,  var(--lightHeader) 100%);
     background: linear-gradient(to top, var(--blue) 0%, var(--lightHeader) 75%, var(--lightHeader) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4134f7', endColorstr='#27d0e6', GradientType=1 );
+}
+#intro {
     z-index: 11;
     min-height: 60vh;
 }
@@ -100,7 +102,7 @@
 }
 #whatIsTeslabit #moon-delimiter {
     width: 100%;
-    height: 202%;
+    height: calc(200% + 25px);
     background: var(--darkBlue);
     position: absolute;
     top: 0;
@@ -112,7 +114,8 @@
     z-index: 23;
 } */
 #whatIsTeslabit.full-screen, #register.full-screen {
-    min-height: 40vh;
+    min-height: 30vh;
+    padding: 50px 0 50px 0;
 }
 #whatIsTeslabit h2 span, #register h2 span {
     color: var(--light);
@@ -125,18 +128,24 @@
 #whatIsTeslabit .box, #register .box {
     border: none;
     color: var(--light);
-    background: var(--blue-transparent);
+    background: var(--blue);
     box-shadow: 0 0 10px var(--black);
 }
 #whatIsTeslabit .box:hover, #register .box:hover {
-    background: var(--light-transparent);
+    background: var(--light);
     color: var(--black);
 }
 #whatIsTeslabit .box p, #register .box p, #whatIsTeslabit .box h2, #register .box h2, #whatIsTeslabit .box .fa, #register .box .fa {
     color: inherit;
 }
-#whatIsTeslabit #startBtn.container {
-    width: 25%;
+#whatIsTeslabit #startBtn.container, #register #startBtn.container {
+    width: calc(25% - 20px);
+}
+#whatIsTeslabit ul, #register ul {
+    padding: 0 0 20px 0;
+}
+#whatIsTeslabit ul li.padding, #register ul li.padding {
+    padding: 30px var(--super-gap) 30px var(--super-gap);
 }
 /* contact */
 #contact {
@@ -152,7 +161,7 @@
     top: 0;
     left: 0;
     background: var(--lightFooter);
-    z-index: 8;
+    z-index: -1;
 }
 #contact h2 {
     z-index: 20;

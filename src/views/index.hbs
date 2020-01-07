@@ -26,24 +26,24 @@
 <!-- -->
 <div id="whatIsTeslabit" class="grid full-screen super-gap cursor-default">
     <h1 class="full-width text-center light-text">¿Por qué Teslabit?</h1>
-    <ul class="grid-3 super-gap center container no-padding no-margin minimal-list">
+    <ul class="grid-3 super-gap center container padding no-margin minimal-list">
         <li class="text-center box padding shadow light">
-            <h2 class="fa thumbs-up" style="color: var(--black);"></h2>
+            <h2 class="fa thumbs-up"></h2>
             <h2>Fácil</h2>
             <p>Comisiones claras y precio final en pesos</p>
         </li>
         <li class="text-center box padding shadow light">
-            <h2 class="fa sync" style="color: var(--black);"></h2>
+            <h2 class="fa sync"></h2>
             <h2>Rápido</h2>
             <p>Tené tu plata en menos de 24 horas</p>
         </li>
         <li class="text-center box padding shadow light">
-            <h2 class="fa check" style="color: var(--black);"></h2>
+            <h2 class="fa check"></h2>
             <h2>Seguro</h2>
-            <p>Verificación manual de todas las transacciones y atención inmediata</p>
+            <p>Verificación de todas las transacciones y atención inmediata</p>
         </li>
     </ul>
-    <a href="/user/sign-up#tutorial" id="startBtn" class="container light padding super-rounded center text-center">¡Comienza!</a>
+    <a href="/user/sign-up#tutorial" id="startBtn" class="container night padding rounded center text-center">¡Comienza!</a>
     <div id="moon-delimiter"></div>
 </div>
 <!-- -->
@@ -51,17 +51,17 @@
     <h1 class="full-width text-center light-text">Registrarse es muy simple</h1>
     <ul class="grid-3 super-gap center container no-padding no-margin minimal-list">
         <li class="text-center box padding shadow light">
-            <h2 class="fa users" style="color: var(--black);"></h2>
+            <h2 class="fa users"></h2>
             <h2>Tus credenciales</h2>
             <p>Sólo necesitamos que registres tu email y contraseña preferida para unirte a nuestro exchange</p>
         </li>
         <li class="text-center box padding shadow light">
-            <h2 class="fa reddit-alien" style="color: var(--black);"></h2>
+            <h2 class="fa reddit-alien"></h2>
             <h2>Confirmación</h2>
             <p>¿Eres humano? ¡Nosotros también! Deberás indicarnos tu DNI para operar</p>
         </li>
         <li class="text-center box padding shadow light">
-            <h2 class="fa check" style="color: var(--black);"></h2>
+            <h2 class="fa check"></h2>
             <h2>Listo</h2>
             <p>Ya estás listo para comprar todo el Bitcoin que necesites</p>
         </li>
@@ -82,6 +82,8 @@
             <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
         </form>
     </div>
-    <div id="background"></div>
 </div>
 <script src="js/particles/particles.min.js"></script> 
+<script>
+    $('body').addClass('introBg');
+</script>

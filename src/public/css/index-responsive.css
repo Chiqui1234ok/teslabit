@@ -7,12 +7,8 @@
     }
     #moon {
         top: 30%;
-        left: -80%;
+        left: -120%;
         height: 125%;
-    }
-    #moon-delimiter {
-        top: -30%;
-        height: 135%;
     }
     #particles-js {
         height: 100%;
@@ -26,6 +22,9 @@
     }
     #intro a.night {
         width: 100%;
+    }
+    #whatIsTeslabit #startBtn.container, #register #startBtn.container {
+        width: calc(33% - 20px);
     }
     /* sign-in, sign-up */
     #sign-in.container, #sign-up.container {
@@ -50,7 +49,7 @@
     #sign-in form .rounded, #sign-up form .rounded {
         border-radius: var(--gap);
     }
-    #whatIsTeslabit #startBtn.container {
-        width: 85%;
+    #whatIsTeslabit #startBtn.container, #register #startBtn.container {
+        width: 95%;
     }
 }

@@ -30,3 +30,15 @@
 .wizard ul .last {
     border-radius: 0 var(--gap) var(--gap) 0;
 }
+/**/
+#checker {
+    padding: 15px 10px 10px 10px;
+    align-items: center;
+    border: 1px solid var(--violet);
+}
+#checker.margin {
+    margin: var(--super-gap) 0 var(--super-gap) 0;
+}
+#checker h3 {
+    line-height: 0;
+}

@@ -33,6 +33,7 @@
     --readWidthMobile: 95%;
     /* Margins */
     --gap: 10px; /* standard gap (margin, padding, etc) for the base template */
+    --super-gap: 20px;
     /* Text colors */
     --darkP: var(--black);
     /* Link colors */
@@ -65,7 +66,7 @@ main.center {
     height: 100vh;
 }
 .full-screen { /* Ocupa toda la pantalla */
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
 }
 /* Base > Margin */
