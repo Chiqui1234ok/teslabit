@@ -4,14 +4,14 @@ const helpers = {};
 
 helpers.validUser = async (req, res, next) => { // middleware
     const errors = [];
-    const { email, password1, password2 } = req.body;
+    const { email, password, password2 } = req.body;
     if(!email)
         errors.push({text: 'Completa el email.'});
-    if(!password1 || !password2)
+    if(!password || !password2)
         errors.push({text: 'Inserta la contraseña.'});
-    if(password1 != password2)
+    if(password != password2)
         errors.push({text: 'Las contraseñas no coinciden.'});
-    if(password1.lenght < 8)
+    if(password.lenght < 8)
         errors.push({text: 'La contraseña debe tener al menos 8 caracteres.'});
     if(errors.length > 0) {
         res.render('user/sign-up', {

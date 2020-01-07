@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uristring = process.env.MONGODB_URI_ENC || 'mongodb://localhost/teslabit';
+const uristring = process.env.MONGODB_URI_ENC || 'mongodb://localhost/teslabit-2';
 
 //mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/'+db, {
 console.log('Trying to connect to ' + uristring + '...');

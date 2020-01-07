@@ -15,9 +15,10 @@
             </div>
             
             <input type="text" placeholder="E-mail" name="email" id="email" class="full-width margin-bottom light rounded" required autofocus />
-            <input autocomplete="new-password" type="password" placeholder="Contraseña" name="password1" id="password1" class="full-width margin-bottom light rounded" required />
+            <input autocomplete="new-password" type="password" placeholder="Contraseña" name="password" id="password" class="full-width margin-bottom light rounded" required />
             <input autocomplete="new-password" type="password" placeholder="Confirmá tu contraseña" name="password2" id="password2" class="full-width margin-bottom light rounded" required />
             <!-- <p>(Google Captcha aquí)</p> implementación: https://www.npmjs.com/package/express-recaptcha#installation -->
+            <div id="alert" class="full-width padding text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></div>
             <input type="submit" value="Registrarme" id="submitBtn" class="full-width margin-bottom light rounded" />
             <p>¿Ya tienes una cuenta? <a href="/user/sign-in">Ingresar</a></p>
         </form>

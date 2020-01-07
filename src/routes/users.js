@@ -1,8 +1,7 @@
 const router = require('express').Router(),
 User = require('../models/users'),
-passport = require('passport'), // Autentica al usuario
-// const { isLogin } = require('../helpers/auth');
-{ validUser } = require('../helpers/validUser'), // Chequea que el usuario que se está por crear tenga <input> válidos
+passport = require('passport'),
+{ validUser } = require('../helpers/validUser'),
 { isUserExists } = require('../helpers/isUserExists'),
 Transaction = require('../models/transactionsBuy');
 
@@ -23,18 +22,18 @@ router.get('/user/sign-up', (req, res) => {
     res.render('user/sign-up');
 });
 
-router.post('/user/sign-up', validUser, async (req, res) => {
-    const { email, password1, password2 } = req.body;
+router.post('/user/sign-up', validUser, isUserExists, async (req, res) => { // agregué isUserExists, falta probar
+    const { email, password, password2 } = req.body;
     const errors = [];
     const userExists = await User.findOne({email: email});
     if(userExists) {
         req.flash('error', 'Este usuario ya existe.');
         res.redirect('/user/sign-up');
     } else {
-        const newUser = new User({email, password1});
-        newUser.password = await newUser.encryptPassword(password1);
+        const newUser = new User({email, password});
+        newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
-        req.flash('success_msg', '¡Estás registrado! Iniciá sesión.');
+        req.flash('success_msg', '¡Ya te registraste! Inicia sesión.');
         res.redirect('/user/sign-in');
     }
 });
