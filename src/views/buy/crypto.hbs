@@ -1,11 +1,12 @@
 <div class="full-width full-height grid">
     <div class="center container">
-        <div class="full-width wizard">   <!-- wizard menu -->
+        <div class="full-width wizard grid-2">   <!-- wizard menu -->
             <ul class="text-center">
                 <li id="step1" class="cursor-default padding first active"><div class="inline not-mobile">calcula </div>tu compra</li>
                 <li id="step2" class="cursor-default padding"><div class="inline not-mobile">indica tu </div>wallet</li>
                 <li id="step3" class="cursor-default padding last">finaliza<div class="inline not-mobile"> la compra</div></li>
             </ul>
+            <div id="usdSwitcher" class="padding text-center"><a onclick="usdSwitcher();" class="cursor-pointer padding rounded">Cotiza en AR$</a></div>
         </div>                                    <!-- wizard menu -->
         <form action="/buy/{{cryptocurrency.name}}" method="post" aria-autocomplete="none" autocomplete="off">
         {{> calculator}}
@@ -24,8 +25,9 @@ const moneyQ = $('#moneyQuantity'); // Input de calculator.hbs
 const successMsg = $('#success');
 const warnMsg = $('#warn');
 const min = {{cryptocurrency.min}}, last = {{data.last}}, usd = {{usdToArs}};
+let usdAux = {{usdToArs}};
 cryptoQ.val(min);
-moneyQ.val(( ((min*last)*usd)*1.05 ).toFixed(2));
+moneyQ.val(( ((min*last)*usdAux)*1.05 ).toFixed(2));
 
 // Inicialización de divs
 const main = $('#main');
@@ -38,12 +40,12 @@ setInterval(updateTime, 1000); --}}
 
 // Magia
 cryptoQ.keyup(function () {
-    moneyQ.val( (((cryptoQ.val()*{{data.last}})*usd)*1.05).toFixed(2) );// 1.05 (5%) es la comisión de Teslabit
+    moneyQ.val( (((cryptoQ.val()*{{data.last}})*usdAux)*1.05).toFixed(2) );// 1.05 (5%) es la comisión de Teslabit
     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
 });
 
 moneyQ.keyup(function () {
-    cryptoQ.val( ((moneyQ.val()/usd)/{{data.last}}) );
+    cryptoQ.val( ((moneyQ.val()/usdAux)/{{data.last}}) );
     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
 });
 
@@ -90,7 +92,8 @@ function step_showWallet() { // Hace cambios en los divs para mostrar el segundo
     $('#step1').removeClass('active');
     $('#step2').addClass('active');
     $('#step3').removeClass('active');
-
+    $('#usdSwitcher').css('display', 'none');
+    $('.wizard').removeClass('grid-2');
     {{!-- $('#amountToBuy').text(`AR$${buy.totalArs} (U$D${buy.totalUsd})`); --}}
 }
 
@@ -104,7 +107,10 @@ function step_showFinish() {
     $('#step3').addClass('active');
 
     // Recupera los datos de los campos para mostrarlos en la tabla
-    $('#t_amountToBuy').text('AR$ '+moneyQ.val());
+    if(usdAux == 1)
+        $('#t_amountToBuy').text('U$D '+moneyQ.val());
+    else
+        $('#t_amountToBuy').text('AR$ '+moneyQ.val());
     $('#t_walletDir').html(`<a href="https://www.blockchain.com/es/search?search=${$('#walletDir').val()}" title="Buscar este monedero en el blockchain">${$('#walletDir').val()}</a>`);
     $('#t_cryptocurrency').text('{{cryptocurrency.name}}');
 }
@@ -123,6 +129,23 @@ function checkWallet(wallet, cryptocurrency) {
     let valid = WAValidator.validate(wallet, cryptocurrency);
     console.log('The wallet is '+valid);
     return valid;
+}
+
+function usdSwitcher() {
+    if( usdAux == {{usdToArs}} ) {
+        usdAux = 1;
+        $('#currency').text('U$D');
+        $('#usdSwitcher').html('<a onclick="usdSwitcher();" class="cursor-pointer padding rounded">Cotiza en U$D</a>');
+        cryptoQ.val(min);
+        moneyQ.val(( ((min*last)*usdAux)*1.05 ).toFixed(2));
+    }
+    else  {
+        usdAux = {{usdToArs}};
+        $('#currency').text('AR$');
+        $('#usdSwitcher').html('<a onclick="usdSwitcher();" class="cursor-pointer padding rounded">Cotiza en AR$</a>');
+        cryptoQ.val(min);
+        moneyQ.val(( ((min*last)*usdAux)*1.05 ).toFixed(2));
+    }
 }
 
 // Comienzo del programa

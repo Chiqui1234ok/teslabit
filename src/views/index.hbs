@@ -1,5 +1,5 @@
 <div id="intro" class="full-screen grid">
-    {{!-- <div id="particles-js"></div> --}}
+    <div id="particles-js"></div>
     <div id="moon"></div>
     <div class="grid-2 horizontal-center container margin-top fadeIn">
         <!-- Texto introductorio -->
@@ -40,7 +40,7 @@
         <li class="text-center box padding shadow light">
             <h2 class="fa check"></h2>
             <h2>Seguro</h2>
-            <p>Verificación de todas las transacciones y atención inmediata</p>
+            <p>Verificación de todas las transacciones<br />y atención inmediata</p>
         </li>
     </ul>
     <a href="/user/sign-up#tutorial" id="startBtn" class="container night padding rounded center text-center">¡Comienza!</a>
@@ -53,17 +53,17 @@
         <li class="text-center box padding shadow light">
             <h2 class="fa users"></h2>
             <h2>Tus credenciales</h2>
-            <p>Sólo necesitamos que registres tu email y contraseña preferida para unirte a nuestro exchange</p>
+            <p>Sólo necesitamos que registres tu email y contraseña preferida<br />para unirte a nuestro exchange</p>
         </li>
         <li class="text-center box padding shadow light">
             <h2 class="fa reddit-alien"></h2>
             <h2>Confirmación</h2>
-            <p>¿Eres humano? ¡Nosotros también! Deberás indicarnos tu DNI para operar</p>
+            <p>¿Eres humano? ¡Nosotros también!<br />Deberás indicarnos tu DNI para operar</p>
         </li>
         <li class="text-center box padding shadow light">
             <h2 class="fa check"></h2>
             <h2>Listo</h2>
-            <p>Ya estás listo para comprar todo el Bitcoin que necesites</p>
+            <p>Ya estás listo para comprar<br />todo el Bitcoin que necesites</p>
         </li>
     </ul>
     <a href="/user/sign-up#tutorial" id="startBtn" class="container night padding rounded center text-center">Registrarse</a>
@@ -73,13 +73,16 @@
     <div class="grid-2 center container">
         <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;text-shadow: none;"></div>
         <h1 class="text-center night-text full-width">Contacto</h1>
-        <form action="/send-email" method="POST" class="margin-top block full-width">
-            <div class="grid-2 gap">
+        <form action="/send-email" method="POST" class="margin-top block full-width grid-2 super-gap">
+            <div>
                 <input type="text" placeholder="Asunto" name="subject" class="night block full-width padding rounded margin-bottom" />
                 <input type="text" placeholder="Tu e-mail" name="email" class="night block full-width padding rounded margin-bottom" required />
             </div>
-            <textarea class="night block full-width padding rounded margin-bottom" style="min-height: 150px" placeholder="Tu mensaje" name="message" required></textarea>
-            <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
+            <div class="grid gap">
+                <textarea class="night block full-width padding rounded margin-bottom" style="min-height: 200px" placeholder="Tu mensaje" name="message" required></textarea>
+                <div class="container center"><img src="https://developers.google.com/recaptcha/images/newCaptchaAnchor.gif" alt="" width="100%" /></div>
+                <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
+            </div>
         </form>
     </div>
 </div>

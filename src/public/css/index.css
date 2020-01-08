@@ -42,13 +42,14 @@
     background: linear-gradient(90deg,var(--violet)0,var(--skyBlue)30%,var(--blue)100%);
     box-shadow: 0 0 50px var(--darkBlue);
     border-radius: 85%;
+    opacity: 0.9;
     z-index: 9;
 }
 #particles-js {
     position: absolute;
     top: 70px;
     left: 0;
-    z-index: 18;
+    z-index: 8;
     width: 100%;
     height: 80%;
 }

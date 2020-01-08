@@ -50,8 +50,8 @@ helpers.isUserExists = async (req, res, next) => { // middleware
             req.flash('Hemos creado un usuario nuevo con tu transacción.');
             res.redirect('/user/sign-in');
         }
-        req.flash('Este usuario no existe, registrate.');
-        res.redirect('/user/sign-up');
+        req.flash('¡Usuario creado!');
+        res.redirect('/user/sign-in');
     }
 }    
 module.exports = helpers;

@@ -11,7 +11,14 @@ router.get('/buy/bitcoin', async (req, res) => {
         name: 'bitcoin',
         min: 0.01,
     };
-    const usdToArs = 76;
+    //
+    let usdToArs = 76;
+    await fetch('https://argentina-hoy.herokuapp.com/devs/dolar-hoy', {method: 'Get'})
+    .then(res => res.json())
+    .then((data) => {
+        usdToArs = data.sell.blue;
+    });
+    //
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {

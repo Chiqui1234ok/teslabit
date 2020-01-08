@@ -23,12 +23,13 @@ router.get('/user/sign-up', (req, res) => {
 });
 
 router.post('/user/sign-up', validUser, isUserExists, async (req, res) => { // agregué isUserExists, falta probar
+    // OJO isUserExists registra al usuario. Tendria que revisar como organizo ese helper en relación a esta ruta
     const { email, password, password2 } = req.body;
     const errors = [];
     const userExists = await User.findOne({email: email});
     if(userExists) {
         req.flash('error', 'Este usuario ya existe.');
-        res.redirect('/user/sign-up');
+        res.redirect('/user/sign-in');
     } else {
         const newUser = new User({email, password});
         newUser.password = await newUser.encryptPassword(password);
