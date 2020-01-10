@@ -2,12 +2,11 @@
     <h3>Estás a punto de comprar <strong id="amountToBuy"></strong></h3>
     <div class="grid-2 super-gap">
         <div class="grid-2 gap">
-            <input type="text" placeholder="Dirección de tu monedero" name="walletDir" id="walletDir" class="full-width light rounded" onchange="checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}');" />
-            {{!-- <button type="button" class="full-width input-light rounded" onchange="checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}');">Validar wallet</button> --}}
+            <input type="text" placeholder="Dirección de tu monedero" name="walletDir" id="walletDir" class="full-width light rounded" />
         </div>
         <div id="selector" class="grid-2 gap">
-            <button type="button" class="light rounded">Atrás</button>
-            <button type="button" onclick="step_showFinish();" class="light rounded" id="nextBtn2" disabled>Siguiente</button>
+            <button type="button" class="light rounded" id="backBtn2">Atrás</button>
+            <button type="button" class="light rounded" id="nextBtn2" disabled>Siguiente</button>
         </div>
     </div>
 </div>              <!-- !indica tu wallet -->

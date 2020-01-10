@@ -18,7 +18,7 @@ router.get('/buy/bitcoin', async (req, res) => {
     .then((data) => {
         usdToArs = data.sell.blue;
     });
-    //
+    
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
@@ -65,7 +65,7 @@ router.post('/buy/bitcoin', validUser, /*sendEmail,*/ async(req, res) => {
         }
     } else {
         if(!password2) {
-            req.flash('error', 'Este usuario no existe.');
+            req.flash('error', 'Este email no está registrado. Debes confirmar tu contraseña para registrar tu usuario y operación');
             res.redirect('/buy/bitcoin');
         } else {
             const newUser = new User({email, password});
@@ -88,22 +88,6 @@ router.post('/buy/bitcoin', validUser, /*sendEmail,*/ async(req, res) => {
             res.redirect('/user/sign-in');
         }
     }
-    //
-    //
-    // const newTransaction = new Transaction({
-    //     email: email,
-    //     cryptocurrency: {
-    //         name:       'bitcoin',
-    //         price:      lastPrice
-    //     },
-    //     payTo: {
-    //         walletDir:  walletDir,        
-    //         amount:     amount       
-    //     }
-    // });
-    // await newTransaction.save();
-    // res.render('buy/finish', {amount, lastPrice, walletDir, email});
 });
-
 
 module.exports = router;

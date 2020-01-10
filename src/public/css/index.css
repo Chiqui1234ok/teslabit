@@ -101,7 +101,7 @@
     position: relative;
     z-index: 20;
 }
-#whatIsTeslabit #moon-delimiter {
+#moon-delimiter {
     width: 100%;
     height: calc(200% + 25px);
     background: var(--darkBlue);

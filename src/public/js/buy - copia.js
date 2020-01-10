@@ -2,19 +2,19 @@ $(document).ready(function() {
     // Inicialización de valores
     let data = {
         commission: 1.05, // Comisión de Teslabit del 5%
-        minAmount: $('#cryptocurrencyMin').val(), // Mínimo que el usuario puede comprar
+        minAmount: $('#cryptocurrencyMin'), // Mínimo que el usuario puede comprar
         cryptocurrencyPrice: $('#cryptocurrencyPrice'), // Precio de la criptomoneda al momento de cargar la página
         cryptocurrencyName: $('#cryptocurrencyName'), // Nombre de la criptomoneda
         usd: $('#usdToArs'), // Dólar blue venta hoy
         usdAux: $('#usdToArs').val() // <igual a var 'usd'> -> si le cotización se da en AR$, 1 -> si la cotización es en U$D
     };
-    let inversion = (data.minAmount * data.cryptocurrencyPrice.val()*data.usd.val())*data.commission;
+    let inversion = (data.minAmount.val() * data.cryptocurrencyPrice.val()*data.usd.val())*data.commission;
     let userFrontEnd = {
         cryptoQuantity: $('#cryptocurrencyQuantity'), // div de criptomonedas a comprar
         moneyQuantity: $('#moneyQuantity') // div de dinero (equivalente a la cant. de crypto)
     };
     // Inicialización del mínimo
-    userFrontEnd.cryptoQuantity.val(data.minAmount);
+    userFrontEnd.cryptoQuantity.val(data.minAmount.val());
     userFrontEnd.moneyQuantity.val(inversion.toFixed(2));
 
         // console.log
@@ -29,12 +29,10 @@ $(document).ready(function() {
     // Control de aparición de divs
     let step = 0;
     function wizardController() {
-        let stepCode = '#step'+(step+1);
-        console.log(stepCode);
         for(let i = 0;i < wizard.length;i++)
             wizard[i].css('display', 'none');
         wizard[step].css('display', 'grid');
-        $(stepCode).addClass('active');
+        $('#step'+step+1).addClass('active');
     }
 
     function checkWallet(wallet, cryptocurrency) {
@@ -44,8 +42,8 @@ $(document).ready(function() {
     }
 
     function priceChecker() {
-        let cryptoAmount = ( userFrontEnd.cryptoQuantity.val() >= data.minAmount );
-        // let moneyAmount = ( userFrontEnd.moneyQuantity.val() >= (((data.minAmount*data.cryptocurrencyPrice.val())*data.usd.val())*1.05).toFixed(3) );
+        let cryptoAmount = ( userFrontEnd.cryptoQuantity.val() >= data.minAmount.val() );
+        // let moneyAmount = ( userFrontEnd.moneyQuantity.val() >= (((data.minAmount.val()*data.cryptocurrencyPrice.val())*data.usd.val())*1.05).toFixed(3) );
         let moneyAmount = true;
         if( cryptoAmount && moneyAmount ) {
             $('#nextBtn1').prop('disabled', false);
@@ -71,7 +69,7 @@ $(document).ready(function() {
         return (((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
                 *data.usd.val())
                 *1.05)
-                .toFixed(2);
+                .toFixed(3);
     }
 
     // Eventos :: Convertidor cripto
@@ -96,10 +94,6 @@ $(document).ready(function() {
     });
     $('#nextBtn2').click(function() {
         step++;
-        // Cargo el paso 3 (resúmen de la operación)
-        $('#t_amountToBuy').text( userFrontEnd.cryptoQuantity.val() );
-        $('#t_money').text( userFrontEnd.moneyQuantity.val() );
-        $('#t_walletDir').text( $('#walletDir').val() );
         console.info('Step Value:', step);
     });
     $('#usdSwitcher').click(function() {
@@ -113,15 +107,7 @@ $(document).ready(function() {
 
         userFrontEnd.moneyQuantity.val( moneyQuantity_calc() ); // Recalculo la plata luego del cambio de divisa
         userFrontEnd.cryptoQuantity.val( cryptoQuantity_calc() );
-        $('#amountToBuy').val( cryptoQuantity_calc() );
-        $('#money').val( moneyQuantity_calc() );
         console.log(data.usd.val());
-    });
-    $('#restarter').click(function() {
-        step--;
-    });
-    $('#backBtn2').click(function() {
-        step--;
     });
 
     // Eventos :: Chequeo de wallet

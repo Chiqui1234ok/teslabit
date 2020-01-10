@@ -15,7 +15,7 @@
                 {{#each allTransactions}}
                     <div id="transaction-admin" class="padding rounded"><p>{{email}} (<i>{{payTo.walletDir}}</i>) solicita {{payTo.amount}} {{cryptocurrency.name}}.</p>
                         <div class="grid-2">
-                            <p style="line-height: 10px;">Bitcoin cotizó a U$D{{cryptocurrency.price}}.</p>
+                            <p style="line-height: 10px;">{{cryptocurrency.name}} cotizó a U$D{{cryptocurrency.price}}.</p>
                             <a href="/admin/acceptPayment/{{id}}" class="text-center light rounded padding">Autorizar pago</a>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
             </div>
         {{else}}
             {{#unless dni1 }}
-                <p class="success padding">Para comenzar a operar en Tesla<span>bit</span>, debes enviar un email a cliente@teslabit.com con el frente y dorso de tu DNI. Envíanos la información si aún no lo has hecho.</p>
+                <p class="success padding">Para comenzar a operar en Tesla<span>bit</span>, debes enviar un email a administracion@teslabit.com con el frente y dorso de tu DNI. Envíanos la información si aún no lo has hecho.</p>
             {{/unless}}
         {{/if}}
         <aside class="grid full-screen">
@@ -36,7 +36,7 @@
                     <h3>Compraste {{cryptocurrency.name}}</h3>
                     <p>{{date}}</p>
                     <div class="grid-2">
-                        <p>{{payTo.amount}} {{cryptocurrency.name}} a U$D {{cryptocurrency.price}}</p>
+                        <p>{{payTo.amount}} (U$D {{payTo.amount}} * {{cryptocurrency.price}}) {{cryptocurrency.name}} a U$D {{cryptocurrency.price}}</p>
                         <p>Recibe: {{payTo.walletDir}}</p>
                         {{#if finished}}
                             <p class="full-width-item-2 success padding rounded">Tu operación fue aprobada</p>
@@ -51,8 +51,6 @@
             {{/unless}}
         </aside>
     </div>
-    
-    <p><i>Este panel de usuario está en desarrollo</i></p>
 </main>
 
 <div id="admin-helper" class="grid">

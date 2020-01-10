@@ -10,22 +10,17 @@
         <p class="inline" style="margin-top: 35px;"><img src="img/crypto/btc.png" width="32" height="32" /></p>
         <div>
             <p>Recibes en BTC</p>
-            <input type="text" class="light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" value="{{cryptocurrency.min}}" class="text-right">
+            <input type="text" class="light rounded" id="cryptocurrencyQuantity" name="amount" autocomplete="off" placeholder="BTC" class="text-right">
         </div>
     </div>
-    <p id="success" class="text-legend text-center padding">¡Bien! Esto cumple con el monto mínimo de 0.01 BTC</p>
-    <p id="warn" class="text-legend padding">El monto mínimo es de 0.01 BTC, ¡compra un poco más!</p>
+    <p id="success" class="text-legend text-center padding" style="display: none;">¡Bien! Esto cumple con el monto mínimo de 0.01 BTC</p>
+    <p id="warn" class="text-legend padding rounded" style="color: var(--light);display: none;">El monto mínimo es de 0.01 BTC, ¡compra un poco más!</p>
     <p class="text-center"><a href="/help/commission">Precios finales con comisiones incluídas</a>.</p>
     <div id="selector" class="grid-2 gap container center">
         <button type="button" class="light margin-top rounded" disabled="true">Atrás</button>
-        <button type="button" class="light margin-top rounded cursor-pointer" id="nextBtn1" onclick="step_showWallet();" disabled="true">Siguiente</button>
+        <button type="button" class="light margin-top rounded cursor-pointer" id="nextBtn1">Siguiente</button>
     </div>
     
 </div>                                      <!-- !principal -->
 <!-- Información para sendEmail -->
 <input type="hidden" value="Tu compra de {{cryptocurrency.name}} en Teslabit" name="subject" />
-{{!--   
-    {{#if data }}
-        <div class="text-center success margin-top cursor-default">Precio actual (<i id="time">0s</i>): U$D {{data.last}}</div>
-    {{/if}} 
---}}

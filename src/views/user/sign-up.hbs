@@ -6,12 +6,14 @@
     </div>
 </div> --}}
 
-<div class="full-width full-height hero1 grid">
+<div id="intro" class="full-screen grid" style="min-height: 100vh;">
+    <div id="particles-js"></div>
+    <div id="moon"></div>
     <div id="sign-up" class="container center grid">
         <form action="/user/sign-up" method="POST" class="center box blur rounded padding"> <!-- Formulario de cuenta -->
             <div id="title" class="grid-2 gap padding margin-bottom">
                 <div id="logo"></div>
-                <h1 class="text-center" style="line-height: 10px;text-align: left;">Registrate</h1>
+                <h1 class="text-center" style="line-height: 0;text-align: left;color: var(--black);">Registrate</h1>
             </div>
             
             <input type="text" placeholder="E-mail" name="email" id="email" class="full-width margin-bottom light rounded" required autofocus />
@@ -20,8 +22,53 @@
             <!-- <p>(Google Captcha aquí)</p> implementación: https://www.npmjs.com/package/express-recaptcha#installation -->
             <div id="alert" class="full-width padding text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></div>
             <input type="submit" value="Registrarme" id="submitBtn" class="full-width margin-bottom light rounded" />
-            <p>¿Ya tienes una cuenta? <a href="/user/sign-in">Ingresar</a></p>
+            <p style="color: var(--black);font-size: 18px;">¿Ya tienes una cuenta? <a href="/user/sign-in">Ingresar</a></p>
         </form>
     </div> 
 </div>
+<!-- -->
+<div id="register" class="grid full-screen super-gap cursor-default" style="min-height: 50vh;">
+    <div id="moon-delimiter" style="min-height: calc(100vh + 25px);"></div>
+    <h1 class="full-width text-center light-text">Registrarse es muy simple</h1>
+    <ul class="grid-3 super-gap center container no-padding no-margin minimal-list">
+        <li class="text-center box padding shadow light">
+            <h2 class="fa users"></h2>
+            <h2>Tus credenciales</h2>
+            <p>Sólo necesitamos que registres tu email y contraseña preferida<br />para unirte a nuestro exchange</p>
+        </li>
+        <li class="text-center box padding shadow light">
+            <h2 class="fa reddit-alien"></h2>
+            <h2>Confirmación</h2>
+            <p>¿Eres humano? ¡Nosotros también!<br />Deberás indicarnos tu DNI para operar</p>
+        </li>
+        <li class="text-center box padding shadow light">
+            <h2 class="fa check"></h2>
+            <h2>Listo</h2>
+            <p>Ya estás listo para comprar<br />todo el Bitcoin que necesites</p>
+        </li>
+    </ul>
+    <a href="/user/sign-up" id="startBtn" class="container night padding rounded center text-center">Registrarse</a>
+</div>
+<!-- -->
+<div id="contact" class="full-screen grid padding">
+    <div class="grid-2 center container">
+        <div id="contacto" class="block full-width" style="height: 50px;margin-top: -50px;text-shadow: none;"></div>
+        <h1 class="text-center night-text full-width">Contacto</h1>
+        <form action="/send-email" method="POST" class="margin-top block full-width grid-2 super-gap">
+            <div>
+                <input type="text" placeholder="Asunto" name="subject" class="night block full-width padding rounded margin-bottom" />
+                <input type="text" placeholder="Tu e-mail" name="email" class="night block full-width padding rounded margin-bottom" required />
+            </div>
+            <div class="grid gap">
+                <textarea class="night block full-width padding rounded margin-bottom" style="min-height: 200px" placeholder="Tu mensaje" name="message" required></textarea>
+                <div class="container center"><img src="https://developers.google.com/recaptcha/images/newCaptchaAnchor.gif" alt="" width="100%" /></div>
+                <input type="submit" value="Enviar email" class="block full-width padding night rounded" />
+            </div>
+        </form>
+    </div>
+</div>
 <script src="js/sign-up-control.js"></script>
+<script src="js/particles/particles.min.js"></script> 
+<script>
+    $('body').addClass('introBg');
+</script>

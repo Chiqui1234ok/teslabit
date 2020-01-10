@@ -1,0 +1,10 @@
+.widget {
+    border: 1px solid var(--linkColor1);
+}
+.widget-custom {
+    transition: border var(--animationDuration1) ease-in-out;
+    border: 1px solid transparent;
+}
+.widget-custom:hover {
+    border: 1px solid var(--linkColor1);
+}

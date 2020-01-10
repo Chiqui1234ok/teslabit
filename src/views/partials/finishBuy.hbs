@@ -1,23 +1,24 @@
-<div class="grid-2" id="finish" style="display: none;">
+<div id="finish" style="display: none;">
     <div>
         <h2>Ya casi está...</h2>
         <p>Revisa las opciones, ¿quieres continuar?</p>
     </div>
     <table class="full-width">
         <thead>
+            <th>Cantidad de {{cryptocurrency.name}}</th>
             <th>Monto a pagar</th>
-            <th>A dónde enviaremos los {{cryptocurrency.name}}</th>
-            <th>Criptomoneda a comprar</th>
+            <th>Monedero</th>
         </thead>
         <tr class="text-center">
             <th class="padding" id="t_amountToBuy"></th>
+            <th class="padding" id="t_money"></th>
             <th class="padding" id="t_walletDir"></th>
-            <th class="padding" id="t_cryptocurrency"></th>
+            {{!-- <th class="padding" id="t_cryptocurrency"></th> --}}
         </tr>
     </table>
-    <div id="checker" class="grid-2 gap margin padding">
+    <div id="checker" class="grid-2 gap margin padding full-width">
         <h3>¿Todo correcto?</h3>
-        <button type="button" onclick="restart();" class="cursor-pointer light rounded margin-bottom">¡Espera! Quiero cambiar algo</button>
+        <button type="button" id="restarter" class="cursor-pointer light rounded margin-bottom">¡Espera! Quiero volver atrás</button>
     </div>
     
     {{!-- <div id="selector" class="grid-2 gap container center">
