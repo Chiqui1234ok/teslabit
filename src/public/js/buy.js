@@ -27,13 +27,14 @@ $(document).ready(function() {
         $('#finish')
     ];
     // Control de aparición de divs
-    let step = 0;
+    let step = 0, record = 0;
     function wizardController() {
         let stepCode = '#step'+(step+1);
         console.log(stepCode);
         for(let i = 0;i < wizard.length;i++)
             wizard[i].css('display', 'none');
         wizard[step].css('display', 'grid');
+        
         $(stepCode).addClass('active');
     }
 
@@ -92,10 +93,12 @@ $(document).ready(function() {
     // Eventos :: Botones
     $('#nextBtn1').click(function() {
         step++;
+        record++;
         console.info('Step Value:', step);
     });
     $('#nextBtn2').click(function() {
         step++;
+        record++;
         // Cargo el paso 3 (resúmen de la operación)
         $('#t_amountToBuy').text( userFrontEnd.cryptoQuantity.val() );
         $('#t_money').text( userFrontEnd.moneyQuantity.val() );
@@ -126,97 +129,12 @@ $(document).ready(function() {
 
     // Eventos :: Chequeo de wallet
     $('#walletDir').change(function() {
-        if( checkWallet($('#walletDir').val(), data.cryptocurrencyName.val()) )
+        if( checkWallet($('#walletDir').val(), data.cryptocurrencyName.val()) ) // esto lo copiaré a un function update
             $('#nextBtn2').prop('disabled', false);
     });
     // function update()
     setInterval(function update(){
-        console.info('Calling "wizardController()"');
+        //console.info('Calling "wizardController()"');
         wizardController();
     }, 1000); // Update()
 });
-
-
-// Magia
-// cryptoQ.keyup(function () {
-//     moneyQ.val( (((cryptoQ.val()*{{data.last}})*usdAux)*1.05).toFixed(2) );// 1.05 (5%) es la comisión de Teslabit
-//     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
-// });
-
-// moneyQ.keyup(function () {
-//     cryptoQ.val( ((moneyQ.val()/usdAux)/{{data.last}}) );
-//     cryptoAmountHandler(); // Chequea que el monto introducido por el usuario cumpla con el mínimo de venta
-// });
-
-// $('#walletDir').keyup(function () {
-//     if( checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}') )
-//         $('#nextBtn2').prop('disabled', false);
-//     else
-//         $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
-// });
-
-// $('#walletDir').change(function () { // HOTFIX
-//     if( checkWallet($('#walletDir').val(), '{{cryptocurrency.name}}') )
-//         $('#nextBtn2').prop('disabled', false);
-//     else
-//         $('#nextBtn2').prop('disabled', true); // Esto evita que si el usuario cambia algo luego de darle al botón "Validar wallet", pueda enviar una dirección errónea
-// });
-
-// function cryptoAmountHandler() {
-//     if(cryptoQ.val() >= min || moneyQ.val() >= ((min*{{data.last}})*1.05).toFixed(2) ) {
-//         successMsg.css('display', 'block');
-//         warnMsg.css('display', 'none');
-//         $('#nextBtn1').prop('disabled', false);
-//     } else {
-//         successMsg.css('display', 'none');
-//         warnMsg.css('display', 'block');
-//         $('#nextBtn1').prop('disabled', true);
-//     }
-//     console.log(cryptoQ.val(), moneyQ.val());
-// }
-
-// function step_showWallet() { // Hace cambios en los divs para mostrar el segundo paso
-//     main.css('display', 'none');
-//     wallet.css('display', 'grid');
-//     finish.css('display', 'none');
-
-//     $('#step1').removeClass('active');
-//     $('#step2').addClass('active');
-//     $('#step3').removeClass('active');
-//     $('#usdSwitcher').css('display', 'none');
-//     $('.wizard').removeClass('grid-2');
-//     {{!-- $('#amountToBuy').text(`AR$${buy.totalArs} (U$D${buy.totalUsd})`); --}}
-// }
-
-// function step_showFinish() {
-//     main.css('display', 'none');
-//     wallet.css('display', 'none');
-//     finish.css('display', 'block');
-    
-//     $('#step1').removeClass('active');
-//     $('#step2').removeClass('active');
-//     $('#step3').addClass('active');
-
-//     // Recupera los datos de los campos para mostrarlos en la tabla
-//     if(usdAux == 1)
-//         $('#t_amountToBuy').text('U$D '+moneyQ.val());
-//     else
-//         $('#t_amountToBuy').text('AR$ '+moneyQ.val());
-//     $('#t_walletDir').html(`<a href="https://www.blockchain.com/es/search?search=${$('#walletDir').val()}" title="Buscar este monedero en el blockchain">${$('#walletDir').val()}</a>`);
-//     $('#t_cryptocurrency').text('{{cryptocurrency.name}}');
-// }
-
-// function restart() {
-//     main.css('display', 'grid');
-//     wallet.css('display', 'none');
-//     finish.css('display', 'none');
-
-//     $('#step1').addClass('active');
-//     $('#step2').removeClass('active');
-//     $('#step3').removeClass('active');
-// }
-
-
-
-// // Comienzo del programa
-// cryptoAmountHandler();

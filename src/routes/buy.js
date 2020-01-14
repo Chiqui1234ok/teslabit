@@ -1,6 +1,7 @@
 const router = require('express').Router(),
 { isUserExists } = require('../helpers/isUserExists'),
 { validUser } = require('../helpers/validUser'),
+{ recaptchaValidation } = require('../helpers/recaptchaValidation'),
 fetch = require('node-fetch'),
 User = require('../models/users'),
 Transaction = require('../models/transactionsBuy'),
@@ -29,14 +30,14 @@ router.get('/buy/bitcoin', async (req, res) => {
     });
 });
 
-router.post('/buy/bitcoin', validUser, /*sendEmail,*/ async(req, res) => {
+router.post('/buy/bitcoin', validUser, recaptchaValidation,/*sendEmail,*/ async(req, res) => {
     const {amount, walletDir, email, password, password2} = req.body;
     // Refrescar el precio del BTC
     let lastPrice = 0;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        lastPrice = (data.last*1.05).toFixed(2);
+        lastPrice = (data.last*1.05).toFixed(5);
     });
     //
     const user = await User.findOne({email: email});

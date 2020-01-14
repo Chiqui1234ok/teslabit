@@ -3,6 +3,7 @@ User = require('../models/users'),
 passport = require('passport'),
 { validUser } = require('../helpers/validUser'),
 { isUserExists } = require('../helpers/isUserExists'),
+{ recaptchaValidation } = require('../helpers/recaptchaValidation'),
 Transaction = require('../models/transactionsBuy');
 
 
@@ -10,7 +11,7 @@ router.get('/user/sign-in', (req, res) => {
         res.render('user/sign-in');
 });
 
-router.post('/user/sign-in', passport.authenticate('local', {
+router.post('/user/sign-in', recaptchaValidation, passport.authenticate('local', {
     successRedirect: '/user/profile',
     failureRedirect: '/user/sign-in',
     failureFlash: true
@@ -22,7 +23,7 @@ router.get('/user/sign-up', (req, res) => {
     res.render('user/sign-up');
 });
 
-router.post('/user/sign-up', validUser, isUserExists, async (req, res) => { // agregué isUserExists, falta probar
+router.post('/user/sign-up', validUser, isUserExists, recaptchaValidation, async (req, res) => { // agregué isUserExists, falta probar
     // OJO isUserExists registra al usuario. Tendria que revisar como organizo ese helper en relación a esta ruta
     const { email, password, password2 } = req.body;
     const errors = [];
@@ -40,13 +41,12 @@ router.post('/user/sign-up', validUser, isUserExists, async (req, res) => { // a
 });
 
 router.get('/user/profile', async (req, res) => {
-    console.log(req.session.passport.user);
+    //console.log(req.session.passport.user);
     const id = req.session.passport.user; // Esto se tendrá que recibir por cookies/sesión
     const user = await User.findById({_id: id});
     const transactions = await Transaction.find({email: user.email});    let allTransactions;
-    if(user.isAdmin) {
+    if(user.isAdmin)
         allTransactions = await Transaction.find({finished: false});
-    }
     res.render('user/profile', {user, transactions, allTransactions});
 });
 

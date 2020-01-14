@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/link.min.css" />
     <link rel="stylesheet" href="css/header.min.css" />
     <link rel="stylesheet" href="css/effects.min.css" />
-    <link rel="stylesheet" href="css/footer.min.css" />
     <!-- CSS Responsive (add-ons) -->
     <link rel="stylesheet" href="css/main-responsive.min.css" />
     <link rel="stylesheet" href="css/header-responsive.min.css" />
@@ -44,12 +43,12 @@
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script> <!-- JQuery -->
-    <script>console.log('crypto no existe');</script>
+    <!-- Google Recaptcha v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfqUc4UAAAAAOKopCAGuzHndVy-Hgk6mA6nsiI2"></script>
     {{> errors }}
     {{> header }}
     {{{ body }}}
     {{> footer }}
-    <!--<script src="js/jquery.waypoints.min.js"></script>-->
     <script>
         function openNavBar() {
             $('#mobileNav').css('display', 'block');
@@ -69,6 +68,8 @@
             else 
                 $('header').removeClass('fixed');
         });
+        setTimeout(function(){ document.querySelector('.grecaptcha-badge').style.display = 'none'; }, 1000);
+
     </script>
 </body>
 </html>
