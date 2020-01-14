@@ -49,13 +49,13 @@
 .youtube:before {
   content: "\e903";
 }
-.linkedin-square:before {
+.linkedin-square:before, .linkedin:before {
   content: "\e904";
 }
 .thumbs-up:before {
   content: "\e912";
 }
-.facebook-square:before {
+.facebook-square:before, .facebook:before {
   content: "\e905";
 }
 .bars:before {

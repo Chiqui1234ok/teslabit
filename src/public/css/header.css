@@ -25,9 +25,8 @@ header .grid-2 {
 header h1, #sign-up #logo, #sign-in #logo {
     font-size: 48px;
     float: left;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    /* font-family: 'Julius Sans One', sans-serif; */
-    /* font-variant: small-caps; */
+    font-family: 'Julius Sans One', 'Times New Roman', Times, serif;
+    font-variant: small-caps;
     font-weight: 300;
     color: var(--darkBlue);
     margin: 0;
@@ -49,4 +48,11 @@ header a .bars:hover {
     color: var(--light);
     transform: rotate(180deg);
     cursor: pointer;
+}
+/* Footer temp */
+footer {
+    font-family: 'Roboto', sans-serif;
+}
+footer #social {
+    font-family: 'icomoon';
 }

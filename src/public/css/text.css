@@ -1,11 +1,11 @@
 /* texts, articles/posts & lists */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     color: var(--darkHeader);
 }
 p {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: var(--pSize);
     color: var(--darkP);
 }

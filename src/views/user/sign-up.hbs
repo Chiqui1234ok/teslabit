@@ -21,7 +21,7 @@
             <input autocomplete="new-password" type="password" placeholder="Confirmá tu contraseña" name="password2" id="password2" class="full-width margin-bottom light rounded" required />
             <!-- <p>(Google Captcha aquí)</p> implementación: https://www.npmjs.com/package/express-recaptcha#installation -->
             <div id="alert" class="full-width padding text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></div>
-            <input type="hidden" name="recaptchaToken" id="recaptcha-token" />
+            <input type="hidden" name="token" id="recaptcha-token" value="" />
             <input type="submit" value="Registrarme" id="submitBtn" class="full-width margin-bottom light rounded" />
             <p style="color: var(--black);font-size: 18px;">¿Ya tienes una cuenta? <a href="/user/sign-in">Ingresar</a></p>
         </form>

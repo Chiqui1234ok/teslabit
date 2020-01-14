@@ -8,13 +8,12 @@
 }
 #intro {
     z-index: 11;
-    min-height: 60vh;
 }
 #intro *, #whatIsTeslabit *, #register *, #contact * {
     z-index: 22;
 }
 #intro.full-screen, #contact.full-screen {
-    min-height: 50vh;
+    min-height: 60vh;
 }
 #intro h1, #whatIsTeslabit h1, #register h1, #contact h1 {
     font-size: 36px;
@@ -103,7 +102,7 @@
 }
 #moon-delimiter {
     width: 100%;
-    height: calc(200% + 25px);
+    height: calc(100% + 20px);
     background: var(--darkBlue);
     position: absolute;
     top: 0;

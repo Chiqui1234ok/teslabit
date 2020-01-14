@@ -1,8 +1,4 @@
-/* Common */
-input {
-    font-family: 'Roboto';
-    font-size: 17px;
-}
+/*  Common  */
 .light:disabled, .night:disabled, input:required:invalid {
     opacity: 0.8;
     border: 1px solid var(--red);
@@ -17,6 +13,8 @@ input {
     transition: all 0.3s ease-in-out;
     background: var(--light-transparent);
     color: var(--black);
+    font-family: 'Roboto';
+    font-size: 17px;
     border: 1px solid var(--green);
     padding: 10px;
     /* you can add margin via CSS classes */
@@ -39,6 +37,8 @@ input {
     transition: all 0.3s ease-in-out;    
     background: var(--black-transparent);
     color: var(--light);
+    font-family: 'Roboto';
+    font-size: 17px;
     border: 1px solid var(--green);
     padding: 10px;    /* you can add margin via CSS classes */
 }
