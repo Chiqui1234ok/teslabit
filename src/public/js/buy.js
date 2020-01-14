@@ -28,19 +28,24 @@ $(document).ready(function() {
     ];
     // Control de aparición de divs
     let step = 0, record = 0;
+    let stepCode = '#step'+(step+1);
     function wizardController() {
-        let stepCode = '#step'+(step+1);
+        stepCode = '#step'+(step+1);
         console.log(stepCode);
         for(let i = 0;i < wizard.length;i++)
             wizard[i].css('display', 'none');
         wizard[step].css('display', 'grid');
         
         $(stepCode).addClass('active');
+        if(step == 0)
+            $('#usdSwitcher').css('display', 'block');
+        else 
+            $('#usdSwitcher').css('display', 'none');
     }
 
     function checkWallet(wallet, cryptocurrency) {
         let valid = WAValidator.validate(wallet, cryptocurrency);
-        console.log('The wallet is '+valid);
+        //console.log('The wallet is '+valid);
         return valid;
     }
 
@@ -107,10 +112,14 @@ $(document).ready(function() {
     });
     $('#usdSwitcher').click(function() {
         if( data.usd.val() == parseInt('1') ) {
-            $('#currency').text('AR$');
+            $('#currency1').text('U$D');
+            $('#currency2').text('AR$');
+            $('#currencyImg').attr('src', 'img/crypto/arg.jpg');
             data.usd.val(76);
         } else {
-            $('#currency').text('U$D');
+            $('#currency1').text('AR$');
+            $('#currency2').text('U$D');
+            $('#currencyImg').attr('src', 'img/crypto/us.jpg');
             data.usd.val(1);
         }
 
@@ -121,20 +130,18 @@ $(document).ready(function() {
         console.log(data.usd.val());
     });
     $('#restarter').click(function() {
+        $(stepCode).removeClass('active');
         step--;
     });
     $('#backBtn2').click(function() {
+        $(stepCode).removeClass('active');
         step--;
     });
 
-    // Eventos :: Chequeo de wallet
-    $('#walletDir').change(function() {
-        if( checkWallet($('#walletDir').val(), data.cryptocurrencyName.val()) ) // esto lo copiaré a un function update
-            $('#nextBtn2').prop('disabled', false);
-    });
     // function update()
     setInterval(function update(){
-        //console.info('Calling "wizardController()"');
         wizardController();
-    }, 1000); // Update()
+        if( checkWallet($('#walletDir').val(), data.cryptocurrencyName.val()) ) // Eventos :: Chequeo de wallet
+            $('#nextBtn2').prop('disabled', false);
+    }, 750); // Update()
 });

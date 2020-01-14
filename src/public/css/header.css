@@ -49,10 +49,3 @@ header a .bars:hover {
     transform: rotate(180deg);
     cursor: pointer;
 }
-/* Footer temp */
-footer {
-    font-family: 'Roboto', sans-serif;
-}
-footer #social {
-    font-family: 'icomoon';
-}
