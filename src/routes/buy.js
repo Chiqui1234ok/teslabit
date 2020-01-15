@@ -37,7 +37,7 @@ router.post('/buy/bitcoin', validUser, recaptchaValidation,/*sendEmail,*/ async(
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        lastPrice = (data.last*1.05).toFixed(5);
+        lastPrice = (data.last).toFixed(5); // antes -> data.last*1.05
     });
     //
     const user = await User.findOne({email: email});
