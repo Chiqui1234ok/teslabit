@@ -50,9 +50,10 @@ router.get('/user/profile', async (req, res) => {
     //console.log(req.session.passport.user);
     const id = req.session.passport.user; // Esto se tendrá que recibir por cookies/sesión
     const user = await User.findById({_id: id});
-    const transactions = await Transaction.find({email: user.email});    let allTransactions;
+    const transactions = await Transaction.find({email: user.email});
+    let allTransactions;
     if(user.isAdmin)
-        allTransactions = await Transaction.find({finished: false});
+        allTransactions = await Transaction.find({finished: false}).limit(5);
     res.render('user/profile', {user, transactions, allTransactions});
 });
 
