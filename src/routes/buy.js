@@ -17,7 +17,7 @@ router.get('/buy/bitcoin', async (req, res) => {
     await fetch('https://argentina-hoy.herokuapp.com/devs/dolar-hoy', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        usdToArs = data.sell.official*1.3;
+        usdToArs = data.sell.official*1.3; // impuesto de 30%
     });
     
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
