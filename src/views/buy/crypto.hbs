@@ -19,6 +19,8 @@
         {{> wallet}}
 
         {{> finishBuy}}
+        <input type="hidden" name="subject" value="Tu compra de {{cryptocurrency.name}} en Teslabit" />
+        <input type="hidden" name="message" value="¡Bien! Hemos registrado tu operación. Deberás transferirnos el monto a pagar en alguna de estas dos cuentas.\nCuenta de ahorro en dólares (CBU): xxx\nCuenta de ahorro en pesos (CBU): xxx\nEn cuánto tengamos tu dinero acreditado, tendrás tu {{ cryptocurrency.name }} entre 12 y 48 horas después.\n¡Gracias por operar en Teslabit!" />
         </form>
     </div>
 </div>

@@ -4,6 +4,7 @@ passport = require('passport'),
 { validUser } = require('../helpers/validUser'),
 { isUserExists } = require('../helpers/isUserExists'),
 { recaptchaValidation } = require('../helpers/recaptchaValidation'),
+{ sendEmail } = require('../helpers/sendEmail'),
 Transaction = require('../models/transactionsBuy');
 
 
@@ -23,7 +24,7 @@ router.get('/user/sign-up', (req, res) => {
     res.render('user/sign-up');
 });
 
-router.post('/user/sign-up', validUser, isUserExists, recaptchaValidation, async (req, res) => { // agregué isUserExists, falta probar
+router.post('/user/sign-up', validUser, isUserExists, recaptchaValidation, sendEmail, async (req, res) => { // agregué isUserExists, falta probar
     // OJO isUserExists registra al usuario. Tendria que revisar como organizo ese helper en relación a esta ruta
     const { email, password, password2 } = req.body;
     const errors = [];
@@ -32,11 +33,16 @@ router.post('/user/sign-up', validUser, isUserExists, recaptchaValidation, async
         req.flash('error', 'Este usuario ya existe.');
         res.redirect('/user/sign-in');
     } else {
-        const newUser = new User({email, password});
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        req.flash('success_msg', '¡Ya te registraste! Inicia sesión.');
-        res.redirect('/user/sign-in');
+        if(password != password2) {
+            req.flash('error_msg', 'Las contraseñas no coinciden');
+            res.redirect('/usr/sign-up');
+        } else {
+            const newUser = new User({email, password});
+            newUser.password = await newUser.encryptPassword(password);
+            await newUser.save();
+            req.flash('success_msg', '¡Ya te registraste! Inicia sesión.');
+            res.redirect('/user/sign-in');
+        }
     }
 });
 

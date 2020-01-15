@@ -17,10 +17,11 @@ nav ul {
 nav ul li {
     display: block;
     font-size: 28px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Julius Sans One', sans-serif; */
     font-variant: small-caps;
-    margin: var(--gap) 0 var(--gap) 0;
-    padding: var(--gap) 0 var(--gap) 0;
+    margin: var(--super-gap) 0 var(--super-gap) 0;
+    padding: var(--super-gap) 0 var(--super-gap) 0;
 }
 nav ul li a {
     color: var(--light);

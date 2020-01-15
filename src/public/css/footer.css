@@ -10,7 +10,7 @@ footer * {
 footer #social {
     font-family: 'icomoon';
 }
-footer #social a, footer #links {
+footer #social a, footer #links a {
     color: var(--light);
 }
 footer #social a:hover {

@@ -71,7 +71,7 @@ $(document).ready(function() {
         return (((userFrontEnd.moneyQuantity.val() / data.usd.val()) 
                 / data.cryptocurrencyPrice.val())
                 / 1.05)
-                .toFixed(5);
+                .toFixed(7);
     }
     function moneyQuantity_calc() {
         return (((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
@@ -107,7 +107,7 @@ $(document).ready(function() {
         // Cargo el paso 3 (resúmen de la operación)
         $('#t_amountToBuy').text( userFrontEnd.cryptoQuantity.val() );
         $('#t_money').text( userFrontEnd.moneyQuantity.val() );
-        $('#t_walletDir').text( $('#walletDir').val() );
+        $('#t_walletDir').html('<a href="https://www.blockchain.com/btc/address/'+$('#walletDir').val()+'">'+$('#walletDir').val()+'</a>' );
         console.info('Step Value:', step);
     });
     $('#usdSwitcher').click(function() {
@@ -115,7 +115,7 @@ $(document).ready(function() {
             $('#currency1').text('U$D');
             $('#currency2').text('AR$');
             $('#currencyImg').attr('src', 'img/crypto/arg.jpg');
-            data.usd.val(76);
+            data.usd.val(data.usdAux);
         } else {
             $('#currency1').text('AR$');
             $('#currency2').text('U$D');

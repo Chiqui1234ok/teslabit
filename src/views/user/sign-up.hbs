@@ -8,7 +8,6 @@
 
 <div id="intro" class="full-screen grid" style="min-height: 100vh;">
     <div id="particles-js"></div>
-    <div id="moon"></div>
     <div id="sign-up" class="container center grid">
         <form action="/user/sign-up" method="POST" class="center box blur rounded padding"> <!-- Formulario de cuenta -->
             <div id="title" class="grid-2 gap padding margin-bottom">
@@ -16,6 +15,9 @@
                 <h1 class="text-center" style="line-height: 0;text-align: left;color: var(--black);">Registrate</h1>
             </div>
             
+            <input type="hidden" name="subject" value="Registrarse en Teslabit" />
+            <input type="hidden" name="message" value="¡Bienvenido a Teslabit! Tu cuenta ya se encuentra activada. Recuerda que para operar, debes enviarnos el frente y reverso de tu DNI a administracion@teslabit.net." />
+
             <input type="text" placeholder="E-mail" name="email" id="email" class="full-width margin-bottom light rounded" required autofocus />
             <input autocomplete="new-password" type="password" placeholder="Contraseña" name="password" id="password" class="full-width margin-bottom light rounded" required />
             <input autocomplete="new-password" type="password" placeholder="Confirmá tu contraseña" name="password2" id="password2" class="full-width margin-bottom light rounded" required />

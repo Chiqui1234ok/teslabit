@@ -13,31 +13,31 @@ router.get('/buy/bitcoin', async (req, res) => {
         min: 0.01,
     };
     //
-    let usdToArs = 76;
+    let usdToArs = 80;
     await fetch('https://argentina-hoy.herokuapp.com/devs/dolar-hoy', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        usdToArs = data.sell.blue;
+        usdToArs = data.sell.official*1.3;
     });
     
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        data.last = (data.last*1.05).toFixed(2);
+        data.last = data.last; // antes -> data.last*1.05
         res.render('buy/crypto', {
             cryptocurrency, data, usdToArs
         });
     });
 });
 
-router.post('/buy/bitcoin', validUser, recaptchaValidation,/*sendEmail,*/ async(req, res) => {
+router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req, res) => {
     const {amount, walletDir, email, password, password2} = req.body;
     // Refrescar el precio del BTC
     let lastPrice = 0;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
-        lastPrice = (data.last).toFixed(5); // antes -> data.last*1.05
+        lastPrice = data.last; // antes -> data.last*1.05
     });
     //
     const user = await User.findOne({email: email});
