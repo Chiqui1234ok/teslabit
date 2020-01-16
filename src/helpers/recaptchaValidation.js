@@ -7,11 +7,15 @@ helpers.recaptchaValidation = async (req, res, next) => {
     await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`, {method: 'GET'})
     .then(res => res.json())
     .then(( gresponse ) => {
-        console.log(gresponse), next()
-    })
-    .catch(
-        req.flash('error_msg', 'Imposible conectarse con Google Recaptcha.')
-    );
+        console.log(gresponse)//, next()
+        if(gresponse)
+            next();
+        else
+            req.flash('error_msg', 'Imposible conectarse con Google Recaptcha.')
+    });
+    // .catch(
+    //     req.flash('error_msg', 'Imposible conectarse con Google Recaptcha.')
+    // );
 };
 
 module.exports = helpers;

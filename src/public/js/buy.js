@@ -138,9 +138,19 @@ $(document).ready(function() {
         step--;
     });
 
+    function finishBtnController() {
+        if( $('#password').val().length < 8 || $('#password').val() != $('#password2').val() ) {
+            $('#password-advice').text('Las contraseñas deben ser iguales y de 8 caracteres o más.');
+            $('#finishBtn').prop('disabled', true);
+        } else {
+            $('#password-advice').text('¡Genial! Todo parece correcto.');
+            $('#finishBtn').prop('disabled', false);
+        }
+    }
     // function update()
     setInterval(function update(){
         wizardController();
+        finishBtnController();
         if( checkWallet($('#walletDir').val(), data.cryptocurrencyName.val()) ) // Eventos :: Chequeo de wallet
             $('#nextBtn2').prop('disabled', false);
     }, 750); // Update()

@@ -1,4 +1,5 @@
 const router = require('express').Router(),
+nodeMailer = require('nodemailer'),
 passport = require('passport'),
 { isUserExists } = require('../helpers/isUserExists'),
 { validUser } = require('../helpers/validUser'),
@@ -90,6 +91,7 @@ router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req
             });
             await newTransaction.save();
             // EMAIL DE REGISTRO (copia de sendEmail.js)
+            const { subject } = req.body;
             let transporter = nodeMailer.createTransport({    
                 host: 'mail.teslabit.net',
                 port: 465,

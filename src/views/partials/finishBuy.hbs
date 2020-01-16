@@ -30,12 +30,17 @@
     <p>Te crearemos una cuenta en este último paso, en caso de que no exista.</p>
     <div class="grid-2 super-gap">
         <input type="text" name="email" id="" placeholder="Tu email" class="light rounded margin-bottom" />
-        <input type="password" name="password" id="" placeholder="Tu contraseña" class="light rounded margin-bottom" />
+        <input type="password" name="password" id="password" placeholder="Tu contraseña" class="light rounded margin-bottom" />
     </div>
-    <p>Confirma tu contraseña y presiona <span class="pulseText">Continuar</span>.</p>
     <div class="grid-2 super-gap">
-        <input type="password" name="password2" id="" placeholder="Confirma tu contraseña" class="light rounded margin-bottom" />
+        <div>
+            <p>Confirma tu contraseña y presiona <span class="pulseText">Continuar</span>.</p>
+            <input type="password" name="password2" id="password2" placeholder="Confirma tu contraseña" class="light rounded margin-bottom full-width" />
+        </div>
         <input type="hidden" name="recaptchaToken" id="recaptcha-token" />
-        <input type="submit" value="Continuar" class="light rounded margin-bottom cursor-pointer" />
+        <div>
+            <p id="password-advice">Las contraseñas deben ser iguales y de 8 caracteres o más.</p>
+            <input type="submit" id="finishBtn" value="Continuar" class="light rounded margin-bottom cursor-pointer full-width" disabled />
+        </div>
     </div>
 </div>
