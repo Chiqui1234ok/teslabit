@@ -19,15 +19,12 @@ helpers.sendEmail = async (req, res, next) => {
         subject: subject,
         // body: message
         text: message
-        //html: message
     };
-    transporter.sendMail(data, (err, res) => {
-        if(err) {
+    await transporter.sendMail(data, (err, res) => {
+        if(err)
             req.flash('Ha sido imposible enviarte el email. Prueba luego.');
-            res.redirect('/');
-        }
-        else
-            req.flash('¡Hemos enviado el email!');
+        // else
+        //     req.flash('¡Hemos enviado el email!');
     });
     next();
 }
