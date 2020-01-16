@@ -89,6 +89,31 @@ router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req
                 }
             });
             await newTransaction.save();
+            // EMAIL DE REGISTRO (copia de sendEmail.js)
+            let transporter = nodeMailer.createTransport({    
+                host: 'mail.teslabit.net',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
+                    pass: 'lilolilo007'
+                }
+            });
+            let data = {
+                from: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
+                to: email,
+                subject: subject,
+                // body: message
+                // text: message
+                html: "<p>¡Bienvenido a Teslabit! Tu cuenta ya se encuentra activada.</p><p>Recuerda que para operar, debes enviarnos el frente y reverso de tu DNI a <a href='mailto:administracion@teslabit.net'>administracion@teslabit.net</a>.</p><p>¡Disfruta de nuestro exchange!</p>"
+            };
+            await transporter.sendMail(data, (err, res) => {
+                if(err)
+                    req.flash('Ha sido imposible enviarte el email. Prueba luego.');
+                // else
+                //     req.flash('¡Hemos enviado el email!');
+            });
+            // !EMAIL DE REGISTRO (copia de sendEmail.js)
             req.flash('success_msg', 'No estabas registrado. Te hemos registrado con tu primer operación.');
             res.redirect('/user/sign-in');
         }

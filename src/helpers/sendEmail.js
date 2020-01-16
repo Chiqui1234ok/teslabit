@@ -9,12 +9,12 @@ helpers.sendEmail = async (req, res, next) => {
         port: 465,
         secure: true,
         auth: {
-            user: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
+            user: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
             pass: 'lilolilo007'
         }
     });
     let data = {
-        from: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
+        from: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
         to: email,
         subject: subject,
         // body: message
