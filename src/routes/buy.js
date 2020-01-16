@@ -27,18 +27,20 @@ router.get('/buy/bitcoin', async (req, res) => {
         res.render('buy/crypto', {
             cryptocurrency, data, usdToArs
         });
-    });
+    })
+    .catch(data.last = 81);
 });
 
 router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req, res) => {
     const {amount, walletDir, email, password, password2} = req.body;
     // Refrescar el precio del BTC
-    let lastPrice = 0;
+    let lastPrice = 81;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
         lastPrice = data.last; // antes -> data.last*1.05
-    });
+    })
+    .catch(lastPrice = 81.9);
     //
     const user = await User.findOne({email: email});
     if(user) {

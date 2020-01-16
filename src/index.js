@@ -3,7 +3,6 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const session = require('express-session'); // fazt
 const methodOverride = require('method-override');
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -28,14 +27,6 @@ app.set('view engine', '.hbs');                                         //
 // Middlewares
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));                                     // Para utilizar DEL o PUT en <form>
-// app.use(session({                                                       // 
-//     secret: 'pepe',
-//     resave: true,
-//     saveUninitialized: true,
-//     // path: '/',
-//     cookie: { secure: false },
-//     maxAge: null
-// }));
 app.use(require('cookie-session')({
     secret: 'pepe',
     resave: true,

@@ -26,7 +26,7 @@
 </div>
 <script>
     grecaptcha.ready(function() {
-    grecaptcha.execute('6LfqUc4UAAAAAOKopCAGuzHndVy-Hgk6mA6nsiI2', {action: 'e-commerce'})
+    grecaptcha.execute('6LfqUc4UAAAAAOKopCAGuzHndVy-Hgk6mA6nsiI2', {action: 'login'})
         .then(function(token) {
             document.querySelector('#recaptcha-token').value = token;
         });

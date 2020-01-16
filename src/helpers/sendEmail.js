@@ -9,20 +9,27 @@ helpers.sendEmail = async (req, res, next) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'no-responder@teslabit.net',
+            user: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
             pass: 'lilolilo007'
         }
     });
-    let recipient = {
+    let data = {
+        from: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
         to: email,
         subject: subject,
-        body: message
+        // body: message
+        text: message
+        //html: message
     };
-    transporter.sendMail(recipient, (err, res) => {
-        //req.flash(err);
-        req.flash('Ha sido imposible enviarte el email. Prueba luego.')
-        next();
+    transporter.sendMail(data, (err, res) => {
+        if(err) {
+            req.flash('Ha sido imposible enviarte el email. Prueba luego.');
+            res.redirect('/');
+        }
+        else
+            req.flash('¡Hemos enviado el email!');
     });
+    next();
 }
 
 module.exports = helpers;

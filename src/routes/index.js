@@ -1,5 +1,5 @@
-const router = require('express').Router(),
-fetch = require('node-fetch');
+const router = require('express').Router();
+const nodeMailer = require('nodemailer');
 
 router.get('/', (req, res) => {
     res.render('index', req.session.passport);
@@ -10,25 +10,36 @@ router.post('/send-email', (req, res) => {
     res.render('contact/email-sended', {email, subject, message});
 });
 
-router.post('/test', async (err, req, res) => {
-    let secretKey = process.env.RECAPTCHA_SECRET_KEY || '6LfqUc4UAAAAAOCgh92z1mPmrleHIDMIluKAI-ca';
-    let { token } = req.body;
-    console.log('secretKey:', secretKey, '\ntoken:', token);
-    if(secretKey != '' && token != '') {
-        await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`, {method: 'GET'})
-        .then(result => result.json())
-        .then(gresponse => res.json({ gresponse }))
-        .catch(err => res.json({ err }));
-        if(err) {
-            req.flash('error', err);
-            res.redirect('/');
+router.get('/test', (req, res) => {
+    res.render('test/index');
+});
+
+router.post('/test', async (req, res) => {
+    const { email, subject, message } = req.body;
+    let transporter = nodeMailer.createTransport({    
+        host: 'mail.teslabit.net',
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
+            pass: 'lilolilo007'
         }
-        res.send('RESPUESTA:' + res);
-        // next();
-    } else {
-        req.flash('error', 'No has superado el captcha anti-robots');       
-        res.redirect('/');
-    }
+    });
+    let data = {
+        from: process.env.NO_REPLY_EMAIL || 'no-responder@teslabit.net',
+        to: email,
+        subject: subject,
+        // body: message
+        text: message
+    };
+    transporter.sendMail(data, (err, res) => {
+        if(err)
+            req.flash('Ha sido imposible enviarte el email. Prueba luego.');
+        else
+            req.flash('¡Hemos enviado el email!');
+
+        console.log('res.message:', res.message);
+    });
 });
 
 module.exports = router;
