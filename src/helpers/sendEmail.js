@@ -18,7 +18,8 @@ helpers.sendEmail = async (req, res, next) => {
         to: email,
         subject: subject,
         // body: message
-        text: message
+        // text: message
+        html: message
     };
     await transporter.sendMail(data, (err, res) => {
         if(err)

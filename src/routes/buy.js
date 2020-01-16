@@ -1,4 +1,5 @@
 const router = require('express').Router(),
+passport = require('passport'),
 { isUserExists } = require('../helpers/isUserExists'),
 { validUser } = require('../helpers/validUser'),
 { recaptchaValidation } = require('../helpers/recaptchaValidation'),
@@ -13,12 +14,13 @@ router.get('/buy/bitcoin', async (req, res) => {
         min: 0.01,
     };
     //
-    let usdToArs = 80;
+    let usdToArs = 81.9;
     await fetch('https://argentina-hoy.herokuapp.com/devs/dolar-hoy', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
         usdToArs = data.sell.official*1.3; // impuesto de 30%
-    });
+    })
+    .catch(usdToArs = 81.9);
     
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
@@ -28,19 +30,19 @@ router.get('/buy/bitcoin', async (req, res) => {
             cryptocurrency, data, usdToArs
         });
     })
-    .catch(data.last = 81);
+    .catch(req.flash('error_msg', 'Imposible obtener el precio del Bitcoin, intenta luego.'));
 });
 
 router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req, res) => {
     const {amount, walletDir, email, password, password2} = req.body;
     // Refrescar el precio del BTC
-    let lastPrice = 81;
+    let lastPrice = 81.9;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'Get'})
     .then(res => res.json())
     .then((data) => {
         lastPrice = data.last; // antes -> data.last*1.05
-    })
-    .catch(lastPrice = 81.9);
+    });
+    // .catch(req.flash('error_msg', 'Imposible obtener el precio del Bitcoin, intenta luego.'));
     //
     const user = await User.findOne({email: email});
     if(user) {
