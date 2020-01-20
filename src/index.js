@@ -31,7 +31,7 @@ app.use(require('cookie-session')({
     secret: 'pepe',
     resave: true,
     saveUninitialized: true,
-    // path: '/',
+    path: '/',
     cookie: { secure: false },
     maxAge: null
 }));

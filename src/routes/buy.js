@@ -10,6 +10,7 @@ Transaction = require('../models/transactionsBuy'),
 { sendEmail } = require('../helpers/sendEmail');
 
 router.get('/buy/bitcoin', async (req, res) => {
+    //console.log(req.session.passport.user);
     const cryptocurrency = {
         name: 'bitcoin',
         min: 0.01,

@@ -2,7 +2,7 @@ const router = require('express').Router(),
 User = require('../models/users'),
 passport = require('passport'),
 { validUser } = require('../helpers/validUser'),
-{ isUserExists } = require('../helpers/isUserExists'),
+{ registerUser } = require('../helpers/registerUser'),
 { recaptchaValidation } = require('../helpers/recaptchaValidation'),
 { sendEmail } = require('../helpers/sendEmail'),
 Transaction = require('../models/transactionsBuy');
@@ -12,38 +12,25 @@ router.get('/user/sign-in', (req, res) => {
         res.render('user/sign-in');
 });
 
-router.post('/user/sign-in', recaptchaValidation, passport.authenticate('local', {
+router.post('/user/sign-in', passport.authenticate('local', {
     successRedirect: '/user/profile',
     failureRedirect: '/user/sign-in',
     failureFlash: true
 }), (req, res) => {
-    // console.log(user);
+    //console.log(req.body.passport);
 });
 
 router.get('/user/sign-up', (req, res) => {
     res.render('user/sign-up');
 });
 
-router.post('/user/sign-up', validUser, isUserExists, recaptchaValidation, sendEmail, async (req, res) => { // agregué isUserExists, falta probar
-    // OJO isUserExists registra al usuario. Tendria que revisar como organizo ese helper en relación a esta ruta
-    const { email, password, password2 } = req.body;
-    const errors = [];
-    const userExists = await User.findOne({email: email});
-    if(userExists) {
-        req.flash('error', 'Este usuario ya existe.');
-        res.redirect('/user/sign-in');
-    } else {
-        if(password != password2) {
-            req.flash('error_msg', 'Las contraseñas no coinciden');
-            res.redirect('/usr/sign-up');
-        } else {
-            const newUser = new User({email, password});
-            newUser.password = await newUser.encryptPassword(password);
-            await newUser.save();
-            req.flash('success_msg', '¡Ya te registraste! Inicia sesión.');
-            res.redirect('/user/sign-in');
-        }
+router.post('/user/sign-up', recaptchaValidation, validUser, registerUser, async (req, res) => {
+    const emailData = {
+        receiver: req.body.email,
+        subject: req.body.subject,
+        message: req.body.message
     }
+    await sendEmail(emailData);
 });
 
 router.get('/user/profile', async (req, res) => {

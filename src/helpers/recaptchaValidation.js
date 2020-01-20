@@ -8,10 +8,12 @@ helpers.recaptchaValidation = async (req, res, next) => {
     .then(res => res.json())
     .then(( gresponse ) => {
         console.log(gresponse)//, next()
-        if(gresponse)
+        if(gresponse.success)
             next();
-        else
-            req.flash('error_msg', 'Imposible conectarse con Google Recaptcha.')
+        else {
+            req.flash('error_msg', 'Imposible conectarse con Google Re-Captcha');
+            res.redirect('/');
+        }
     });
     // .catch(
     //     req.flash('error_msg', 'Imposible conectarse con Google Recaptcha.')

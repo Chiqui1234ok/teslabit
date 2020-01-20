@@ -1,0 +1,10 @@
+/buy/bitcoin
+- Al entrar en esta página, se cierra la sesión
+- Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente
+
+recaptcha
+- El recaptcha no es efectivo (ARREGLADO)
+
+/user/sign-up
+- El email notificando el registro del usuario no es enviado
+- "El usuario ya existe", cuándo en realidad no (ARREGLADO)
