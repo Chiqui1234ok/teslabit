@@ -13,7 +13,8 @@ helpers.registerUser = async(req, res) => {
     if(user) {
         console.log(user);
         const match = await user.matchPassword(data.password);
-        req.flash('error_msg', 'Este usuario ya existe...');
+        if(!match)
+            req.flash('error_msg', 'El usuario existe, aunque la contraseña es incorrecta');
     } else {
         const newUser = new User({email, password});
         newUser.password = await newUser.encryptPassword(password);

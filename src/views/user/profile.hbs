@@ -11,7 +11,7 @@
         </div>
         {{#if user.isAdmin}}
             <div id="admin" class="grid full-screen">
-                <h2>Operaciones que requieren aprobación</h2>
+                <h1>Operaciones que requieren aprobación</h1>
                 {{#each allTransactions}}
                     <div id="transaction-admin" class="padding rounded"><p>{{email}} (<i>{{payTo.walletDir}}</i>) solicita {{payTo.amount}} {{cryptocurrency.name}}.</p>
                         <div class="grid-2">
@@ -21,33 +21,40 @@
                     </div>
                 {{/each}}
                 {{#unless allTransactions}}
-                    <div class="widget padding rounded"><p>No hay operaciones pendientes de aprobación. ¡Hurra!</p></div>
+                    <div class="widget padding rounded"><p>No hay operaciones pendientes de aprobación. ¡Comparte tu sitio con el mundo!</p></div>
                 {{/unless}}
             </div>
         {{else}}
             {{#unless dni1 }}
-                <p class="success padding">Para comenzar a operar en Tesla<span>bit</span>, debes enviar un email a administracion@teslabit.com con el frente y dorso de tu DNI. Envíanos la información si aún no lo has hecho.</p>
+                <p class="success padding">Para comenzar a operar en Tesla<span>bit</span>, debes enviar un email a <a href="mailto:administracion@teslabit.com">administracion@teslabit.com</a> con el frente y dorso de tu DNI. Envíanos la información si aún no lo has hecho.</p>
             {{/unless}}
         {{/if}}
-        <aside class="grid full-screen">
+        <aside class="grid-2 super-gap full-screen">
             <h1>Tus movimientos</h1>
             {{#each transactions}}
                 <div id="transaction" class="padding rounded">
-                    <h3>Compraste {{cryptocurrency.name}}</h3>
-                    <p>{{date}}</p>
-                    <div class="grid-2">
-                        <p>Solicitas {{payTo.amount}} {{cryptocurrency.name}}, que cotiza a {{cryptocurrency.price}} dólares por cada unidad.</p>
-                        <p>Recibe: {{payTo.walletDir}}</p>
+                    <h3 class="padding">Compraste {{cryptocurrency.name}}</h3>
+                    <p class="padding">{{date}}</p>
+                    <div class="grid">
+                        <p class="padding text-center">Cuándo la operación se apruebe, tendrás tu {{cryptocurrency.name}} en <strong>{{payTo.walletDir}}</strong>.</p>
+                        <div class="grid-2 super-gap full-width padding success rounded">
+                            <p class="text-center">Dólar al momento de la operación: ${{ dollar }}</p class="text-center">
+                            <p class="text-center">1 BTC: U$D {{cryptocurrency.price}} | AR$ {{cryptocurrency.price}}</p>
+                        </div>
+                        <div class="grid-2 super-gap full-width padding">
+                            <p class="text-center">Tu compra fue de {{payTo.amount}} {{cryptocurrency.name}}</p>
+                            <p class="text-center">El coste fue de U$D 0 | AR$ 0</p>
+                        </div>
                         {{#if finished}}
-                            <p class="full-width-item-2 success padding rounded">Tu operación fue aprobada</p>
+                            <p class="full-width success padding rounded text-center cursor-default">¡Tu operación fue aprobada!</p>
                         {{else}}
-                            <p class="full-width-item-2 warn padding rounded">Tu operación aún no se aprobó</p>
+                            <p class="full-width light-text warn padding rounded text-center cursor-default">Estamos procesando tu operación...</p>
                         {{/if}}
                     </div>
                 </div>
             {{/each}}
             {{#unless transactions}}
-                <p>No tienes movimientos de compra/venta.</p>
+                <p>No tienes movimientos registrados de compra/venta.</p>
             {{/unless}}
         </aside>
     </div>

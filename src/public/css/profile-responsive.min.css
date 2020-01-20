@@ -1,1 +1,1 @@
-@media(max-width:1279px){#profile.grid-2{grid-template-columns:100%}#profile-info.full-screen,#admin.full-screen,aside.full-screen{width:100vw;min-height:auto}#admin.grid{display:grid}}
+@media (min-width:1280px){aside.grid-2{grid-template-columns:100%}}@media (max-width:1279px){#admin.full-screen,#profile-info.full-screen,aside.full-screen{width:100vw;min-height:auto}#admin.grid{display:grid}aside h1{grid-column:1/span 2}aside.grid-2{grid-template-columns:1fr 1fr}}@media (max-width:799px){aside h1{grid-column:1}aside.grid-2{grid-template-columns:100%}}

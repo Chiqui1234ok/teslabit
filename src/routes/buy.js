@@ -35,7 +35,7 @@ router.get('/buy/bitcoin', async (req, res) => {
     .catch(req.flash('error_msg', 'Imposible obtener el precio del Bitcoin, intenta luego.'));
 });
 
-router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req, res) => {
+router.post('/buy/bitcoin', recaptchaValidation, validUser, sendEmail, async(req, res) => {
     const {amount, walletDir, email, password, password2} = req.body;
     // Refrescar el precio del BTC
     let lastPrice = 81.9;
@@ -66,13 +66,13 @@ router.post('/buy/bitcoin', validUser, recaptchaValidation, sendEmail, async(req
             res.render('buy/finish', {amount, lastPrice, walletDir, email});
             //
         } else {
-            req.flash('error', 'Este usuario existe pero la contraseña no concuerda');
+            req.flash('error_msg', 'Este usuario existe pero la contraseña no concuerda');
             res.redirect('/user/sign-in');
             //next();
         }
     } else {
         if(!password2) {
-            req.flash('error', 'Este email no está registrado. Debes confirmar tu contraseña para registrar tu usuario y operación');
+            req.flash('error_msg', 'Este email no está registrado. Debes confirmar tu contraseña para registrar tu usuario y operación');
             res.redirect('/buy/bitcoin');
         } else {
             const newUser = new User({email, password});

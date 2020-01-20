@@ -6,5 +6,5 @@ recaptcha
 - El recaptcha no es efectivo (ARREGLADO)
 
 /user/sign-up
-- El email notificando el registro del usuario no es enviado
+- El email notificando el registro del usuario no es enviado (ARREGLADO en /buy/bitcoin, hay que probar en /user/sign-up)
 - "El usuario ya existe", cuándo en realidad no (ARREGLADO)
