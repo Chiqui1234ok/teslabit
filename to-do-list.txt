@@ -1,5 +1,5 @@
 /buy/bitcoin
-- Al entrar en esta página, se cierra la sesión
+- Al salir de esta página, se cierra la sesión (ARREGLADO)
 - Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente
 
 recaptcha

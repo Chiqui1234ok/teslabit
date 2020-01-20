@@ -8,20 +8,13 @@ const TransactionsBuySch = new Schema({
     },
     payTo: {
         walletDir:  {type: String, required: true},         // Cartera del usuario comprador
-        amount:     {type: Number, required: true}          // Cantidad de criptomoneda comprada en una operación
+        amount:     {type: Number, required: true},         // Cantidad de criptomoneda comprada en una operación
+        totalInArs: {type: Number, required: true},         // (amount*criptocurrency.price)*usdToArs
+        totalInUsd: {type: Number, required: true}          // amount*criptocurrency.price
     },
-    dollar: { // Si el usuario compró en pesos, se debe mostrar el dólar de esa fecha y usar este valor para convertir a pesos el monto final
-        type: Number,
-        default: 81.9 // esto para que no explote, pero tengo que hacerlo compatible con mi routes.buy :)
-    },
-    date: {
-        type:       Date,       // Fecha de compra
-        default:    Date.now
-    },
-    finished: {                 // Se activa cuándo el administrador permite el pago al usuario comprador
-        type: Boolean,
-        default: false
-    }
+    dollar: {type: Number, default: 81.9},                  // Si el usuario compró en pesos, se debe mostrar el dólar de esa fecha y usar este valor para convertir a pesos el monto final
+    date: {type: Date, default: Date.now},                  // Fecha de compra
+    finished: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('transactionsBuy', TransactionsBuySch);

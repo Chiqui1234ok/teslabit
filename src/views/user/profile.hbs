@@ -39,11 +39,11 @@
                         <p class="padding text-center">Cuándo la operación se apruebe, tendrás tu {{cryptocurrency.name}} en <strong>{{payTo.walletDir}}</strong>.</p>
                         <div class="grid-2 super-gap full-width padding success rounded">
                             <p class="text-center">Dólar al momento de la operación: ${{ dollar }}</p class="text-center">
-                            <p class="text-center">1 BTC: U$D {{cryptocurrency.price}} | AR$ {{cryptocurrency.price}}</p>
+                            <p class="text-center">1 BTC: U$D {{cryptocurrency.price}}</p>
                         </div>
                         <div class="grid-2 super-gap full-width padding">
                             <p class="text-center">Tu compra fue de {{payTo.amount}} {{cryptocurrency.name}}</p>
-                            <p class="text-center">El coste fue de U$D 0 | AR$ 0</p>
+                            <p class="text-center">El coste fue de U$D {{payTo.totalInUsd}} | AR$ {{payTo.totalInArs}}</p>
                         </div>
                         {{#if finished}}
                             <p class="full-width success padding rounded text-center cursor-default">¡Tu operación fue aprobada!</p>

@@ -15,14 +15,14 @@ helpers.registerUser = async(req, res) => {
         const match = await user.matchPassword(data.password);
         if(!match)
             req.flash('error_msg', 'El usuario existe, aunque la contraseña es incorrecta');
+        return false; // No creó el usuario
     } else {
         const newUser = new User({email, password});
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
         // El email se debe enviar APARTE
         req.flash('success_msg', '¡Ya te registraste! Inicia sesión.');
-    }
-    res.redirect('/user/sign-in'); 
+    }   return true; // Creó el usuario
 }
 
 module.exports = helpers;
