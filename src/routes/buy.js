@@ -20,28 +20,24 @@ router.get('/buy/bitcoin', async (req, res) => {
         min: 0.01,
     };
     //
-    const data = await getBtcPrice();
+    const data = await getBtcPrice(); // data = btcData
     const usdToArs = await getUsdPrice();
-    console.log(data, usdToArs);
+    // console.log(data, usdToArs);
     res.render('buy/crypto', {
         cryptocurrency, data, usdToArs
     });
 });
 
-router.post('/buy/bitcoin', recaptchaValidation, validUser, sendEmail /*sendEmail envía un email con los datos de la operación*/, async(req, res) => {
+router.post('/buy/bitcoin', /*recaptchaValidation, */validUser, sendEmail /*sendEmail envía un email con los datos de la operación*/, async(req, res) => {
     const {email, subject, message, amount, walletDir} = req.body;
-    const emailPrototype = {
-        receiver: email,
-        subject: subject,
-        message: message
-    };
-    if( registerTransaction(amount, walletDir, email) )
-        await sendEmail({receiver: email, subject: subject}); // Envía el email de registro de cuenta
+    const btcData = await getBtcPrice();
+    const usdToArs = await getUsdPrice();
+    if( await registerTransaction(amount, walletDir, email, usdToArs, btcData) )
+        await sendEmail(email, subject); // Envía el email de registro de cuenta
 
-    await sendEmail(emailPrototype);
+    await sendEmail(email, subject, message); // Envía el email de la operación
     req.flash('success_msg', 'No estabas registrado. Te hemos registrado con tu primer operación.');
     res.redirect('/user/sign-in');
-    
 });
 
 module.exports = router;

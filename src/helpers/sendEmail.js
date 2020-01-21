@@ -2,7 +2,7 @@ const helpers = {};
 const nodeMailer = require('nodemailer');
 // Envía un email cuándo el usuario compra bitcoin
 
-helpers.sendEmail = async function(email) {
+helpers.sendEmail = async function(receiver, subject, message) {
     let transporter = nodeMailer.createTransport({    
         host: 'mail.teslabit.net',
         port: 465,
@@ -14,17 +14,15 @@ helpers.sendEmail = async function(email) {
     });
     let data = {
         from: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
-        to: email.receiver,
-        subject: email.subject || 'Email de TeslaBit',
+        to: receiver,
+        subject: subject || 'Email de TeslaBit',
         // body: message
         // text: message
-        html: email.message /* tengo que poner el mensaje de bienvenida POR DEFECTO*/
+        html: message || '<p>¡Bienvenido a Teslabit! Tu cuenta ya se encuentra activada.</p><p>Recuerda que para operar, debes enviarnos el frente y reverso de tu DNI a <a href="mailto:administracion@teslabit.net">administracion@teslabit.net</a>.</p><p>¡Disfruta de nuestro exchange!</p>'
     };
     await transporter.sendMail(data, (err, res) => {
         if(err)
-            req.flash('Ha sido imposible enviarte el email. Prueba luego.');
-        // else
-        //     req.flash('¡Hemos enviado el email!');
+            console.warn('La cuenta', receiver, 'no ha recibido su email. Asunto:', subject);
     });
 }
 

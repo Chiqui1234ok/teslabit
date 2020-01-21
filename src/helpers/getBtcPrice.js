@@ -8,7 +8,8 @@ helpers.getBtcPrice = async function() {
     .then((data) => {
         value = data.last;
     });
-    return value;
+    // .catch(console.warn('No se pudo obtener el valor del BTC.'));
+    return isNaN(value) ? 0 : value;
 }
 
 module.exports = helpers;

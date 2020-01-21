@@ -1,10 +1,11 @@
 /buy/bitcoin
 - Al salir de esta página, se cierra la sesión (ARREGLADO)
-- Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente
+- Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente (PENDIENTE)
+- El apartado de la calculadora no funciona, y por ende el modelo transactionsbuys falla (ARREGLADO)
 
 recaptcha
 - El recaptcha no es efectivo (ARREGLADO)
 
 /user/sign-up
-- El email notificando el registro del usuario no es enviado (ARREGLADO en /buy/bitcoin, hay que probar en /user/sign-up)
+- El email notificando el registro del usuario no es enviado (ARREGLADO)
 - "El usuario ya existe", cuándo en realidad no (ARREGLADO)

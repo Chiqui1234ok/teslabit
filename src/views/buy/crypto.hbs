@@ -10,7 +10,7 @@
         </div>                                    <!-- wizard menu -->
         <!-- back-end data -->
         <input type="hidden" value="{{cryptocurrency.name}}" id="cryptocurrencyName" />
-        <input type="hidden" value="{{data.last}}" id="cryptocurrencyPrice" />
+        <input type="hidden" value="{{data}}" id="cryptocurrencyPrice" />
         <input type="hidden" value="{{cryptocurrency.min}}" id="cryptocurrencyMin" />
         <input type="hidden" value="{{usdToArs}}" id="usdToArs" />
         <form action="/buy/{{cryptocurrency.name}}" method="post" aria-autocomplete="none" autocomplete="off">

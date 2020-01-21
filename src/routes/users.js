@@ -25,12 +25,7 @@ router.get('/user/sign-up', (req, res) => {
 });
 
 router.post('/user/sign-up', recaptchaValidation, validUser, registerUser, async (req, res) => {
-    const emailData = {
-        receiver: req.body.email,
-        subject: req.body.subject,
-        message: req.body.message
-    }
-    await sendEmail(emailData);
+    await sendEmail(req.body.email, req.body.subject, req.body.message);
     res.redirect('/user/sign-in'); 
 });
 
