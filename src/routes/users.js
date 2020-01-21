@@ -2,6 +2,7 @@ const router = require('express').Router(),
 User = require('../models/users'),
 passport = require('passport'),
 { validUser } = require('../helpers/validUser'),
+{ isUserExists } = require('../helpers/isUserExists'), 
 { registerUser } = require('../helpers/registerUser'),
 { recaptchaValidation } = require('../helpers/recaptchaValidation'),
 { sendEmail } = require('../helpers/sendEmail'),
@@ -24,9 +25,17 @@ router.get('/user/sign-up', (req, res) => {
     res.render('user/sign-up');
 });
 
-router.post('/user/sign-up', recaptchaValidation, validUser, registerUser, async (req, res) => {
-    await sendEmail(req.body.email, req.body.subject, req.body.message);
-    res.redirect('/user/sign-in'); 
+router.post('/user/sign-up', recaptchaValidation, validUser, async (req, res) => {
+    const { email, password } = req.body;
+    if( await isUserExists(email) ) {
+        req.flash('error_msg', 'Este email ya existe, prueba con otra contraseña.');
+        res.redirect('/user/sign-in');
+    } else {
+        await registerUser(email, password);
+        await sendEmail(email, req.body.subject, req.body.message);
+        req.flash('success_msg', '¡Que bien! Ya estás registrado.');
+        res.redirect('/user/sign-in'); 
+    }
 });
 
 router.get('/user/profile', async (req, res) => {
@@ -40,7 +49,7 @@ router.get('/user/profile', async (req, res) => {
     res.render('user/profile', {user, transactions, allTransactions});
 });
 
-router.get('/user/log-out',(req, res) => {
+router.get('/user/log-out', (req, res) => {
     req.logout();
     res.redirect('/user/sign-in');
 });

@@ -5,7 +5,7 @@ const   emailValidator = require('email-validator'),
 helpers.isUserExists = async function (email) {
     if(emailValidator.validate(email)) {
         const user = await User.findOne({email: email});
-        return user?user:false;
+        return user;
     } else
         req.flash('error_msg', 'Este email es inválido.');
     return false;

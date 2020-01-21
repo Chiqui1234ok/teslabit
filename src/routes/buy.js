@@ -28,16 +28,23 @@ router.get('/buy/bitcoin', async (req, res) => {
     });
 });
 
-router.post('/buy/bitcoin', /*recaptchaValidation, */validUser, sendEmail /*sendEmail envía un email con los datos de la operación*/, async(req, res) => {
-    const {email, subject, message, amount, walletDir} = req.body;
+router.post('/buy/bitcoin', /*recaptchaValidation, */validUser/*, sendEmail sendEmail envía un email con los datos de la operación*/, async(req, res) => {
+    const {email, password, subject, message, amount, walletDir} = req.body;
     const btcData = await getBtcPrice();
     const usdToArs = await getUsdPrice();
-    if( await registerTransaction(amount, walletDir, email, usdToArs, btcData) )
-        await sendEmail(email, subject); // Envía el email de registro de cuenta
+    if( isUserExists(email) ) {
+        req.flash('success_msg', 'Hemos registrado tu cuenta y tu primer operación, ¡felicidades!');
+        await sendEmail(email); // Envía el email de registro de cuenta
+    } else {
+        req.flash('success_msg', '¡Todo bien! Te aprobaremos en 24 horas o menos.')
+    }
 
+    if( await !registerTransaction(amount, walletDir, email, password, usdToArs, btcData) ) {
+        req.flash('error_msg', 'Tus contraseñas parecen no coincidir.');
+        res.redirect('/buy/bitcoin');
+    }
     await sendEmail(email, subject, message); // Envía el email de la operación
-    req.flash('success_msg', 'No estabas registrado. Te hemos registrado con tu primer operación.');
-    res.redirect('/user/sign-in');
+    res.redirect('/');
 });
 
 module.exports = router;
