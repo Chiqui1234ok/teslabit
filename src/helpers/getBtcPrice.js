@@ -1,14 +1,14 @@
+const fetch = require('node-fetch');
 const helpers = {};
 
 helpers.getBtcPrice = async function() {
+    let value;
     await fetch('https://www.bitstamp.net/api/v2/ticker/btcusd', {method: 'GET'})
     .then(res => res.json())
     .then((data) => {
-        return data.last;
-    })
-    .catch(function() {
-        return 0; // Este valor tiene que ser manejado desde el script que llama a getBtcPrice()
+        value = data.last;
     });
+    return value;
 }
 
 module.exports = helpers;

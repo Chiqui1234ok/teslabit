@@ -18,7 +18,7 @@ helpers.sendEmail = async function(email) {
         subject: email.subject || 'Email de TeslaBit',
         // body: message
         // text: message
-        html: email.message
+        html: email.message /* tengo que poner el mensaje de bienvenida POR DEFECTO*/
     };
     await transporter.sendMail(data, (err, res) => {
         if(err)
