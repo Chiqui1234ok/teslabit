@@ -19,8 +19,8 @@ async function magic(walletDir, email, amount, usdToArs, btcLast) {
         payTo: {
             walletDir:  walletDir,        
             amount:     amount,
-            totalInArs: parseInt( ((amount*btcLast)*usdToArs)*1.05),
-            totalInUsd: parseInt( (amount*btcLast)*1.05 ) 
+            totalInArs: ( ((amount*btcLast)*usdToArs)*1.05).toFixed(0),
+            totalInUsd: ( (amount*btcLast)*1.05 ).toFixed(0) 
         },
         dollar: usdToArs,
         date: dd+'/'+mm+'/'+yyyy
