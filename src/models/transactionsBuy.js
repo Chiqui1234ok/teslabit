@@ -15,7 +15,7 @@ const TransactionsBuySch = new Schema({
     dollar: {type: Number, default: 81.9},                  // Si el usuario compró en pesos, se debe mostrar el dólar de esa fecha y usar este valor para convertir a pesos el monto final
     //date: {type: Date, default: Date.now},                  // Fecha de compra
     date: {type: String, default: '01/01/2020'},
-    finish: {type: Boolean, default: false}
+    finished: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('transactionsBuy', TransactionsBuySch);
