@@ -33,8 +33,7 @@
             <h1>Tus movimientos</h1>
             {{#each transactions}}
                 <div id="transaction" class="padding rounded">
-                    <h3 class="padding">Compraste {{cryptocurrency.name}}</h3>
-                    <p class="padding">{{date}}</p>
+                    <h3 class="padding">Compraste {{cryptocurrency.name}} el {{date}}</h3>
                     <div class="grid">
                         <p class="padding text-center">Cuándo la operación se apruebe, tendrás tu {{cryptocurrency.name}} en <strong>{{payTo.walletDir}}</strong>.</p>
                         <div class="grid-2 super-gap full-width padding success rounded">

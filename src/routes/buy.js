@@ -28,7 +28,7 @@ router.get('/buy/bitcoin', async (req, res) => {
     });
 });
 
-router.post('/buy/bitcoin', /*recaptchaValidation, */validUser/*, sendEmail sendEmail envía un email con los datos de la operación*/, async(req, res) => {
+router.post('/buy/bitcoin', recaptchaValidation, validUser/*, sendEmail sendEmail envía un email con los datos de la operación*/, async(req, res) => {
     const {email, password, subject, message, amount, walletDir} = req.body;
     const btcData = await getBtcPrice();
     const usdToArs = await getUsdPrice();

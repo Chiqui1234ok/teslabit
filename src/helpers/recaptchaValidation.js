@@ -7,7 +7,7 @@ helpers.recaptchaValidation = async (req, res, next) => {
     await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`, {method: 'GET'})
     .then(res => res.json())
     .then(( gresponse ) => {
-        console.log(gresponse)//, next()
+        console.log(gresponse);
         if(gresponse.success)
             next();
         else {

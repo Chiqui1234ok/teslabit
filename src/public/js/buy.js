@@ -15,10 +15,10 @@ $(document).ready(function() {
     };
     // Inicialización del mínimo
     userFrontEnd.cryptoQuantity.val(data.minAmount);
-    userFrontEnd.moneyQuantity.val(inversion.toFixed(2));
+    // userFrontEnd.moneyQuantity.val(inversion.toFixed(2));
+    userFrontEnd.moneyQuantity.val(parseInt(inversion));
 
-        // console.log
-        console.log(`Precio BTC: ${data.cryptocurrencyPrice.val()}\nUSD: ${data.usd.val()}\nUSD Aux: ${data.usd.val()}`);
+    console.log(`Precio BTC: ${data.cryptocurrencyPrice.val()}\nUSD: ${data.usd.val()}\nUSD Aux: ${data.usd.val()}`);
 
     // Inicialización de divs
     const wizard = [
@@ -74,10 +74,13 @@ $(document).ready(function() {
                 .toFixed(5);
     }
     function moneyQuantity_calc() {
-        return (((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
-                *data.usd.val())
-                *1.05)
-                .toFixed(2);
+        // return (((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
+        //         *data.usd.val())
+        //         *1.05)
+        //         .toFixed(2);
+        return parseInt(((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
+                 *data.usd.val())
+                 *1.05);
     }
 
     // Eventos :: Convertidor cripto
