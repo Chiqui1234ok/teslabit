@@ -2,10 +2,14 @@ const   helpers = {};
 const   Transaction = require('../models/transactionsBuy'),
         User = require('../models/users'),
         { isUserExists } = require('./isUserExists'),
-        { registerUser } = require('./registerUser');
+        { registerUser } = require('./registerUser'),
+        { sendEmail } = require('./sendEmail');
 
 async function magic(walletDir, email, amount, usdToArs, btcLast) {
-    console.log('magic:\namount:',amount,'\nbtcLast:',btcLast,'\nusdToArs:',usdToArs)
+    const today = new Date();
+    const   dd = today.getDate(),
+            mm = today.getMonth() + 1,
+            yyyy = today.getFullYear();
     const newTransaction = new Transaction({
         email: email,
         cryptocurrency: {
@@ -15,10 +19,11 @@ async function magic(walletDir, email, amount, usdToArs, btcLast) {
         payTo: {
             walletDir:  walletDir,        
             amount:     amount,
-            totalInArs: ((amount*btcLast)*usdToArs)*1.05,
-            totalInUsd: (amount*btcLast)*1.05          
+            totalInArs: ( ((amount*btcLast)*usdToArs)*1.05).toFixed(2),
+            totalInUsd: ( (amount*btcLast)*1.05 ).toFixed(2) 
         },
-        dollar: usdToArs
+        dollar: usdToArs,
+        date: dd+'/'+mm+'/'+yyyy
     });
     await newTransaction.save();
     return newTransaction;
@@ -37,10 +42,10 @@ helpers.registerTransaction = async function(amount, walletDir, email, password,
             const match = await user.matchPassword(password);
             if( match ) // Si el usuario existe y su contraseña es correcta, creo la transacción
                 return await magic(walletDir, email, amount, usdToArs, btcLast);
-            
-            return false;
+            return false; // si no coincide la pass = false
         } else {
             await registerUser(email, password); // Si el usuario no existe, lo va a crear -> AGREGO 'AWAIT'
+            await sendEmail(email);
             // console.log('registerTransaction says: "Creé el usuario."');
             return await magic(walletDir, email, amount, usdToArs, btcLast);
         }

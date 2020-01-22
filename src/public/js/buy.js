@@ -15,7 +15,7 @@ $(document).ready(function() {
     };
     // Inicialización del mínimo
     userFrontEnd.cryptoQuantity.val(data.minAmount);
-    userFrontEnd.moneyQuantity.val(inversion.toFixed(3));
+    userFrontEnd.moneyQuantity.val(inversion.toFixed(2));
 
         // console.log
         console.log(`Precio BTC: ${data.cryptocurrencyPrice.val()}\nUSD: ${data.usd.val()}\nUSD Aux: ${data.usd.val()}`);
@@ -37,10 +37,13 @@ $(document).ready(function() {
         wizard[step].css('display', 'grid');
         
         $(stepCode).addClass('active');
-        if(step == 0)
+        if(step == 0) {
             $('#usdSwitcher').css('display', 'block');
-        else 
+            $('#wizard').addClass('grid-2');
+        } else {
             $('#usdSwitcher').css('display', 'none');
+            $('#wizard').removeClass('grid-2');
+        }
     }
 
     function checkWallet(wallet, cryptocurrency) {
@@ -62,22 +65,19 @@ $(document).ready(function() {
             $('#success').css('display', 'none');
             $('#warn').css('display', 'block');
         }
-        console.log('CryptoQuantity:', userFrontEnd.cryptoQuantity.val());
-        console.log('MoneyQuantity:', userFrontEnd.moneyQuantity.val());
-        //return
     }
 
     function cryptoQuantity_calc() {
         return (((userFrontEnd.moneyQuantity.val() / data.usd.val()) 
                 / data.cryptocurrencyPrice.val())
                 / 1.05)
-                .toFixed(3);
+                .toFixed(5);
     }
     function moneyQuantity_calc() {
         return (((userFrontEnd.cryptoQuantity.val() * data.cryptocurrencyPrice.val())
                 *data.usd.val())
                 *1.05)
-                .toFixed(3);
+                .toFixed(2);
     }
 
     // Eventos :: Convertidor cripto
@@ -104,14 +104,15 @@ $(document).ready(function() {
     $('#nextBtn2').click(function() {
         step++;
         record++;
+        let currency = data.usd.val()==data.usdAux?'AR$ ':'U$D ';
         // Cargo el paso 3 (resúmen de la operación)
         $('#t_amountToBuy').text( userFrontEnd.cryptoQuantity.val() );
-        $('#t_money').text( userFrontEnd.moneyQuantity.val() );
+        $('#t_money').text( currency + userFrontEnd.moneyQuantity.val() );
         $('#t_walletDir').html('<a href="https://www.blockchain.com/btc/address/'+$('#walletDir').val()+'">'+$('#walletDir').val()+'</a>' );
         console.info('Step Value:', step);
     });
     $('#usdSwitcher').click(function() {
-        if( data.usd.val() == parseInt('1') ) {
+        if( data.usd.val() == parseInt('1') ) { // si vale 1 es porque está en dólares, lo pasaré a pesos
             $('#currency1').text('U$D');
             $('#currency2').text('AR$');
             $('#currencyImg').attr('src', 'img/crypto/arg.jpg');
@@ -127,7 +128,6 @@ $(document).ready(function() {
         userFrontEnd.cryptoQuantity.val( cryptoQuantity_calc() );
         $('#amountToBuy').val( cryptoQuantity_calc() );
         $('#money').val( moneyQuantity_calc() );
-        console.log(data.usd.val());
     });
     $('#restarter').click(function() {
         $(stepCode).removeClass('active');

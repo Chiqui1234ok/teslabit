@@ -1,10 +1,15 @@
 /buy/bitcoin
+- Las alertas y el email enviado actúan como si (siempre) el usuario fuera nuevo (ARREGLADO)
 - Al salir de esta página, se cierra la sesión (ARREGLADO)
-- Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente (PENDIENTE)
+- Al efectuar una operación, si la contraseña no concuerda al usuario la operación se registra igualmente (ARREGLADO)
 - El apartado de la calculadora no funciona, y por ende el modelo transactionsbuys falla (ARREGLADO)
 
 recaptcha
-- El recaptcha no es efectivo (ARREGLADO)
+- El recaptcha no se comunica con /buy/bitcoin (PENDIENTE)
+
+/user/sign-in 
+- El monto en U$D y AR$ no se guarda exactamente a lo visto en la calculadora. Además, tiene una excesiva cantidad de números decimales (ARREGLADO)
+- La fecha de la operación debe emprolijarse y traducirse al español (PENDIENTE)
 
 /user/sign-up
 - El email notificando el registro del usuario no es enviado (ARREGLADO)
