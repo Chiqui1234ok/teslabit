@@ -4,12 +4,12 @@ const nodeMailer = require('nodemailer');
 
 helpers.sendEmail = async function(receiver, subject, message) {
     let transporter = nodeMailer.createTransport({    
-        host: 'mail.teslabit.net',
-        port: 465,
+        host: process.env.EMAIL_SERVER_DIR || 'mail.teslabit.net',
+        port: process.env.EMAIL_SERVER_PORT || 465,
         secure: true,
         auth: {
             user: process.env.NO_REPLY_EMAIL_DIR || 'no-responder@teslabit.net',
-            pass: 'lilolilo007'
+            pass: process.env.NO_REPLY_EMAIL_PASS || 'lilolilo007'
         }
     });
     let data = {
