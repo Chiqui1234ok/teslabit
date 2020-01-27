@@ -62,7 +62,7 @@ const routes = {
     admin:  require('./routes/admin'),
     buy:    require('./routes/buy'),
     help:   require('./routes/help')
-}
+};
 app.use(routes.index, routes.users, routes.admin, routes.buy, routes.help);
 
 // Apertura
