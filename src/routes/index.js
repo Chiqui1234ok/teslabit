@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.post('/send-email', async (req, res) => {
     const { email, subject, message } = req.body;
-    await sendEmail(email, subject, message);
+    await sendEmail('no-responder@teslabit.net', subject, 'Enviado por ' + email + ' | ' + message);
     res.render('contact/email-sended', {email, subject, message});
 });
 
