@@ -58,7 +58,8 @@ $(document).ready(function() {
     function checkWallet(wallet, cryptocurrency) {
         let valid = WAValidator.validate(wallet, cryptocurrency);
         //console.log('The wallet is '+valid);
-        createRecaptchaToken();
+        if(valid)
+            createRecaptchaToken();
         return valid;
     }
 
