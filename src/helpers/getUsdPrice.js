@@ -9,7 +9,7 @@ helpers.getUsdPrice = async function() {
         value = data.sell.official*1.3; // impuesto de 30%
     });
     // .catch(console.warn('No se pudo obtener el dólar hoy.'));
-    return isNaN(value) ? 81.9 : value;
+    return value==null ? 81.9 : value;
 }
 
 module.exports = helpers;
