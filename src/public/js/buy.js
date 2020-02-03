@@ -46,9 +46,19 @@ $(document).ready(function() {
         }
     }
 
+    function createRecaptchaToken() {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfqUc4UAAAAAOKopCAGuzHndVy-Hgk6mA6nsiI2', {action: 'login'})
+                .then(function(token) {
+                    document.querySelector('#recaptcha-token').value = token;
+                });
+            });
+    }
+
     function checkWallet(wallet, cryptocurrency) {
         let valid = WAValidator.validate(wallet, cryptocurrency);
         //console.log('The wallet is '+valid);
+        createRecaptchaToken();
         return valid;
     }
 

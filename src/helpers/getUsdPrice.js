@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const helpers = {};
 
-helpers.getUsdPrice = async function() {
+helpers.getUsdPrice = async function() { // no-optimized
     let value;
     await fetch('https://argentina-hoy.herokuapp.com/devs/dolar-hoy', {method: 'GET'})
     .then(res => res.json())
