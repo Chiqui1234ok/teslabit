@@ -1,7 +1,6 @@
-@media (max-width: 1599px) {
-    .dron-message, .cat-message {
-        width: 210px;
-        height: 138px;
+@media (min-width: 1599px) {
+    .remove-pc {
+        display: none;
     }
 }
 @media (max-width: 1279px) { /* Entre 1023px y 1279px (tablets) */
